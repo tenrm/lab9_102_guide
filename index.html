@@ -1,0 +1,2283 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ปฏิบัติการที่ 9 ระบบนิเวศ</title>
+<meta name="description" content="คู่มือแบบโต้ตอบ บทปฏิบัติการที่ 9 ระบบนิเวศ: คุณสมบัติของดิน ระบบนิเวศสระน้ำและสนามหญ้า สายใยอาหาร และบริการของระบบนิเวศอุทยาน 100 ปี">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: lab handout per activity, switched by a sticky tab bar; each activity is a bench timeline (dashed spine + step cards).
+   Activity 2 adds a pond/lawn switch and an embedded food-web worksheet; activity 3 adds a RAWES self-assessment. */
+:root{
+  --bg:#EEF2EE; --surface:#FFFFFF; --sheet:#FFFFFF; --ill-bg:#F4F7F2;
+  --fg:#16291F; --muted:#56695C; --line:#2C4334; --rule:#D3DDD5;
+  --accent:#1F7A55; --accent-soft:#D8ECE1; --on-accent:#FFFFFF;
+  --warn:#9A520C; --warn-soft:#F7E7D2; --danger:#B8352A; --danger-soft:#F7DDD9;
+  --glass:rgba(190,225,232,.38); --water:#9FD0D8; --water2:#AFD5A4; --pond:#CFE7EA; --sand:#D9C7A3;
+  --soil1:#7A5A3A; --soil2:#C9A46B; --grass:#7DB55A; --leaf:#4F9A45;
+  --t0:#f6f3fc; --t1:#fcf3f6; --t2:#fdf5ef; --t3:#fdf9ec; --t4:#f6faec; --t5:#eef8f1;
+  --ns0:#6a4fb0; --nf0:#ece6f9; --ns1:#b0385c; --nf1:#fae3ea; --ns2:#c2581a; --nf2:#fde6d6;
+  --ns3:#9c6f00; --nf3:#faeec8; --ns4:#5a8512; --nf4:#e9f3d4; --ns5:#1d8547; --nf5:#d9f0e1;
+  --dets:#7a5532; --detf:#f1e6d9; --paper:#ffffff; --paper-edge:#9fb3a6; --paper-line:#d3dfd7; --arrow:#22383b;
+  --shadow:0 6px 18px rgba(20,40,30,.16);
+  --f-display:"Bai Jamjuree","IBM Plex Sans Thai","Noto Sans Thai",Tahoma,sans-serif;
+  --f-body:"IBM Plex Sans Thai","Noto Sans Thai",Tahoma,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1712; --surface:#14231B; --sheet:#1C3226; --ill-bg:#112019;
+    --fg:#E2EDE6; --muted:#97AC9F; --line:#C3D6CA; --rule:#28392F;
+    --accent:#56C48E; --accent-soft:#163A29; --on-accent:#04200F;
+    --warn:#E8A35C; --warn-soft:#382816; --danger:#F07B6C; --danger-soft:#3B1E1B;
+    --glass:rgba(150,205,215,.12); --water:#2E7480; --water2:#3D7845; --pond:#173A40; --sand:#5C4E36;
+    --soil1:#8E6B47; --soil2:#B8955F; --grass:#5E9442; --leaf:#5FA854;
+    --t0:#17152a; --t1:#211520; --t2:#22191a; --t3:#201d14; --t4:#18200f; --t5:#0f2218;
+    --ns0:#a990f0; --nf0:#2a2346; --ns1:#ef7f9f; --nf1:#3d1b27; --ns2:#f59a63; --nf2:#3e2414;
+    --ns3:#e2b54a; --nf3:#3a2e0e; --ns4:#a6d35b; --nf4:#26340f; --ns5:#5fd28f; --nf5:#123522;
+    --dets:#c79c72; --detf:#33261a; --paper:#111d17; --paper-edge:#3a5545; --paper-line:#253a2e; --arrow:#cfe0d6;
+    --shadow:0 6px 18px rgba(0,0,0,.45);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1712; --surface:#14231B; --sheet:#1C3226; --ill-bg:#112019;
+  --fg:#E2EDE6; --muted:#97AC9F; --line:#C3D6CA; --rule:#28392F;
+  --accent:#56C48E; --accent-soft:#163A29; --on-accent:#04200F;
+  --warn:#E8A35C; --warn-soft:#382816; --danger:#F07B6C; --danger-soft:#3B1E1B;
+  --glass:rgba(150,205,215,.12); --water:#2E7480; --water2:#3D7845; --pond:#173A40; --sand:#5C4E36;
+  --soil1:#8E6B47; --soil2:#B8955F; --grass:#5E9442; --leaf:#5FA854;
+  --t0:#17152a; --t1:#211520; --t2:#22191a; --t3:#201d14; --t4:#18200f; --t5:#0f2218;
+  --ns0:#a990f0; --nf0:#2a2346; --ns1:#ef7f9f; --nf1:#3d1b27; --ns2:#f59a63; --nf2:#3e2414;
+  --ns3:#e2b54a; --nf3:#3a2e0e; --ns4:#a6d35b; --nf4:#26340f; --ns5:#5fd28f; --nf5:#123522;
+  --dets:#c79c72; --detf:#33261a; --paper:#111d17; --paper-edge:#3a5545; --paper-line:#253a2e; --arrow:#cfe0d6;
+  --shadow:0 6px 18px rgba(0,0,0,.45);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px;overflow-x:hidden}
+.wrap{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.3}
+p{margin:0}
+a{color:var(--accent)}
+img,svg{max-width:100%}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+
+/* header */
+.top{display:flex;flex-direction:column;gap:12px}
+.toprow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.visits{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:3px 12px 3px 10px;margin:0}
+.visits svg{width:16px;height:16px;fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.visits b{color:var(--fg);font-weight:600;font-size:14px}
+.eyebrow{font-family:var(--f-display);font-weight:600;font-size:13px;letter-spacing:.06em;color:var(--accent)}
+.top h1{font-size:clamp(28px,5vw,40px);font-weight:700}
+.lead{max-width:68ch}
+.note{font-size:14px;color:var(--muted)}
+
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;gap:6px;overflow-x:auto;padding:8px;margin-inline:-8px;background:var(--bg);border-bottom:1px solid var(--rule);scrollbar-width:thin}
+.tab{flex:1 0 auto;display:flex;flex-direction:column;align-items:flex-start;border:1px solid var(--rule);background:var(--surface);color:var(--fg);border-radius:10px;padding:6px 14px 7px;cursor:pointer;font:inherit;text-align:left;min-width:0}
+.tab b{font-family:var(--f-display);font-weight:600;font-size:15px;line-height:1.3}
+.tab span{font-size:12.5px;color:var(--muted);line-height:1.35;white-space:nowrap}
+.tab:hover{border-color:var(--accent)}
+.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.tab[aria-selected="true"] span{color:var(--on-accent);opacity:.85}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* activity */
+.act{display:flex;flex-direction:column;gap:30px;scroll-margin-top:90px}
+.act-head{display:flex;flex-direction:column;gap:12px}
+.act-head .kicker{font-family:var(--f-display);font-weight:600;font-size:14px;color:var(--accent);letter-spacing:.04em}
+.act-head h2{font-size:clamp(24px,4.2vw,34px);font-weight:700}
+.kit{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.kit span{font-size:13px;padding:3px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--surface)}
+.kit b{font-weight:600;color:var(--muted);font-size:13px;align-self:center;margin-right:2px}
+.sec-h{font-size:20px;font-weight:600;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.sec-h small{font-family:var(--f-body);font-weight:400;font-size:13px;color:var(--muted)}
+
+/* concept cards */
+.concept{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.concept > div{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.concept h3{font-size:16px;font-weight:600}
+.concept p,.concept li{font-size:14.5px;line-height:1.55}
+.concept ul,.concept ol{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:4px}
+.concept .wide{grid-column:1/-1}
+.concept .tagline{font-family:var(--f-mono);font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.04em}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:14px}
+.chain span{padding:1px 10px;border-radius:999px;background:var(--ill-bg);border:1px solid var(--rule)}
+.chain i{font-style:normal;color:var(--accent);font-weight:600}
+.chain small{color:var(--muted);font-size:12.5px;width:100%}
+
+/* objectives table */
+.tbl{border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--surface)}
+.tbl .tw{overflow-x:auto}
+.tbl table{border-collapse:collapse;width:100%;font-size:14.5px}
+.tbl th,.tbl td{padding:8px 12px;border-top:1px solid var(--rule);text-align:left;vertical-align:top;line-height:1.5}
+.tbl th{background:var(--ill-bg);font-size:13px;color:var(--muted);font-weight:600;border-top:0}
+.tbl td ul{margin:4px 0 0;padding-left:1.1em}
+.tbl .codes{font-family:var(--f-mono);font-size:12.5px;white-space:nowrap;color:var(--accent)}
+.tbl .cap{font-size:12.5px;color:var(--muted);padding:8px 12px;border-top:1px solid var(--rule)}
+.links{display:flex;flex-direction:column;gap:8px}
+.links a{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:center;text-decoration:none;color:var(--fg);background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:8px 12px}
+.links a:hover{border-color:var(--accent)}
+.links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.links a svg{width:30px;height:30px}
+.links a b{font-weight:600;font-size:14.5px;display:block}
+.links a span{font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+.ico-bg{fill:var(--accent-soft)}.ico-fg{fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.ico-fill{fill:var(--accent)}
+
+/* overview map */
+.map{display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));background:var(--surface);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.ph{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;position:relative;min-width:0}
+.ph + .ph{border-left:1px solid var(--rule)}
+.ph + .ph::before{content:"";position:absolute;left:-8px;top:24px;width:14px;height:14px;background:var(--surface);border-top:1px solid var(--rule);border-right:1px solid var(--rule);transform:rotate(45deg)}
+.ph .lbl{font-family:var(--f-display);font-weight:600;font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.ph h3{font-size:17px;font-weight:600}
+.ph ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.ph li a{display:flex;gap:8px;align-items:baseline;text-decoration:none;color:var(--fg);font-size:14px;line-height:1.4;border-radius:6px;padding:2px 4px;margin-left:-4px}
+.ph li a:hover{background:var(--accent-soft)}
+.ph li a:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.ph li .n{font-family:var(--f-mono);font-size:12px;color:var(--accent);min-width:1.4em}
+.ph li a.is-done{color:var(--muted);text-decoration:line-through}
+.progress{grid-column:1/-1;border-top:1px solid var(--rule);padding:10px 16px;display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.bar{flex:1;height:6px;border-radius:3px;background:var(--rule);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+@media (max-width:760px){
+  .map{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ph:nth-child(odd){border-left:0}
+  .ph:nth-child(odd)::before{display:none}
+  .ph:nth-child(n+3){border-top:1px solid var(--rule)}
+}
+@media (max-width:440px){
+  .map{grid-template-columns:1fr}
+  .ph + .ph{border-left:0;border-top:1px solid var(--rule)}
+  .ph + .ph::before{display:none}
+}
+
+/* timeline */
+.flow{list-style:none;margin:0;padding:0;position:relative;display:flex;flex-direction:column;gap:22px}
+.flow::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:repeating-linear-gradient(to bottom,var(--accent) 0 8px,transparent 8px 14px);opacity:.55}
+.phase{display:flex;align-items:center;gap:14px;position:relative;padding-top:10px}
+.phase .tag{width:40px;height:40px;flex:none;border-radius:10px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:18px;position:relative}
+.phase h3{font-size:22px;font-weight:600}
+.phase p{color:var(--muted);font-size:14px}
+.phase > div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.step{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;scroll-margin-top:90px}
+.num{width:40px;height:40px;border-radius:50%;background:var(--surface);border:2px solid var(--accent);color:var(--accent);display:grid;place-items:center;font-family:var(--f-mono);font-weight:600;font-size:16px;position:relative;margin-top:14px;transition:background .2s,color .2s}
+.step.is-done .num{background:var(--accent);color:var(--on-accent)}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:14px;display:grid;grid-template-columns:250px minmax(0,1fr);overflow:hidden;min-width:0}
+.card.full{grid-template-columns:minmax(0,1fr)}
+.fig{margin:0;background:var(--ill-bg);border-right:1px solid var(--rule);padding:14px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.fig figcaption{font-size:12px;color:var(--muted);text-align:center;line-height:1.4}
+.body{padding:18px 20px 16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.hd h4{font-size:19px;font-weight:600}
+.x2{font-size:12px;font-weight:500;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:0 8px;line-height:20px;white-space:nowrap}
+.do{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:4px}
+.do li::marker{color:var(--accent);font-family:var(--f-mono);font-size:.9em}
+.rec{display:flex;gap:8px;align-items:baseline;font-size:14px;background:var(--accent-soft);border-radius:8px;padding:6px 10px}
+.rec b{font-family:var(--f-display);font-weight:600;color:var(--accent);white-space:nowrap}
+.tip{font-size:14px;color:var(--muted);display:flex;gap:8px}
+.tip b{color:var(--fg);font-weight:600;white-space:nowrap}
+.warn{font-size:14px;background:var(--danger-soft);color:var(--danger);border-radius:8px;padding:6px 10px;font-weight:600}
+.caution{font-size:14px;background:var(--warn-soft);border-radius:8px;padding:6px 10px;display:flex;gap:8px}
+.caution b{color:var(--warn);white-space:nowrap;font-family:var(--f-display);font-weight:600}
+.formula{font-family:var(--f-mono);font-size:14px;background:var(--ill-bg);border:1px dashed var(--rule);border-radius:8px;padding:8px 12px;overflow-x:auto;white-space:nowrap}
+.done{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);cursor:pointer;align-self:flex-start;user-select:none}
+.done input{width:18px;height:18px;accent-color:var(--accent);cursor:pointer;margin:0}
+.done input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* inline record fields */
+.fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px 10px;border:1px solid var(--rule);border-radius:10px;padding:10px 12px}
+.fields .fh{grid-column:1/-1;font-family:var(--f-display);font-weight:600;font-size:13px;color:var(--accent);display:flex;justify-content:space-between;gap:8px}
+.fields label{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:var(--muted);min-width:0}
+.fields input,.fields select,.fields textarea,.inp{font:500 15px var(--f-body);color:var(--fg);background:var(--bg);border:1px solid var(--rule);border-radius:7px;padding:6px 9px;min-width:0;width:100%}
+.fields input[type=number],.inp.num{font-family:var(--f-mono);font-weight:600}
+.fields textarea{resize:vertical;min-height:64px;line-height:1.5}
+.fields .wide{grid-column:1/-1}
+.fields input:focus-visible,.fields select:focus-visible,.fields textarea:focus-visible,.inp:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.fields .out{font:600 15px var(--f-mono);color:var(--accent);padding:6px 0}
+
+/* calculators (activity 1) */
+.calc{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:14px;margin-left:54px;scroll-margin-top:90px}
+.calc h4{font-size:17px;font-weight:600}
+.calc > p{font-size:14px;color:var(--muted)}
+.calc .tw{overflow-x:auto;border:1px solid var(--rule);border-radius:10px}
+.calc table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+.calc th,.calc td{padding:7px 10px;border-top:1px solid var(--rule);text-align:left;vertical-align:middle}
+.calc th{background:var(--ill-bg);color:var(--muted);font-size:12.5px;font-weight:600;border-top:0}
+.calc td .inp{max-width:130px}
+.calc td.res{font:600 16px var(--f-mono);color:var(--accent);white-space:nowrap}
+.calc td.res.bad{color:var(--danger);font-size:13px;font-family:var(--f-body)}
+.cmp{display:flex;flex-direction:column;gap:8px}
+.cmp .row{display:grid;grid-template-columns:minmax(90px,170px) minmax(0,1fr) 70px;gap:10px;align-items:center;font-size:13.5px}
+.cmp .track{height:14px;border-radius:7px;background:var(--rule);overflow:hidden}
+.cmp .track i{display:block;height:100%;border-radius:7px;transition:width .3s}
+.cmp .v{font:600 14px var(--f-mono);text-align:right}
+.cmp .k{color:var(--muted);font-size:12.5px}
+.interp{font-size:14px;background:var(--accent-soft);border-radius:8px;padding:8px 12px;line-height:1.55}
+@media (max-width:680px){.calc{margin-left:0}}
+
+/* segmented switch */
+.switch{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:12px 14px}
+.switch p{font-size:14px;color:var(--muted);max-width:52ch}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface);flex:none}
+.seg button{font:inherit;font-size:14.5px;font-weight:600;border:0;background:transparent;color:var(--muted);padding:8px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.seg button + button{border-left:1px solid var(--rule)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.track-wrap{display:flex;flex-direction:column;gap:30px}
+
+/* organism tables */
+.ref{border:1px solid var(--rule);border-radius:10px;overflow:hidden;font-size:14px}
+.ref table{border-collapse:collapse;width:100%}
+.ref td,.ref th{padding:6px 10px;border-top:1px solid var(--rule);vertical-align:middle;line-height:1.45;text-align:left}
+.ref th{font-weight:600;font-size:12.5px;color:var(--muted);border-top:0;background:var(--ill-bg)}
+.ref .tw{overflow-x:auto}
+.ref td:first-child{font-weight:600;white-space:nowrap}
+.ref select{font:500 13.5px var(--f-body);color:var(--fg);background:var(--bg);border:1px solid var(--rule);border-radius:6px;padding:4px 6px;max-width:100%}
+.ref select.set{border-color:var(--accent);background:var(--accent-soft)}
+.ref .given{font-family:var(--f-mono);font-size:12.5px;color:var(--accent);font-weight:600}
+.ref .foot{font-size:12.5px;color:var(--muted);padding:8px 10px;border-top:1px solid var(--rule);background:var(--ill-bg)}
+details.ref summary{font-family:var(--f-display);font-weight:600;font-size:14px;padding:9px 12px;background:var(--ill-bg);cursor:pointer;color:var(--fg)}
+details.ref summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+details.ref[open] summary{border-bottom:1px solid var(--rule)}
+.alien{color:var(--warn);font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block;border:1.5px solid}
+
+/* jump link card */
+.submit{margin-left:54px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:12px 16px}
+.submit-text{display:flex;flex-direction:column;gap:2px;min-width:0;font-size:14px}
+.submit-text b{font-family:var(--f-display);font-weight:600;font-size:16px}
+@media (max-width:680px){.submit{margin-left:0}}
+
+.btn{font:600 14px var(--f-body);background:var(--accent);color:var(--on-accent);border:0;border-radius:8px;padding:7px 14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.btn.ghost{background:var(--surface);color:var(--fg);border:1px solid var(--rule)}
+.btn.ghost:hover{border-color:var(--accent);filter:none}
+
+/* RAWES self-assessment */
+.rawes{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:14px;scroll-margin-top:90px}
+.rawes h3{font-size:19px;font-weight:600}
+.rawes > p{font-size:14px;max-width:74ch}
+.rsum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.rsum div{border:1px solid var(--rule);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.rsum b{font-family:var(--f-display);font-size:13px;font-weight:600}
+.rsum .mono{font-size:18px;color:var(--accent);font-weight:600}
+.rsum small{font-size:12px;color:var(--muted)}
+.rsum .bar{flex:none}
+@media (max-width:640px){.rsum{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rcat summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.rw-en{font-family:var(--f-mono);font-size:12px;color:var(--accent);font-weight:600}
+.rw-n{margin-left:auto;font-family:var(--f-body);font-weight:400;font-size:12px;color:var(--muted)}
+.ritems{display:flex;flex-direction:column}
+.ritem{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;padding:10px 12px;border-top:1px solid var(--rule)}
+.ritem:first-child{border-top:0}
+.ritem h5{font-family:var(--f-display);font-size:15px;font-weight:600;margin:0}
+.ritem .ex{font-size:13.5px;color:var(--muted);line-height:1.5}
+.ritem ul{margin:2px 0 0;padding-left:1.1em;font-size:13.5px;line-height:1.5;display:flex;flex-direction:column;gap:2px}
+.ritem .qh{font-size:12px;color:var(--accent);font-weight:600;margin-top:4px}
+.ritem .ans{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.tri{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.tri button{font:600 13px var(--f-body);border:0;background:var(--surface);color:var(--muted);padding:5px 10px;cursor:pointer;white-space:nowrap}
+.tri button + button{border-left:1px solid var(--rule)}
+.tri button[aria-pressed="true"][data-v="y"]{background:var(--accent);color:var(--on-accent)}
+.tri button[aria-pressed="true"][data-v="n"]{background:var(--danger);color:#fff}
+.tri button[aria-pressed="true"][data-v="u"]{background:var(--warn);color:#fff}
+.tri button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.ritem .ev{grid-column:1/-1}
+.ritem .ev input{font:400 14px var(--f-body);width:100%;padding:6px 9px;border:1px solid var(--rule);border-radius:7px;background:var(--bg);color:var(--fg)}
+.ritem .ev input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+@media (max-width:600px){.ritem{grid-template-columns:minmax(0,1fr)}.ritem .ans{align-items:flex-start}}
+
+/* problem → solution worksheet */
+.ps{display:flex;flex-direction:column;gap:10px}
+.psrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;border:1px solid var(--rule);border-radius:10px;padding:10px;background:var(--surface)}
+.psrow label{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:var(--muted)}
+.psrow textarea{font:400 14px var(--f-body);color:var(--fg);background:var(--bg);border:1px solid var(--rule);border-radius:7px;padding:6px 9px;resize:vertical;min-height:70px;line-height:1.5}
+.psrow textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.psrow .bcg{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--muted)}
+.psrow .bcg label{flex-direction:row;align-items:center;gap:5px;color:var(--fg);font-size:13px;border:1px solid var(--rule);border-radius:999px;padding:2px 10px;cursor:pointer}
+.psrow .bcg input{accent-color:var(--accent);margin:0}
+@media (max-width:640px){.psrow{grid-template-columns:minmax(0,1fr)}}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+/* glossary */
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.term{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer;display:flex;flex-direction:column;min-height:92px;overflow:hidden}
+.term:hover{border-color:var(--accent)}
+.term:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.term .en{font-family:var(--f-mono);font-weight:600;font-size:14px;color:var(--accent);padding:10px 12px 0}
+.term .th{font-size:13.5px;padding:2px 12px 10px;color:var(--muted)}
+.term .def{font-size:13.5px;line-height:1.5;padding:8px 12px 10px;border-top:1px dashed var(--rule);display:none}
+.term[aria-expanded="true"]{border-color:var(--accent)}
+.term[aria-expanded="true"] .def{display:block}
+.glo-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+
+/* illustrations */
+.ill{width:100%;height:auto;display:block}
+.ill .o{fill:none;stroke:var(--line);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ill .ot{fill:none;stroke:var(--line);stroke-width:1.2;stroke-linecap:round}
+.ill .g{fill:var(--glass);stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.ill .w{fill:var(--water)}
+.ill .w2{fill:var(--water2)}
+.ill .p{fill:var(--sheet);stroke:var(--line);stroke-width:1.5}
+.ill .a{fill:var(--accent)}
+.ill .af{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+.ill .d{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:4 4;stroke-linecap:round}
+.ill .v{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ill .t{fill:var(--fg);font-family:var(--f-body);font-size:10px}
+.ill .tb{fill:var(--fg);font-family:var(--f-body);font-size:10.5px;font-weight:600}
+.ill .tm{fill:var(--muted);font-family:var(--f-body);font-size:9px}
+.ill .tn{fill:var(--fg);font-family:var(--f-display);font-size:18px;font-weight:700}
+.ill .mn{fill:var(--fg);font-family:var(--f-mono);font-size:10px;font-weight:600}
+.ill .ta{fill:var(--on-accent);font-family:var(--f-body);font-size:10.5px;font-weight:600}
+.ill .fgf{fill:var(--fg)}
+.ill .mf{fill:var(--muted)}
+.ill .pond{fill:var(--pond);stroke:var(--line);stroke-width:1.5}
+.ill .sand{fill:var(--sand)}
+.ill .s1{fill:var(--soil1)}
+.ill .s2{fill:var(--soil2)}
+.ill .gr{fill:var(--grass)}
+.ill .lf{fill:var(--leaf)}
+.ill .grs{fill:none;stroke:var(--grass);stroke-width:2;stroke-linecap:round}
+.ill .rl{stroke:var(--rule);stroke-width:1}
+.ill .dot{fill:none;stroke:var(--muted);stroke-width:1.4;stroke-dasharray:2 3;stroke-linecap:round}
+.ill .dns{fill:var(--danger-soft);stroke:var(--danger);stroke-width:2}
+.ill .wf{fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.5}
+.ill .net{fill:none;stroke:var(--muted);stroke-width:.8}
+
+@media (max-width:680px){
+  .card{grid-template-columns:minmax(0,1fr)}
+  .fig{border-right:0;border-bottom:1px solid var(--rule)}
+  .fig svg{max-width:300px;margin:0 auto}
+}
+@media (max-width:420px){
+  .step{grid-template-columns:30px minmax(0,1fr);gap:10px}
+  .num{width:30px;height:30px;font-size:14px}
+  .flow::before{left:14px}
+  .phase .tag{width:30px;height:30px;font-size:15px;border-radius:8px}
+  .body{padding:14px}
+}
+
+/* ===== food-web worksheet (based on foodweb-pond100) ===== */
+.fw{display:grid;grid-template-columns:280px minmax(0,1fr);gap:18px;margin-inline:calc((100% - min(1240px, 100vw - 32px)) / 2);scroll-margin-top:80px;
+  background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:16px}
+.fw-side{display:flex;flex-direction:column;gap:14px;min-width:0;position:sticky;top:76px;align-self:start;max-height:calc(100vh - 92px);overflow:auto;padding-right:4px}
+.fw-side h3{font-size:19px;font-weight:600}
+.fw-steps{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;counter-reset:s}
+.fw-steps li{display:grid;grid-template-columns:24px 1fr;gap:8px;color:var(--muted);font-size:13.5px;line-height:1.5}
+.fw-steps li::before{counter-increment:s;content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:12px;font-weight:600;display:grid;place-items:center;margin-top:1px}
+.fw-steps b{color:var(--fg);font-weight:600}
+.fw label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.fw input[type=text]{font:inherit;font-size:15px;color:var(--fg);background:var(--bg);border:1px solid var(--rule);border-radius:10px;padding:7px 11px;min-width:0}
+.fw input[type=text]:focus-visible,.fw button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tray-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.tray-h h4{font-size:15px;font-weight:600}
+.tray-h span{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tray{display:flex;flex-wrap:wrap;gap:6px}
+.tray .sub{width:100%;font-size:12px;color:var(--muted);margin-top:4px}
+.chip{font:inherit;font-size:14.5px;font-weight:500;color:var(--fg);background:var(--surface);border:1.5px solid var(--rule);border-radius:999px;padding:4px 12px;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;transition:border-color .12s,background .12s}
+.chip:hover{border-color:var(--accent)}
+.chip.alien{color:var(--fg)}
+.chip.alien::before{content:"* ";color:var(--warn);font-weight:700}
+.chip.extra{border-style:dotted}
+.chip.used{color:var(--muted);border-style:dashed;cursor:default;background:transparent}
+.chip.used::after{content:" ✓";color:var(--accent)}
+.chip.armed{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.addrow{display:flex;gap:6px}
+.addrow input{flex:1}
+.fw .note{font-size:12.5px}
+.fbtn{font:inherit;font-size:14px;font-weight:500;color:var(--fg);background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:6px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.fbtn:hover:not(:disabled){border-color:var(--accent)}
+.fbtn:disabled{opacity:.45;cursor:not-allowed}
+.fbtn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.fbtn.warn{color:var(--danger)}
+.fbtn.confirm{background:var(--danger);color:#fff;border-color:var(--danger)}
+.fw-main{min-width:0;display:flex;flex-direction:column;gap:10px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.tgroup{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.status{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;min-height:20px}
+.status b{color:var(--accent);font-weight:600}
+.board-wrap{background:var(--bg);border:1px solid var(--rule);border-radius:14px;padding:6px}
+#board{display:block;width:100%;height:auto;user-select:none;-webkit-user-select:none;touch-action:pan-y pinch-zoom}
+#board.armed{cursor:copy}
+#board .paper{fill:var(--paper);stroke:var(--paper-edge);stroke-width:2}
+#board .band.b0{fill:var(--t0)}#board .band.b1{fill:var(--t1)}#board .band.b2{fill:var(--t2)}#board .band.b3{fill:var(--t3)}#board .band.b4{fill:var(--t4)}#board .band.b5{fill:var(--t5)}
+#board .band.hot{fill:var(--accent-soft)}
+#board .sep{stroke:var(--paper-line);stroke-width:1.4}
+#board .title{font-family:var(--f-display);font-size:26px;font-weight:600;fill:var(--fg);text-anchor:middle}
+#board .sub{font-family:var(--f-body);font-size:16px;font-style:italic;fill:var(--muted)}
+#board .author{font-family:var(--f-body);font-size:16px;font-weight:500;fill:var(--fg);text-anchor:end}
+#board .lv-en{font-family:var(--f-display);font-size:18px;font-weight:500;fill:var(--fg)}
+#board .lv-th{font-family:var(--f-body);font-size:15px;font-weight:600}
+#board .lv-th.l0{fill:var(--ns0)}#board .lv-th.l1{fill:var(--ns1)}#board .lv-th.l2{fill:var(--ns2)}#board .lv-th.l3{fill:var(--ns3)}#board .lv-th.l4{fill:var(--ns4)}#board .lv-th.l5{fill:var(--ns5)}
+#board .hint{fill:var(--muted);font-family:var(--f-body);font-size:19px;text-anchor:middle}
+#board .node{cursor:grab;touch-action:none}
+#board .node rect{stroke-width:2}
+#board .node text{font-family:var(--f-body);font-size:19px;font-weight:500;fill:var(--fg);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+#board .node.lv0 rect{fill:var(--nf0);stroke:var(--ns0)}#board .node.lv1 rect{fill:var(--nf1);stroke:var(--ns1)}#board .node.lv2 rect{fill:var(--nf2);stroke:var(--ns2)}
+#board .node.lv3 rect{fill:var(--nf3);stroke:var(--ns3)}#board .node.lv4 rect{fill:var(--nf4);stroke:var(--ns4)}#board .node.lv5 rect{fill:var(--nf5);stroke:var(--ns5)}
+#board .node.det{cursor:default}
+#board .node.det rect{fill:var(--detf);stroke:var(--dets);stroke-dasharray:7 4}
+#board .node.sel rect{stroke:var(--accent);stroke-width:3.5}
+#board .node.target rect{stroke:var(--accent);stroke-width:4;fill:var(--accent-soft)}
+#board.mode-arrow .node{cursor:crosshair}
+#board .handle{cursor:crosshair}
+#board .handle .hz{fill:transparent}
+#board .handle circle.dot{fill:var(--accent)}
+#board .handle path,#board .del path{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+#board .handle path{stroke:var(--on-accent)}
+#board .del{cursor:pointer}
+#board .del circle{fill:var(--danger)}
+#board .del path{stroke:#fff}
+#board .arrow .hit{stroke:transparent;stroke-width:16;fill:none;pointer-events:stroke;cursor:pointer}
+#board .arrow .line{stroke:var(--arrow);stroke-width:2.2;fill:none;pointer-events:none}
+#board .arrow.sel .line{stroke:var(--accent);stroke-width:3.2}
+#board .temp{stroke:var(--accent);stroke-width:2.4;stroke-dasharray:7 5;fill:none;pointer-events:none}
+#board .ah{fill:var(--arrow)}#board .ahs{fill:var(--accent)}
+.dragghost{position:fixed;left:0;top:0;z-index:60;pointer-events:none;font-weight:500;font-size:15px;color:var(--on-accent);background:var(--accent);border-radius:999px;padding:5px 13px;box-shadow:var(--shadow);transform:translate(-50%,-50%)}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(10px);z-index:70;background:var(--fg);color:var(--bg);padding:9px 16px;border-radius:12px;font-size:14px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;max-width:calc(100vw - 32px);text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (max-width:900px){
+  .fw{grid-template-columns:minmax(0,1fr);margin-inline:0}
+  .fw-side{position:static;max-height:none;overflow:visible;padding-right:0}
+}
+
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--rule);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+footer h2{font-size:14px;font-weight:600;color:var(--fg)}
+footer ul{margin:0;padding-left:1.2em}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{.tabs,.fw,.done,.progress,.switch{display:none!important}.act[hidden]{display:flex!important}.track-wrap > [hidden]{display:flex!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(--muted)"/></marker><marker id="arra" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" style="fill:var(--accent)"/></marker></defs></svg>
+<div class="wrap">
+<header class="top">
+  <div class="toprow"><p class="eyebrow">2303102 ปฏิบัติการชีววิทยา · บทปฏิบัติการที่ 9</p><p class="visits" id="visits" hidden aria-live="polite"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>ผู้เข้าชม</span><b class="mono">–</b><span>ครั้ง</span></p></div>
+  <h1>ปฏิบัติการที่ 9 ระบบนิเวศ</h1>
+  <p class="lead">คู่มือแบบโต้ตอบของทั้ง 3 กิจกรรม: คุณสมบัติของดินในห้องปฏิบัติการ, การศึกษาระบบนิเวศสระน้ำ/สนามหญ้าและสร้างสายใยอาหาร, และบริการของระบบนิเวศอุทยาน 100 ปี พร้อมเครื่องคิดเลข แบบบันทึกผล และแผ่นงานสายใยอาหาร</p>
+  <p class="note">ติ๊ก “ทำขั้นนี้แล้ว” เพื่อติดตามความคืบหน้า ค่าที่กรอกทุกช่องบันทึกไว้ในเบราว์เซอร์ของนิสิตเท่านั้น (ไม่ได้ส่งให้ผู้สอน) · ส่งงานตามช่องทางที่ผู้สอนกำหนด</p>
+</header>
+<nav class="tabs" role="tablist" aria-label="เลือกกิจกรรม">
+  <button class="tab" role="tab" type="button" id="tab-pre" aria-controls="pre" aria-selected="true" tabindex="0" data-target="pre"><b>ก่อนเริ่ม</b><span>บทนำ · วัตถุประสงค์</span></button>
+  <button class="tab" role="tab" type="button" id="tab-act1" aria-controls="act1" aria-selected="false" tabindex="-1" data-target="act1"><b>กิจกรรมที่ 1</b><span>คุณสมบัติของดิน</span></button>
+  <button class="tab" role="tab" type="button" id="tab-act2" aria-controls="act2" aria-selected="false" tabindex="-1" data-target="act2"><b>กิจกรรมที่ 2</b><span>ระบบนิเวศ · สายใยอาหาร</span></button>
+  <button class="tab" role="tab" type="button" id="tab-act3" aria-controls="act3" aria-selected="false" tabindex="-1" data-target="act3"><b>กิจกรรมที่ 3</b><span>บริการของระบบนิเวศ</span></button>
+  <button class="tab" role="tab" type="button" id="tab-terms" aria-controls="terms" aria-selected="false" tabindex="-1" data-target="terms"><b>คำศัพท์</b><span>ทบทวนก่อนสอบ</span></button>
+</nav>
+
+<!-- ================= PRE-LAB ================= -->
+<section class="act" id="pre" role="tabpanel" aria-labelledby="tab-pre">
+<div class="act-head">
+  <p class="kicker">บทนำ</p>
+  <h2>นิเวศวิทยาและระบบนิเวศ</h2>
+  <p class="lead">นิเวศวิทยา (ecology) คือการศึกษาความสัมพันธ์ระหว่างสิ่งมีชีวิตกับสิ่งแวดล้อม ทั้งสิ่งแวดล้อมที่มีชีวิต (พืช สัตว์ และสิ่งมีชีวิตอื่น ๆ) และไม่มีชีวิต (ดิน แร่ธาตุ น้ำ อากาศ อุณหภูมิ ความชื้น ซากอินทรีย์)</p>
+</div>
+<div class="concept">
+  <div>
+    <p class="tagline">RELATIONSHIPS</p>
+    <h3>รูปแบบความสัมพันธ์</h3>
+    <ul>
+      <li><b>สิ่งมีชีวิต ↔ สิ่งไม่มีชีวิต</b> เช่น photosynthesis, saprophytism, phototaxis</li>
+      <li><b>ภายในชนิดเดียวกัน</b> (intraspecific) เช่น competition, social hierarchy, social communication</li>
+      <li><b>ระหว่างต่างชนิด</b> (interspecific) เช่น predation, competition, mutualism, parasitism</li>
+    </ul>
+  </div>
+  <div>
+    <p class="tagline">TROPHIC NICHE</p>
+    <h3>หน้าที่เชิงอาหาร</h3>
+    <ul>
+      <li>ผู้ผลิต (producer)</li>
+      <li>ผู้บริโภคพืช (herbivore) · ผู้บริโภคสัตว์ (carnivore) · ผู้บริโภคทั้งพืชและสัตว์ (omnivore)</li>
+      <li>ผู้บริโภคซากอินทรีย์ (detritivore/scavenger) · ผู้ย่อยสลาย (decomposer)</li>
+    </ul>
+    <p class="muted" style="font-size:13.5px">บทบาทเหล่านี้ขับเคลื่อน <b>การถ่ายทอดพลังงาน</b> (energy transfer) และ <b>การหมุนเวียนสสาร</b> (nutrient cycling) ทำให้ระบบนิเวศมีเสถียรภาพ</p>
+  </div>
+  <div>
+    <p class="tagline">ECOSYSTEM</p>
+    <h3>ระบบนิเวศ = องค์ประกอบ + การทำงาน</h3>
+    <ul>
+      <li><b>องค์ประกอบ</b> (structure): สังคมสิ่งมีชีวิต + ปัจจัยทางกายภาพ</li>
+      <li><b>การทำงาน</b> (function): กระบวนการที่ทำให้ระบบดำรงอยู่ เช่น การสังเคราะห์ด้วยแสง การถ่ายทอดพลังงาน การหมุนเวียนสาร</li>
+    </ul>
+  </div>
+  <div>
+    <p class="tagline">TYPES &amp; BOUNDARIES</p>
+    <h3>ประเภทและขอบเขต</h3>
+    <ul>
+      <li>ระบบนิเวศธรรมชาติ (บนบกและในน้ำ)</li>
+      <li>ระบบนิเวศที่มนุษย์สร้าง/รบกวน: กึ่งธรรมชาติ (ระบบเกษตร) และเมืองและเทคโนโลยี (urban-techno)</li>
+      <li>ขอบเขตกำหนดตามผู้ศึกษา เช่น ตู้ปลา สระน้ำ สนามหญ้า ป่าเขตร้อน และมีการนำเข้า-ส่งออกสสารและพลังงานระหว่างระบบ เช่น สารเคมีจากเกษตรบนที่สูงไหลลงสู่ที่ราบลุ่ม</li>
+    </ul>
+  </div>
+  <div class="wide">
+    <p class="tagline">ECOLOGY → POLICY</p>
+    <h3>จากนิเวศวิทยาสู่ BCG model (Bio-Circular-Green Economy)</h3>
+    <div class="concept" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div style="background:var(--ill-bg)"><b>B · Biobased Economy</b><p>เศรษฐกิจบนฐานความหลากหลายทางชีวภาพ (พันธุกรรม ชนิด ระบบนิเวศ) และวัฒนธรรม เช่น การท่องเที่ยว forest therapy, pet therapy</p></div>
+      <div style="background:var(--ill-bg)"><b>C · Circular Economy</b><p>ลดของเสียสู่ระบบนิเวศ อาศัยหลัก <b>การหมุนเวียนสสาร</b> ผ่านผู้ผลิต ผู้บริโภค ผู้ย่อยสลาย</p></div>
+      <div style="background:var(--ill-bg)"><b>G · Green Economy</b><p>ใช้พลังงานสะอาด อาศัยหลัก <b>การถ่ายทอดพลังงาน</b> โดยเฉพาะพลังงานแสงอาทิตย์</p></div>
+    </div>
+  </div>
+</div>
+
+<h2 class="sec-h">ภาพรวม 3 กิจกรรม</h2>
+<div class="concept">
+  <div><p class="tagline">กิจกรรมที่ 1 · ในห้องปฏิบัติการ</p><h3>คุณสมบัติของดิน</h3><p>ใช้ “ดิน” เป็นตัวแทนปัจจัยกายภาพ ศึกษาเนื้อดิน สี ความชื้น และความสามารถดูดยึดน้ำ แล้วเชื่อมโยงกับความเหมาะสมต่อสิ่งมีชีวิต</p><p><a href="#act1" data-go="act1">ไปที่กิจกรรมที่ 1 →</a></p></div>
+  <div><p class="tagline">กิจกรรมที่ 2 · ภาคสนาม (แบ่ง 2 กลุ่มย่อย)</p><h3>ระบบนิเวศสระน้ำ / สนามหญ้า</h3><p>เก็บข้อมูลปัจจัยกายภาพและชีวภาพด้วยเครื่องมือต่าง ๆ แล้ววิเคราะห์ความสัมพันธ์เชิงอาหารผ่านการสร้างสายใยอาหาร</p><p><a href="#act2" data-go="act2">ไปที่กิจกรรมที่ 2 →</a></p></div>
+  <div><p class="tagline">กิจกรรมที่ 3 · วีดิทัศน์ + ภาคผนวก</p><h3>บริการของระบบนิเวศ</h3><p>ประเมินบริการของระบบนิเวศอุทยาน 100 ปี ยกตัวอย่างปัญหาจากมนุษย์ และเสนอแนวทางแก้ไขด้วยความรู้ทางนิเวศ</p><p><a href="#act3" data-go="act3">ไปที่กิจกรรมที่ 3 →</a></p></div>
+</div>
+
+<h2 class="sec-h">ข้อปฏิบัติก่อนทำปฏิบัติการ <small>ศึกษาล่วงหน้า</small></h2>
+<div class="links">
+  <a href="https://www.khanacademy.org/science/biology/ecology/intro-to-ecosystems/a/food-chains-food-webs" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fg" d="M8 21h14M10 21V10l5-3 5 3v11M13 14h4"/></svg><div><b>1. Food chain และ food web (Khan Academy)</b><span>แนวทางการเขียน food chain / food web</span></div></a>
+  <a href="https://youtu.be/xL96QwxwbG0" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fill" d="M12 10l9 5-9 5z"/></svg><div><b>1. วีดิทัศน์: food web</b><span>youtu.be/xL96QwxwbG0</span></div></a>
+  <a href="http://www.pmcu.co.th/?page_id=9921" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fg" d="M7 20c3-4 5-6 8-6s5 2 8 6M15 14V8M12 10l3-2 3 2"/></svg><div><b>2. ข้อมูลทั่วไปอุทยาน 100 ปี (จุฬาฯ)</b><span>pmcu.co.th/?page_id=9921</span></div></a>
+  <a href="https://www.youtube.com/watch?v=r5nvuD1EYWc" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fill" d="M12 10l9 5-9 5z"/></svg><div><b>2. วีดิทัศน์สรุปข้อมูลอุทยาน 100 ปี</b><span>youtube.com/watch?v=r5nvuD1EYWc</span></div></a>
+  <a href="https://www.youtube.com/watch?v=714c1WwgLoE" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fill" d="M12 10l9 5-9 5z"/></svg><div><b>2. แนวคิดการออกแบบ จากผู้ออกแบบ</b><span>youtube.com/watch?v=714c1WwgLoE</span></div></a>
+  <a href="#rawes" data-go="act3"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fg" d="M9 9h12M9 15h12M9 21h7"/></svg><div><b>3. คำถามประเมินบริการของระบบนิเวศ (ภาคผนวก RAWES)</b><span>อยู่ในกิจกรรมที่ 3 ของหน้านี้</span></div></a>
+</div>
+
+<h2 class="sec-h">วัตถุประสงค์</h2>
+<div class="tbl"><div class="tw"><table>
+  <thead><tr><th>วัตถุประสงค์เชิงพฤติกรรม</th><th>วัตถุประสงค์การเรียนรู้*</th></tr></thead>
+  <tbody>
+    <tr><td>1. อธิบายแนวทางการศึกษานิเวศวิทยาเบื้องต้น<ul><li>ใช้เครื่องมือวัดค่าปัจจัยทางกายภาพบางประการได้</li><li>เก็บข้อมูลเบื้องต้นทางชีวภาพและกายภาพสำหรับการศึกษานิเวศวิทยาได้</li></ul></td><td class="codes">1.1, 2.1, 4.2, 4.3, 4.4, 4.5, 5.2</td></tr>
+    <tr><td>2. อธิบายความสัมพันธ์ระหว่างสิ่งมีชีวิตกับสิ่งแวดล้อมในระบบนิเวศที่ศึกษา<ul><li>ยกตัวอย่างองค์ประกอบพื้นฐานทั้งกายภาพและชีวภาพ</li><li>เขียนห่วงโซ่อาหารและสายใยอาหาร</li><li>ยกตัวอย่างบริการของระบบนิเวศ (ecosystem services)</li></ul></td><td class="codes">1.1, 3.1, 3.2, 4.2, 4.3, 4.4, 5.2</td></tr>
+    <tr><td>3. ยกตัวอย่างปัญหาของระบบนิเวศที่ศึกษาและสาเหตุ</td><td class="codes">3.1, 5.2</td></tr>
+    <tr><td>4. นำเสนอแนวทางแก้ไขปัญหาเบื้องต้นโดยใช้ความรู้ทางนิเวศวิทยา</td><td class="codes">2.1, 3.1, 3.2, 3.3, 4.2, 4.3</td></tr>
+  </tbody>
+</table></div>
+<p class="cap">* ตามข้อกำหนดของจุฬาฯ: 1.1 รู้รอบ · 2.1 มีคุณธรรม · 2.2 มีจริยธรรม · 3.1 คิดอย่างมีวิจารณญาณ · 3.2 คิดสร้างสรรค์ · 3.3 มีทักษะในการคิดแก้ปัญหา · 4.2 ทักษะการสื่อสาร · 4.3 ทักษะเทคโนโลยีสารสนเทศ · 4.4 ทักษะคณิตศาสตร์และสถิติ · 4.5 ทักษะการบริหารจัดการ · 5.2 รู้จักวิธีการเรียนรู้</p></div>
+
+<h2 class="sec-h">วัสดุและอุปกรณ์</h2>
+<div class="kit">
+  <span>ท่อพลาสติกใส</span><span>ผ้าไนลอนตาถี่</span><span>กระดาษตะกั่ว</span><span>ขันน้ำ</span><span>เครื่องชั่งดิจิทัล</span><span>กระดาษ label</span><span>ปากกาเคมี</span>
+  <span>ไม้ปักแนวเขตแปลง</span><span>เชือกฟาง</span><span>พลั่วขุดดิน</span><span>แว่นขยาย</span><span>ปากคีบ</span><span>ถุงพลาสติก</span><span>ยางรัด</span><span>ขวดแก้ว</span><span>หลอดทดลอง</span>
+  <span>pH paper</span><span>Secchi disc</span><span>thermometer</span><span>hygrometer</span><span>กล้องจุลทรรศน์</span><span>กล้องสเตอริโอ</span>
+  <span>คู่มือจำแนกสิ่งมีชีวิต</span><span>ตู้อบลมร้อน</span><span>สื่อวิดีทัศน์</span>
+</div>
+</section>
+
+<!-- ================= ACTIVITY 1: SOIL ================= -->
+<section class="act" id="act1" role="tabpanel" aria-labelledby="tab-act1" hidden>
+<div class="act-head">
+  <p class="kicker">กิจกรรมที่ 1</p>
+  <h2>ศึกษาคุณสมบัติของดินตัวอย่างในห้องปฏิบัติการ</h2>
+  <p class="lead">ดินเป็นปัจจัยกายภาพสำคัญของระบบนิเวศ ประกอบด้วยอนุภาคดินและอินทรียวัตถุ รวมทั้งน้ำ อากาศ และสิ่งมีชีวิต ศึกษาดินตัวอย่าง <b>2 ประเภท</b> ไปพร้อมกัน แล้วเปรียบเทียบความเหมาะสมต่อสิ่งมีชีวิต</p>
+  <div class="kit"><b>อุปกรณ์</b><span>ดินตัวอย่าง 2 ชนิด</span><span>เครื่องชั่งดิจิทัล</span><span>กระดาษตะกั่ว</span><span>ตู้อบ 105 °C</span><span>ท่อพลาสติกใส 2 ท่อ</span><span>ผ้าไนลอนตาถี่</span><span>ยางรัด</span><span>ขันน้ำ</span></div>
+</div>
+<div class="concept">
+  <div class="wide">
+    <p class="tagline">SOIL PARTICLES</p>
+    <h3>อนุภาคดิน 3 ชนิด แบ่งตามขนาด</h3>
+    <svg class="ill" viewBox="0 0 440 118" role="img" aria-label="มาตราส่วนลอการิทึมของขนาดอนุภาคดิน: ดินเหนียวเล็กกว่า 0.002 มม., ดินโคลน 0.002 ถึง 0.02 มม., ดินทราย 0.02 ถึง 2 มม.">
+      <rect x="20" y="40" width="36.5" height="22" rx="3" class="s1"/>
+      <rect x="56.5" y="40" width="121" height="22" class="sand" style="fill:var(--soil2)"/>
+      <rect x="177.5" y="40" width="242.5" height="22" rx="3" class="sand"/>
+      <text class="tb" x="38" y="30" text-anchor="middle">clay</text>
+      <text class="tb" x="117" y="30" text-anchor="middle">silt · ดินโคลน</text>
+      <text class="tb" x="298" y="30" text-anchor="middle">sand · ดินทราย</text>
+      <text class="tm" x="38" y="14" text-anchor="middle">ดินเหนียว</text>
+      <line class="o" x1="20" y1="66" x2="420" y2="66"/>
+      <g class="mn" text-anchor="middle"><text x="56.5" y="80">0.002</text><text x="177.5" y="80">0.02</text><text x="420" y="80">2.00</text></g>
+      <g class="ot"><line x1="56.5" y1="62" x2="56.5" y2="70"/><line x1="177.5" y1="62" x2="177.5" y2="70"/><line x1="420" y1="62" x2="420" y2="70"/></g>
+      <text class="tm" x="20" y="96">มม. (มาตราส่วนลอการิทึม) · เล็ก ← เนื้อดินละเอียด</text>
+      <text class="tm" x="420" y="96" text-anchor="end">เนื้อดินหยาบ → ใหญ่</text>
+      <text class="tm" x="20" y="112">อนุภาคเล็ก: ดูดซับน้ำและอินทรียสารได้มาก แต่ถ่ายเทอากาศน้อย</text>
+    </svg>
+    <p>ดินเหนียวมากเกินไปดูดซับน้ำไว้มากและถ่ายเทอากาศไม่ดี ดินทรายมากเกินไปเก็บน้ำได้น้อย <b>ดินที่เหมาะต่อสิ่งมีชีวิตต้องมีสัดส่วนอนุภาคทั้งสามพอเหมาะ</b></p>
+  </div>
+</div>
+<nav class="map" aria-label="ผังขั้นตอนกิจกรรมที่ 1">
+  <div class="ph"><span class="lbl">ส่วน A · ข้อ 1.1</span><h3>เนื้อดินและสี</h3><ul><li><a href="#a1s1" data-step="a1-1"><span class="n">1</span>สังเกตเนื้อดินและสีของดิน</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน B · ข้อ 1.2</span><h3>ความชื้นของดิน</h3><ul>
+    <li><a href="#a1s2" data-step="a1-2"><span class="n">2</span>ชั่งดินตัวอย่าง ~50 g</a></li>
+    <li><a href="#a1s3" data-step="a1-3"><span class="n">3</span>อบ 105 °C ≥ 1.5 ชม.</a></li>
+    <li><a href="#a1s4" data-step="a1-4"><span class="n">4</span>ชั่งดินแห้ง คำนวณ</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน C · ข้อ 1.3</span><h3>ความสามารถดูดยึดน้ำ</h3><ul>
+    <li><a href="#a1s5" data-step="a1-5"><span class="n">5</span>ท่อ + ผ้าเปียก = A</a></li>
+    <li><a href="#a1s6" data-step="a1-6"><span class="n">6</span>+ ดินแห้ง = B</a></li>
+    <li><a href="#a1s7" data-step="a1-7"><span class="n">7</span>แช่น้ำ = C</a></li>
+    <li><a href="#a1s8" data-step="a1-8"><span class="n">8</span>คำนวณ WHC</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน D · รายงาน</span><h3>เปรียบเทียบและเก็บกวาด</h3><ul><li><a href="#a1s9" data-step="a1-9"><span class="n">9</span>เปรียบเทียบดิน 2 ชนิด</a></li></ul></div>
+  <div class="progress"><span class="prog-txt">ทำแล้ว 0 จาก 9 ขั้น</span><div class="bar"><i></i></div></div>
+</nav>
+<ol class="flow">
+  <li class="phase"><span class="tag">A</span><div><h3>เนื้อดินและสีของดิน</h3><p>ถ้าสีเข้มมักมีอินทรียสารปะปนอยู่มากกว่าดินสีจาง</p></div></li>
+  <li class="step" id="a1s1"><div class="num">1</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ดินสองจาน ดินที่ 1 สีเข้ม ดินที่ 2 สีจาง พร้อมแว่นขยาย">
+      <ellipse class="p" cx="70" cy="118" rx="50" ry="14"/><path class="s1" d="M32 116 C40 88 100 86 108 116 Z"/>
+      <ellipse class="p" cx="170" cy="118" rx="50" ry="14"/><path class="s2" d="M132 116 C140 92 200 90 208 116 Z"/>
+      <circle class="g" cx="150" cy="60" r="20"/><line class="o" x1="164" y1="74" x2="182" y2="92" style="stroke-width:5"/>
+      <g class="fgf" opacity=".35"><circle cx="146" cy="56" r="2"/><circle cx="154" cy="62" r="1.5"/><circle cx="148" cy="66" r="2.5"/></g>
+      <text class="tb" x="70" y="152" text-anchor="middle">ดิน 1 · สีเข้ม</text><text class="tb" x="170" y="152" text-anchor="middle">ดิน 2 · สีจาง</text>
+      <text class="tm" x="70" y="166" text-anchor="middle">อินทรียวัตถุมาก</text><text class="tm" x="170" y="166" text-anchor="middle">อินทรียวัตถุน้อย</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>สังเกตเนื้อดินและสีของดิน</h4><span class="x2">ดิน 2 ชนิด</span></div>
+      <ol class="do">
+        <li>ดูสีของดินแต่ละชนิด (เช่น ดำ น้ำตาลเข้ม น้ำตาลอ่อน เทา)</li>
+        <li>บี้ดินระหว่างนิ้วเพื่อสัมผัสเนื้อดิน หยาบ (สากมือแบบทราย) หรือละเอียด (ลื่น เหนียวแบบดินเหนียว)</li>
+      </ol>
+      <div class="fields"><div class="fh">บันทึกผล</div>
+        <label>ชื่อ/แหล่งดินที่ 1<input data-k="s1name" placeholder="เช่น ดินร่วนปลูกพืช"></label>
+        <label>สีของดินที่ 1<input data-k="s1color" placeholder="เช่น น้ำตาลเข้ม"></label>
+        <label>เนื้อดินที่ 1<select data-k="s1tex"><option value="">เลือก</option><option>หยาบ</option><option>ค่อนข้างหยาบ</option><option>ปานกลาง</option><option>ค่อนข้างละเอียด</option><option>ละเอียด</option></select></label>
+        <label>ชื่อ/แหล่งดินที่ 2<input data-k="s2name" placeholder="เช่น ดินทราย"></label>
+        <label>สีของดินที่ 2<input data-k="s2color" placeholder="เช่น น้ำตาลอ่อน"></label>
+        <label>เนื้อดินที่ 2<select data-k="s2tex"><option value="">เลือก</option><option>หยาบ</option><option>ค่อนข้างหยาบ</option><option>ปานกลาง</option><option>ค่อนข้างละเอียด</option><option>ละเอียด</option></select></label>
+      </div>
+      <label class="done"><input type="checkbox" data-step="a1-1"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="phase"><span class="tag">B</span><div><h3>ความชื้นของดิน (soil moisture)</h3><p>ทำกับดินทั้ง 2 ชนิด</p></div></li>
+  <li class="step" id="a1s2"><div class="num">2</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="เครื่องชั่งดิจิทัลแสดง 50.00 กรัม มีดินบนกระดาษตะกั่ว">
+      <rect class="p" x="50" y="104" width="140" height="44" rx="8"/><rect class="af" x="80" y="116" width="80" height="22" rx="4"/>
+      <text class="mn" x="120" y="131" text-anchor="middle" style="font-size:13px">50.00 g</text>
+      <rect class="o" x="64" y="94" width="112" height="10" rx="3" style="fill:var(--ill-bg)"/>
+      <path class="p" d="M78 94 L90 74 H150 L162 94 Z" style="fill:#C8CDD2"/><path class="s1" d="M96 88 C104 66 136 66 144 88 Z"/>
+      <text class="tm" x="120" y="62" text-anchor="middle">ดินบนกระดาษตะกั่ว</text>
+      <text class="tm" x="120" y="164" text-anchor="middle">หักน้ำหนักกระดาษตะกั่ว (tare) ก่อนชั่ง</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>ชั่งดินตัวอย่างประมาณ 50 กรัม</h4><span class="x2">ดิน 2 ชนิด</span></div>
+      <ol class="do">
+        <li>วางกระดาษตะกั่วบนเครื่องชั่ง แล้วกด tare ให้เป็น 0</li>
+        <li>ชั่งดินตัวอย่างประมาณ <strong>50 กรัม</strong> บันทึกน้ำหนักจริงที่อ่านได้ = <b>น้ำหนักดินตัวอย่าง</b></li>
+        <li>เขียน label ระบุชนิดดินบนกระดาษตะกั่ว</li>
+      </ol>
+      <p class="rec"><b>บันทึก</b><span>ใส่ค่าในช่อง “น้ำหนักดินตัวอย่าง” ของเครื่องคิดเลขด้านล่าง (หลังขั้นที่ 4)</span></p>
+      <label class="done"><input type="checkbox" data-step="a1-2"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="a1s3"><div class="num">3</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ตู้อบลมร้อนตั้งอุณหภูมิ 105 องศาเซลเซียส และนาฬิกา 1.5 ชั่วโมง">
+      <rect class="p" x="30" y="30" width="130" height="112" rx="8"/><rect class="g" x="42" y="44" width="84" height="86" rx="4"/>
+      <line class="ot" x1="46" y1="74" x2="122" y2="74"/><line class="ot" x1="46" y1="104" x2="122" y2="104"/>
+      <path class="s1" d="M54 72 C58 64 72 64 76 72 Z"/><path class="s2" d="M88 72 C92 64 106 64 110 72 Z"/>
+      <rect class="dns" x="132" y="48" width="22" height="14" rx="2"/><text class="mn" x="143" y="58" text-anchor="middle" style="font-size:7px;fill:var(--danger)">105°C</text>
+      <circle class="o" cx="143" cy="84" r="5"/><circle class="o" cx="143" cy="104" r="5"/>
+      <circle class="af" cx="196" cy="70" r="26"/><path class="v" d="M196 52 V70 L208 78"/>
+      <text class="tb" x="196" y="114" text-anchor="middle">≥ 1.5 ชม.</text>
+      <text class="tm" x="95" y="160" text-anchor="middle">ภาพที่ 1 ตู้อบและดินตัวอย่าง</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>อบดินในตู้อบที่ 105 °C</h4></div>
+      <ol class="do">
+        <li>นำดินทั้งกระดาษตะกั่วเข้าตู้อบ (ภาพที่ 1) ที่อุณหภูมิ <strong>105 °C</strong></li>
+        <li>อบเป็นเวลา<strong>อย่างน้อย 1.5 ชั่วโมง</strong> เพื่อไล่น้ำออกจากดิน</li>
+      </ol>
+      <p class="caution"><b>ระวัง</b><span>ภาชนะและดินที่ออกจากตู้อบร้อนมาก ใช้ถุงมือหรือที่คีบ และรอให้เย็นลงก่อนชั่ง</span></p>
+      <p class="tip"><b>ทิป</b><span>ระหว่างรออบ ทำส่วน C ได้เลย เพราะส่วน C ใช้ “ดินที่อบแห้งแล้ว” ที่เตรียมไว้ให้</span></p>
+      <label class="done"><input type="checkbox" data-step="a1-3"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="a1s4"><div class="num">4</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ชั่งดินแห้งได้น้ำหนักลดลง ส่วนต่างคือน้ำที่ระเหยไป">
+      <rect class="p" x="20" y="104" width="96" height="40" rx="7"/><rect class="af" x="36" y="114" width="64" height="20" rx="4"/>
+      <text class="mn" x="68" y="128" text-anchor="middle">50.00 g</text><path class="s1" d="M44 100 C50 80 86 80 92 100 Z"/>
+      <text class="tm" x="68" y="160" text-anchor="middle">ก่อนอบ</text>
+      <rect class="p" x="124" y="104" width="96" height="40" rx="7"/><rect class="af" x="140" y="114" width="64" height="20" rx="4"/>
+      <text class="mn" x="172" y="128" text-anchor="middle">42.50 g</text><path class="s2" d="M150 100 C156 84 188 84 194 100 Z"/>
+      <text class="tm" x="172" y="160" text-anchor="middle">หลังอบ (ดินแห้ง)</text>
+      <path class="v" d="M116 60 C140 40 156 40 172 56" marker-end="url(#arra)"/>
+      <g class="w"><path d="M100 40 c-4 6 -4 10 0 10 c4 0 4 -4 0 -10z"/><path d="M90 26 c-3 5 -3 8 0 8 c3 0 3 -3 0 -8z"/></g>
+      <text class="tm" x="120" y="22" text-anchor="middle">น้ำระเหยออก = 7.50 g</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>ชั่งน้ำหนักดินแห้ง แล้วคำนวณความชื้น</h4></div>
+      <ol class="do"><li>ตั้งดินให้เย็น แล้วชั่งน้ำหนัก = <b>น้ำหนักดินแห้ง</b></li><li>คำนวณความชื้นของดินด้วยสูตร</li></ol>
+      <p class="formula">ความชื้นของดิน (%) = (น้ำหนักดินตัวอย่าง − น้ำหนักดินแห้ง) ÷ น้ำหนักดินแห้ง × 100</p>
+      <p class="tip"><b>ตัวอย่าง</b><span>(50.00 − 42.50) ÷ 42.50 × 100 = 17.65 % (สูตรนี้หารด้วยน้ำหนักดินแห้ง)</span></p>
+      <label class="done"><input type="checkbox" data-step="a1-4"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+  <li class="calc" id="calc-moist">
+    <h4>เครื่องคิดเลข: ความชื้นของดิน</h4>
+    <p>กรอกน้ำหนักเป็นกรัม ระบบคำนวณให้ทันที ใช้ตรวจคำตอบของตัวเองก่อนเขียนลงรายงาน</p>
+    <div class="tw"><table>
+      <thead><tr><th>ดิน</th><th>น้ำหนักดินตัวอย่าง (g)</th><th>น้ำหนักดินแห้ง (g)</th><th>น้ำที่หายไป (g)</th><th>ความชื้น (%)</th></tr></thead>
+      <tbody>
+        <tr><td data-name="1">ดินที่ 1</td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m1w"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m1d"></td><td class="mono" id="m1loss">–</td><td class="res" id="m1out">–</td></tr>
+        <tr><td data-name="2">ดินที่ 2</td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m2w"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m2d"></td><td class="mono" id="m2loss">–</td><td class="res" id="m2out">–</td></tr>
+      </tbody>
+    </table></div>
+  </li>
+
+  <li class="phase"><span class="tag">C</span><div><h3>ความสามารถดูดยึดน้ำของดิน (water holding capacity)</h3><p>ภาพที่ 2 · เตรียม 2 ท่อ (1 ท่อต่อดิน 1 ชนิด) ทำไปพร้อมกัน</p></div></li>
+  <li class="step" id="a1s5"><div class="num">5</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ท่อพลาสติกหุ้มปลายด้วยผ้าไนลอน จุ่มน้ำ สะบัด แล้วชั่งได้ A กรัม">
+      <rect class="g" x="30" y="20" width="30" height="80" rx="2"/><path class="net" d="M28 100 h34 M30 96 l4 8 M36 96 l4 8 M42 96 l4 8 M48 96 l4 8 M54 96 l4 8"/>
+      <rect class="o" x="27" y="92" width="36" height="5" style="fill:var(--muted)"/>
+      <text class="tm" x="45" y="116" text-anchor="middle">a) ท่อ+ผ้าไนลอน</text>
+      <path class="g" d="M86 92 h56 l-6 40 h-44 z"/><path class="w" d="M89 104 h50 l-4 26 h-42 z"/>
+      <rect class="g" x="100" y="40" width="28" height="74" rx="2"/>
+      <text class="tm" x="114" y="148" text-anchor="middle">c) จุ่มน้ำให้ผ้าเปียก</text>
+      <path class="d" d="M160 40 c8 -10 16 -10 22 0 M160 54 c8 -10 16 -10 22 0"/><text class="tm" x="171" y="72" text-anchor="middle">สะบัด 3–4 ครั้ง</text>
+      <rect class="p" x="150" y="112" width="72" height="30" rx="6"/><rect class="af" x="160" y="119" width="52" height="16" rx="3"/><text class="mn" x="186" y="131" text-anchor="middle">A g</text>
+      <text class="tm" x="186" y="160" text-anchor="middle">d) ชั่ง “ท่อ+ผ้าเปียก”</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>เตรียมท่อ แล้วชั่ง “ท่อ + ผ้าเปียก” = A</h4><span class="x2">2 ท่อ</span></div>
+      <ol class="do">
+        <li>หุ้มปลายข้างหนึ่งของท่อพลาสติกด้วยผ้าไนลอนตาถี่ รัดด้วยยางให้แน่น (a–b)</li>
+        <li>จุ่มน้ำให้ผ้าเปียก ยกขึ้น สะบัดน้ำ 3–4 ครั้ง (c)</li>
+        <li>ชั่งน้ำหนัก = <b>A กรัม</b> (d)</li>
+      </ol>
+      <label class="done"><input type="checkbox" data-step="a1-5"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="a1s6"><div class="num">6</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="เติมดินแห้งลงในท่อ เคาะกับโต๊ะให้อัดแน่น แล้วชั่งได้ B กรัม">
+      <rect class="g" x="56" y="18" width="34" height="112" rx="2"/><rect class="s2" x="58" y="92" width="30" height="36"/>
+      <rect class="o" x="53" y="126" width="40" height="5" style="fill:var(--muted)"/>
+      <path class="ot" d="M96 92 h8 M96 128 h8 M100 92 v36"/><text class="tm" x="108" y="114">ดินแห้ง</text>
+      <line class="o" x1="30" y1="140" x2="120" y2="140"/>
+      <path class="v" d="M73 6 v8" marker-end="url(#arra)"/><path class="d" d="M40 148 l6 -4 M100 148 l6 -4"/>
+      <text class="tm" x="73" y="158" text-anchor="middle">e) เติมดิน แล้วเคาะให้แน่น</text>
+      <rect class="p" x="150" y="96" width="72" height="30" rx="6"/><rect class="af" x="160" y="103" width="52" height="16" rx="3"/><text class="mn" x="186" y="115" text-anchor="middle">B g</text>
+      <text class="tm" x="186" y="144" text-anchor="middle">f) ชั่ง “ท่อ+ผ้าเปียก</text><text class="tm" x="186" y="156" text-anchor="middle">+ดินแห้ง”</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>ใส่ดินอบแห้ง แล้วชั่ง = B</h4></div>
+      <ol class="do">
+        <li>ใส่ดินตัวอย่างที่<strong>อบแห้งแล้ว</strong>ลงในท่อ ประมาณ <strong>1/3 ของความสูงท่อ</strong></li>
+        <li>เคาะท่อกับโต๊ะจนดินอัดตัวแน่น</li>
+        <li>ชั่งน้ำหนัก = <b>B กรัม</b> (ท่อ + ผ้าเปียก + ดินแห้ง)</li>
+      </ol>
+      <p class="caution"><b>สังเกต</b><span>ในคู่มือ ข้อ 1.3.2 ระบุ “ประมาณ 1/3 ของความสูงท่อ” แต่คำบรรยายภาพที่ 2 (e) ระบุ “2/3” ให้ถามผู้สอนประจำกลุ่ม และใช้ปริมาณเท่ากันทั้ง 2 ท่อ</span></p>
+      <label class="done"><input type="checkbox" data-step="a1-6"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="a1s7"><div class="num">7</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="แช่ท่อในน้ำ ระดับน้ำประมาณหนึ่งในสามของความสูงดิน น้ำซึมขึ้นจนถึงผิวหน้าดิน แล้วชั่งได้ C กรัม">
+      <path class="g" d="M24 86 h104 l-8 60 h-88 z"/><path class="w" d="M28 112 h96 l-4 32 h-88 z"/>
+      <rect class="g" x="60" y="20" width="32" height="112" rx="2"/><rect class="s1" x="62" y="76" width="28" height="54" opacity=".9"/>
+      <rect class="s2" x="62" y="76" width="28" height="8"/>
+      <path class="v" d="M100 126 V82" marker-end="url(#arra)"/><text class="tm" x="104" y="96">น้ำซึมขึ้น</text>
+      <path class="ot" d="M50 112 h-8 M50 130 h-8 M46 112 v18"/><text class="tm" x="40" y="124" text-anchor="end">~1/3</text>
+      <text class="tm" x="76" y="160" text-anchor="middle">g) รอจนน้ำถึงผิวหน้าดิน</text>
+      <rect class="p" x="152" y="96" width="72" height="30" rx="6"/><rect class="af" x="162" y="103" width="52" height="16" rx="3"/><text class="mn" x="188" y="115" text-anchor="middle">C g</text>
+      <text class="tm" x="188" y="142" text-anchor="middle">h) สะบัด 3–4 ครั้ง</text><text class="tm" x="188" y="154" text-anchor="middle">แล้วชั่ง</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>แช่น้ำจนอิ่มตัว แล้วชั่ง = C</h4></div>
+      <ol class="do">
+        <li>นำท่อไปแช่น้ำ ให้ระดับน้ำในภาชนะสูงประมาณ <strong>1/3 ของความสูงของดินในท่อ</strong></li>
+        <li>รอจนน้ำซึมขึ้นถึงผิวหน้าดิน</li>
+        <li>ยกท่อขึ้น สะบัดน้ำ 3–4 ครั้ง แล้วชั่งน้ำหนัก = <b>C กรัม</b> (ท่อ + ผ้าเปียก + ดินแห้ง + น้ำที่ถูกดูดยึด)</li>
+      </ol>
+      <p class="tip"><b>ทิป</b><span>ดินทรายน้ำซึมขึ้นเร็ว ดินเหนียวอาจใช้เวลานานกว่า สังเกตและบันทึกเวลาที่ใช้ไว้เปรียบเทียบด้วย</span></p>
+      <label class="done"><input type="checkbox" data-step="a1-7"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="a1s8"><div class="num">8</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="แผนภาพน้ำหนัก A B และ C: B ลบ A คือดินแห้ง และ C ลบ B คือน้ำที่ดินดูดยึด">
+      <rect class="p" x="20" y="34" width="60" height="22" rx="3"/><text class="t" x="50" y="49" text-anchor="middle">A</text>
+      <rect class="p" x="20" y="74" width="60" height="22" rx="3"/><rect class="s2" x="80" y="74" width="80" height="22" rx="3"/><text class="t" x="50" y="89" text-anchor="middle">A</text><text class="tb" x="120" y="89" text-anchor="middle">B − A</text>
+      <rect class="p" x="20" y="114" width="60" height="22" rx="3"/><rect class="s2" x="80" y="114" width="80" height="22"/><rect class="w" x="160" y="114" width="56" height="22" rx="3"/>
+      <text class="t" x="50" y="129" text-anchor="middle">A</text><text class="tb" x="120" y="129" text-anchor="middle">ดินแห้ง</text><text class="tb" x="188" y="129" text-anchor="middle">C − B</text>
+      <text class="tm" x="12" y="28">ท่อ+ผ้าเปียก</text><text class="tm" x="12" y="70">B</text><text class="tm" x="12" y="110">C</text>
+      <text class="tm" x="188" y="152" text-anchor="middle">น้ำที่ถูกดูดยึด</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>คำนวณความสามารถดูดยึดน้ำ</h4></div>
+      <p class="formula">Water holding capacity (%) = น้ำหนักน้ำที่ดินดูดยึดไว้ ÷ น้ำหนักดินแห้งที่ใช้ทดลอง × 100 = (C − B) ÷ (B − A) × 100</p>
+      <p class="tip"><b>ตัวอย่าง</b><span>A = 12.0, B = 52.0, C = 66.0 → (66.0 − 52.0) ÷ (52.0 − 12.0) × 100 = 35.0 %</span></p>
+      <label class="done"><input type="checkbox" data-step="a1-8"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+  <li class="calc" id="calc-whc">
+    <h4>เครื่องคิดเลข: Water holding capacity</h4>
+    <p>A = ท่อ + ผ้าเปียก · B = A + ดินแห้ง · C = B + น้ำที่ถูกดูดยึด (หน่วยกรัม)</p>
+    <div class="tw"><table>
+      <thead><tr><th>ดิน</th><th>A (g)</th><th>B (g)</th><th>C (g)</th><th>ดินแห้ง B−A</th><th>น้ำ C−B</th><th>WHC (%)</th></tr></thead>
+      <tbody>
+        <tr><td data-name="1">ดินที่ 1</td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="w1a"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="w1b"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="w1c"></td><td class="mono" id="w1dry">–</td><td class="mono" id="w1wat">–</td><td class="res" id="w1out">–</td></tr>
+        <tr><td data-name="2">ดินที่ 2</td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="w2a"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="w2b"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="w2c"></td><td class="mono" id="w2dry">–</td><td class="mono" id="w2wat">–</td><td class="res" id="w2out">–</td></tr>
+      </tbody>
+    </table></div>
+  </li>
+
+  <li class="phase"><span class="tag">D</span><div><h3>เปรียบเทียบและสรุป</h3></div></li>
+  <li class="step" id="a1s9"><div class="num">9</div><article class="card full">
+    <div class="body">
+      <div class="hd"><h4>เปรียบเทียบดิน 2 ชนิด และเก็บกวาด</h4></div>
+      <div class="cmp" id="cmp" aria-live="polite"></div>
+      <p class="interp" id="interp">กรอกค่าในเครื่องคิดเลขทั้งสองส่วนเพื่อดูการเปรียบเทียบ</p>
+      <ol class="do">
+        <li>เชื่อมโยงสีและเนื้อดินกับค่าความชื้นและ WHC ที่ได้ ดินชนิดใดน่าจะมีอนุภาคดินเหนียวหรืออินทรียวัตถุมากกว่า</li>
+        <li>ดินชนิดใดเหมาะต่อการเจริญของพืชและสิ่งมีชีวิตในดินมากกว่า เพราะอะไร (คำนึงถึงทั้งน้ำและการถ่ายเทอากาศ)</li>
+      </ol>
+      <p class="warn">ล้างอุปกรณ์ทุกอย่างให้สะอาดหลังเสร็จปฏิบัติการ และห้ามทิ้งดินลงในอ่างน้ำ ให้ทิ้งลงภาชนะที่จัดเตรียมไว้ให้</p>
+      <label class="done"><input type="checkbox" data-step="a1-9"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+</ol>
+</section>
+
+<!-- ================= ACTIVITY 2: ECOSYSTEM + FOOD WEB ================= -->
+<section class="act" id="act2" role="tabpanel" aria-labelledby="tab-act2" hidden>
+<div class="act-head">
+  <p class="kicker">กิจกรรมที่ 2</p>
+  <h2>การศึกษาระบบนิเวศและสร้างสายใยอาหาร</h2>
+  <p class="lead">แบ่งกลุ่มย่อย 2 กลุ่ม แยกกันศึกษา <b>ระบบนิเวศสระน้ำ</b> และ <b>ระบบนิเวศสนามหญ้า</b> เก็บข้อมูลปัจจัยกายภาพและชีวภาพ แล้วนำมาสร้างห่วงโซ่อาหารและสายใยอาหาร เพื่อวิเคราะห์สถานภาพของระบบ</p>
+</div>
+<div class="concept" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+  <div>
+    <p class="tagline">FOOD CHAIN</p>
+    <h3>ห่วงโซ่อาหาร 2 แบบ</h3>
+    <div class="chain"><small>grazing / predator food chain เริ่มจากพืช</small><span>หญ้า</span><i>→</i><span>วัว</span><i>→</i><span>คน</span></div>
+    <div class="chain"><small>detritus food chain เริ่มจากซากอินทรีย์</small><span>ขอนไม้ผุ</span><i>→</i><span>ปลวก</span><i>→</i><span>นก</span></div>
+  </div>
+  <div>
+    <p class="tagline">ARROW RULE</p>
+    <h3>ลูกศรชี้ไปที่ผู้บริโภค</h3>
+    <svg class="ill" viewBox="0 0 260 70" role="img" aria-label="ลูกศรจากสาหร่ายไปยังหอย หมายถึงพลังงานถ่ายทอดจากสาหร่ายไปสู่หอยที่กินสาหร่าย">
+      <rect class="af" x="6" y="18" width="78" height="30" rx="15"/><text class="tb" x="45" y="37" text-anchor="middle">สาหร่าย</text>
+      <rect class="wf" x="176" y="18" width="78" height="30" rx="15"/><text class="tb" x="215" y="37" text-anchor="middle">หอยโข่ง</text>
+      <path class="v" d="M88 33 H170" marker-end="url(#arra)"/><text class="tm" x="129" y="24" text-anchor="middle">สสาร/พลังงาน</text><text class="tm" x="129" y="58" text-anchor="middle">“ถูกกินโดย”</text>
+    </svg>
+    <p>ปลายลูกศรชี้ไปที่ <b>ผู้รับสสาร/พลังงาน</b> (ผู้กิน) ไม่ใช่ชี้ไปที่อาหาร</p>
+  </div>
+  <div>
+    <p class="tagline">TROPHIC LEVEL</p>
+    <h3>ลำดับขั้นการกิน</h3>
+    <ol style="padding-left:1.2em">
+      <li>ผู้ผลิต (producer) อยู่ฐานล่างสุด</li>
+      <li>ผู้บริโภคลำดับที่ 1, 2, 3 … เรียงขึ้นไปตามลำดับขั้นการกิน</li>
+      <li>สัตว์ที่กินได้หลายระดับ ให้พิจารณา <b>ลำดับสูงสุดที่เป็นไปได้</b></li>
+    </ol>
+  </div>
+  <div>
+    <p class="tagline">INTRODUCED SPECIES</p>
+    <h3><span class="alien">*</span> ชนิดพันธุ์ต่างถิ่น</h3>
+    <p>สิ่งมีชีวิตที่ไม่ได้มีถิ่นกำเนิดดั้งเดิมในสิ่งแวดล้อมนั้น ถูกนำเข้าหรือแพร่มาจากที่อื่น บางชนิดหากินและแก่งแย่งทรัพยากรได้ดีกว่าชนิดท้องถิ่น จนส่งผลเสียต่อชนิดพันธุ์ท้องถิ่น เรียกว่า <b>ชนิดพันธุ์ต่างถิ่นรุกราน</b> (invasive introduced species)</p>
+  </div>
+</div>
+
+<div class="switch" id="eco-switch">
+  <p>เลือกระบบนิเวศที่กลุ่มของนิสิตศึกษา ขั้นตอน ตาราง และแผ่นงานสายใยอาหารจะเปลี่ยนตาม</p>
+  <div class="seg" role="group" aria-label="เลือกระบบนิเวศ">
+    <button type="button" data-eco="pond" aria-pressed="true">สระน้ำ</button>
+    <button type="button" data-eco="lawn" aria-pressed="false">สนามหญ้า</button>
+  </div>
+</div>
+
+<div class="track-wrap">
+<!-- ---------- POND TRACK ---------- -->
+<div class="track" data-track="pond" data-prog style="display:flex;flex-direction:column;gap:30px">
+<nav class="map" aria-label="ผังขั้นตอนระบบนิเวศสระน้ำ">
+  <div class="ph"><span class="lbl">ส่วน A · กายภาพ</span><h3>สระ อากาศ แสง</h3><ul>
+    <li><a href="#p1" data-step="a2p-1"><span class="n">1</span>เลือกสระ วัดรูปร่าง</a></li>
+    <li><a href="#p2" data-step="a2p-2"><span class="n">2</span>อุณหภูมิ 3 ระดับ</a></li>
+    <li><a href="#p3" data-step="a2p-3"><span class="n">3</span>แสงแดดต่อวัน</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน B · กายภาพ</span><h3>น้ำและดินก้นสระ</h3><ul>
+    <li><a href="#p4" data-step="a2p-4"><span class="n">4</span>Transparency (Secchi)</a></li>
+    <li><a href="#p5" data-step="a2p-5"><span class="n">5</span>ดินก้นสระ + pH</a></li>
+    <li><a href="#p6" data-step="a2p-6"><span class="n">6</span>pH สี ความขุ่นของน้ำ</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน C · ชีวภาพ</span><h3>สิ่งมีชีวิตในสระ</h3><ul>
+    <li><a href="#p7" data-step="a2p-7"><span class="n">7</span>พืชและสัตว์ที่เห็น</a></li>
+    <li><a href="#p8" data-step="a2p-8"><span class="n">8</span>สิ่งมีชีวิตขนาดเล็ก</a></li>
+    <li><a href="#p9" data-step="a2p-9"><span class="n">9</span>หน้าที่เชิงอาหาร (ตาราง 9.1)</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน D · รายงาน</span><h3>สายใยอาหาร</h3><ul>
+    <li><a href="#p10" data-step="a2p-10"><span class="n">10</span>เขียนสายใยอาหารสระน้ำ</a></li></ul></div>
+  <div class="progress"><span class="prog-txt">ทำแล้ว 0 จาก 10 ขั้น</span><div class="bar"><i></i></div></div>
+</nav>
+<ol class="flow">
+  <li class="phase"><span class="tag">A</span><div><h3>ปัจจัยทางกายภาพ: สระ อากาศ แสง</h3></div></li>
+  <li class="step" id="p1"><div class="num">1</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="สระน้ำมองจากด้านบน วัดความกว้าง ความยาว และความลึก">
+      <path class="pond" d="M40 70 C40 40 110 32 160 40 C210 48 214 96 190 112 C160 132 70 130 48 110 C36 98 40 84 40 70 Z"/>
+      <path class="v" d="M44 146 H200" marker-start="url(#arra)" marker-end="url(#arra)"/><text class="tb" x="122" y="162" text-anchor="middle">ความยาว (m)</text>
+      <path class="v" d="M222 40 V118" marker-start="url(#arra)" marker-end="url(#arra)"/><text class="tb" x="226" y="30" text-anchor="end">กว้าง</text>
+      <rect class="p" x="104" y="44" width="5" height="64"/><g class="ot"><path d="M104 60 h-4 M104 76 h-4 M104 92 h-4"/></g>
+      <text class="tm" x="114" y="80">ไม้วัดความลึก</text>
+      <text class="tm" x="60" y="22">พื้นที่ ≈ กว้าง × ยาว</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>เลือกสระน้ำ และวัดรูปร่างของสระ</h4><span class="x2">ข้อ 1.1.1–1.1.2</span></div>
+      <ol class="do"><li>เลือกสระน้ำที่จะศึกษา บันทึกตำแหน่ง/ชื่อเรียก</li><li>วัดความกว้าง ความยาว และความลึก แล้วประเมินขนาดพื้นที่</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล</div>
+        <label class="wide">ชื่อ/ตำแหน่งสระ<input data-k="pName" placeholder="เช่น บ่อหน่วงน้ำ อุทยาน 100 ปี"></label>
+        <label>กว้าง (m)<input type="number" step="any" min="0" inputmode="decimal" data-k="pW"></label>
+        <label>ยาว (m)<input type="number" step="any" min="0" inputmode="decimal" data-k="pL"></label>
+        <label>ลึก (m)<input type="number" step="any" min="0" inputmode="decimal" data-k="pD"></label>
+        <label>พื้นที่โดยประมาณ<span class="out" id="pArea">–</span></label>
+      </div>
+      <p class="tip"><b>ทิป</b><span>สระที่ไม่เป็นสี่เหลี่ยม พื้นที่จริงน้อยกว่ากว้าง × ยาว ระบุรูปร่างไว้ด้วย (เช่น วงรี ≈ 0.785 × กว้าง × ยาว)</span></p>
+      <label class="done"><input type="checkbox" data-step="a2p-1"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="p2"><div class="num">2</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="เทอร์โมมิเตอร์ 3 อัน วัดอุณหภูมิอากาศ ผิวน้ำ และใต้ผิวน้ำ 30 เซนติเมตร">
+      <rect class="w" x="0" y="80" width="240" height="92" opacity=".75"/><line class="o" x1="0" y1="80" x2="240" y2="80" style="stroke-width:1.2"/>
+      <g><rect class="p" x="40" y="14" width="10" height="50" rx="5"/><circle class="dns" cx="45" cy="66" r="7"/><rect x="43" y="34" width="4" height="30" style="fill:var(--danger)"/></g>
+      <g><rect class="p" x="115" y="44" width="10" height="38" rx="5"/><circle class="dns" cx="120" cy="84" r="7"/><rect x="118" y="58" width="4" height="26" style="fill:var(--danger)"/></g>
+      <g><line class="ot" x1="195" y1="40" x2="195" y2="102"/><rect class="p" x="190" y="102" width="10" height="38" rx="5"/><circle class="dns" cx="195" cy="142" r="7"/><rect x="193" y="118" width="4" height="24" style="fill:var(--danger)"/></g>
+      <path class="ot" d="M216 80 V142 M212 80 h8 M212 142 h8"/><text class="mn" x="222" y="114">30</text><text class="tm" x="222" y="125">cm</text>
+      <text class="tb" x="45" y="100" text-anchor="middle">อากาศ</text><text class="tb" x="120" y="110" text-anchor="middle">ผิวน้ำ</text><text class="tb" x="170" y="160" text-anchor="middle">ใต้ผิวน้ำ</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>วัดอุณหภูมิ 3 ระดับ</h4><span class="x2">ข้อ 1.1.3</span></div>
+      <ol class="do"><li>วัดอุณหภูมิในอากาศ (ไม่ให้แดดส่องกระเปาะโดยตรง)</li><li>วัดที่ระดับผิวน้ำ</li><li>วัดใต้ผิวน้ำลึก 30 เซนติเมตร ด้วย thermometer</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล (°C)</div>
+        <label>อากาศ<input type="number" step="any" inputmode="decimal" data-k="pTa"></label>
+        <label>ผิวน้ำ<input type="number" step="any" inputmode="decimal" data-k="pTs"></label>
+        <label>ใต้ผิวน้ำ 30 cm<input type="number" step="any" inputmode="decimal" data-k="pTd"></label>
+      </div>
+      <p class="tip"><b>ทิป</b><span>รอให้ค่าคงที่ประมาณ 1–2 นาทีก่อนอ่าน และอ่านค่าขณะกระเปาะยังอยู่ในตำแหน่งวัด</span></p>
+      <label class="done"><input type="checkbox" data-step="a2p-2"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="p3"><div class="num">3</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ดวงอาทิตย์เคลื่อนผ่านท้องฟ้า ประมาณจำนวนชั่วโมงที่แดดส่องโดยตรงต่อวัน">
+      <path class="d" d="M30 130 C60 30 180 30 210 130"/>
+      <circle cx="120" cy="56" r="16" style="fill:#F2C14E"/><g style="stroke:#F2C14E;stroke-width:2.5;stroke-linecap:round"><path d="M120 30v-8M120 90v-8M94 56h-8M154 56h-8M102 38l-5-5M138 38l5-5M102 74l-5 5M138 74l5 5"/></g>
+      <path class="pond" d="M60 136 C80 124 160 124 180 136 C160 148 80 148 60 136 Z"/>
+      <rect class="lf" x="196" y="96" width="8" height="40"/><circle class="lf" cx="200" cy="90" r="18"/>
+      <text class="tm" x="30" y="150">เช้า</text><text class="tm" x="210" y="150" text-anchor="end">เย็น</text>
+      <text class="tb" x="120" y="166" text-anchor="middle">กี่ชั่วโมงที่แดดส่องตรง?</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>ประมาณแสงสว่าง</h4><span class="x2">ข้อ 1.1.4</span></div>
+      <ol class="do"><li>ประมาณว่าแสงแดดส่องโดยตรงบนบริเวณที่ศึกษากี่ชั่วโมงต่อวัน</li><li>พิจารณาร่มเงาจากต้นไม้ อาคาร และทิศทางของดวงอาทิตย์</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล</div><label>แดดส่องโดยตรง (ชม./วัน)<input type="number" step="any" min="0" max="24" inputmode="decimal" data-k="pSun"></label><label class="wide">สิ่งที่บังแสง<input data-k="pShade" placeholder="เช่น ต้นไม้ฝั่งตะวันตก"></label></div>
+      <label class="done"><input type="checkbox" data-step="a2p-3"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="phase"><span class="tag">B</span><div><h3>ปัจจัยทางกายภาพ: น้ำและดินก้นสระ</h3></div></li>
+  <li class="step" id="p4"><div class="num">4</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="หย่อน Secchi disc ลงในน้ำจนมองไม่เห็นที่ 1.5 เมตร และดึงขึ้นจนเห็นที่ 1.6 เมตร">
+      <rect class="w" x="0" y="34" width="240" height="138" opacity=".8"/><line class="o" x1="0" y1="34" x2="240" y2="34" style="stroke-width:1.2"/>
+      <line class="o" x1="70" y1="6" x2="70" y2="112" style="stroke-width:1.4"/>
+      <ellipse cx="70" cy="114" rx="26" ry="6" style="fill:#fff;stroke:var(--line);stroke-width:1.5"/><path d="M44 114 A26 6 0 0 1 70 108 V114Z M96 114 A26 6 0 0 1 70 120 V114Z" style="fill:#222"/>
+      <path class="ot" d="M118 34 V108 M114 108 h8"/><text class="mn" x="126" y="104">1.5 m</text><text class="tm" x="126" y="92">↓ มองไม่เห็น</text>
+      <path class="ot" d="M170 34 V122 M166 122 h8"/><text class="mn" x="178" y="118">1.6 m</text><text class="tm" x="178" y="132">↑ เริ่มเห็น</text>
+      <text class="tb" x="120" y="160" text-anchor="middle">(1.5 + 1.6) ÷ 2 = 1.55 m</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>วัดค่า Transparency ด้วย Secchi disc</h4><span class="x2">ข้อ 1.1.5</span></div>
+      <ol class="do">
+        <li>หย่อน Secchi disc ลงไปจนถึงจุดที่<strong>เริ่มมองไม่เห็น</strong> บันทึกระยะ</li>
+        <li>หย่อนลงไปอีกเล็กน้อยให้เกินจุดนี้ แล้วค่อย ๆ ดึงขึ้นจน<strong>เริ่มมองเห็น</strong> บันทึกระยะ</li>
+        <li>Transparency = ค่าเฉลี่ยของสองระยะ</li>
+      </ol>
+      <div class="fields"><div class="fh">บันทึกผล (เมตร)</div>
+        <label>ระยะเริ่มมองไม่เห็น<input type="number" step="any" min="0" inputmode="decimal" data-k="pS1"></label>
+        <label>ระยะเริ่มมองเห็น<input type="number" step="any" min="0" inputmode="decimal" data-k="pS2"></label>
+        <label>Transparency<span class="out" id="pSec">–</span></label>
+      </div>
+      <p class="tip"><b>ทิป</b><span>วัดด้านที่ไม่มีเงาสะท้อน ผู้วัดคนเดิมทั้งขาลงและขาขึ้น ถ้าเห็นแผ่นถึงก้นสระ ให้บันทึกว่า “มากกว่าความลึกของสระ”</span></p>
+      <label class="done"><input type="checkbox" data-step="a2p-4"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="p5"><div class="num">5</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="เขี่ยดินก้นสระขึ้นมาสังเกต แล้วผสมดิน 1 ส่วนกับน้ำกลั่น 2 ส่วนในหลอดทดลอง วัด pH ส่วนน้ำใส">
+      <rect class="w" x="0" y="50" width="120" height="90" opacity=".8"/><path class="s1" d="M0 128 C30 120 80 124 120 130 V172 H0 Z"/>
+      <line class="o" x1="96" y1="10" x2="40" y2="126" style="stroke-width:4;stroke:var(--soil2)"/>
+      <path class="g" d="M160 30 V128 a14 14 0 0 0 28 0 V30"/><path class="s1" d="M162.5 116 V128 a11.5 11.5 0 0 0 23 0 V116 Z"/><path class="w" d="M162.5 80 H185.5 V116 H162.5 Z" opacity=".7"/>
+      <path class="ot" d="M194 116 h6 M194 80 h6 M194 142 h6"/><text class="mn" x="204" y="133">1</text><text class="mn" x="204" y="102">2</text>
+      <rect class="p" x="170" y="6" width="7" height="86"/><rect x="170.5" y="72" width="6" height="16" fill="#E0A23A"/>
+      <text class="tm" x="174" y="160" text-anchor="middle">ดิน : น้ำกลั่น = 1 : 2</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>สังเกตดินก้นสระ และวัด pH ของดิน</h4><span class="x2">ข้อ 1.1.6–1.1.7</span></div>
+      <ol class="do">
+        <li>ใช้ไม้เขี่ยดินก้นสระขึ้นมาดูว่าเป็นโคลน ทราย หรือดินเหนียว สังเกตสีและกลิ่น</li>
+        <li>นำดินประมาณ 1–2 ลบ.ซม. ละลายในน้ำกลั่น อัตราส่วน <strong>ดิน 1 : น้ำกลั่น 2</strong> ทิ้งไว้สักครู่</li>
+        <li>วัด pH บริเวณ<strong>ส่วนน้ำใส</strong>ด้วย pH paper</li>
+      </ol>
+      <div class="fields"><div class="fh">บันทึกผล</div>
+        <label>ลักษณะดินก้นสระ<select data-k="pSedT"><option value="">เลือก</option><option>โคลน</option><option>ทราย</option><option>ดินเหนียว</option><option>ผสม</option></select></label>
+        <label>สี<input data-k="pSedC" placeholder="เช่น ดำ"></label>
+        <label>กลิ่น<input data-k="pSedS" placeholder="เช่น กลิ่นไข่เน่า"></label>
+        <label>pH ของดินก้นสระ<input type="number" step="0.5" min="0" max="14" inputmode="decimal" data-k="pSedPH"></label>
+      </div>
+      <p class="tip"><b>ทิป</b><span>ดินก้นสระสีดำและมีกลิ่นไข่เน่า มักบ่งชี้สภาพไร้ออกซิเจนและการย่อยสลายอินทรียวัตถุสะสม</span></p>
+      <label class="done"><input type="checkbox" data-step="a2p-5"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="p6"><div class="num">6</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="หลอดทดลองน้ำสระ 5 ถึง 10 มิลลิลิตร วัด pH และเทียบสีความขุ่นกับน้ำประปาหรือน้ำดื่ม">
+      <path class="g" d="M40 30 V126 a15 15 0 0 0 30 0 V30"/><path class="w2" d="M42.5 90 V126 a12.5 12.5 0 0 0 25 0 V90 Z"/>
+      <rect class="p" x="51" y="10" width="8" height="118"/><rect x="51.5" y="104" width="7" height="18" fill="#6FB04E"/>
+      <text class="tm" x="55" y="160" text-anchor="middle">5–10 mL + pH paper</text>
+      <path class="g" d="M120 70 h40 l-4 70 h-32 z"/><path class="w2" d="M122 86 h36 l-3 52 h-30 z" opacity=".95"/>
+      <path class="g" d="M176 70 h40 l-4 70 h-32 z"/><path d="M178 86 h36 l-3 52 h-30 z" style="fill:var(--glass)"/>
+      <text class="tb" x="140" y="158" text-anchor="middle">น้ำสระ</text><text class="tb" x="196" y="158" text-anchor="middle">น้ำประปา</text>
+      <text class="tm" x="168" y="56" text-anchor="middle">เทียบสีและความขุ่น</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>วัด pH ของน้ำ สังเกตสีและความขุ่น</h4><span class="x2">ข้อ 1.1.8–1.1.9</span></div>
+      <ol class="do">
+        <li>นำตัวอย่างน้ำประมาณ 5–10 ลบ.ซม. ใส่หลอดทดลอง วัด pH ด้วย pH paper</li>
+        <li>สังเกตสีของน้ำ (เขียว เหลือง ดำ) และความขุ่น โดย<strong>เปรียบเทียบกับน้ำประปาหรือน้ำดื่มบรรจุขวด</strong></li>
+      </ol>
+      <div class="fields"><div class="fh">บันทึกผล</div>
+        <label>pH ของน้ำ<input type="number" step="0.5" min="0" max="14" inputmode="decimal" data-k="pWPH"></label>
+        <label>สีของน้ำ<select data-k="pWC"><option value="">เลือก</option><option>ใส ไม่มีสี</option><option>เขียว</option><option>เหลือง/น้ำตาล</option><option>ดำ/เทาเข้ม</option></select></label>
+        <label>ความขุ่น<select data-k="pWT"><option value="">เลือก</option><option>ใสเท่าน้ำประปา</option><option>ค่อนข้างใส</option><option>ขุ่น</option><option>ขุ่นมาก</option></select></label>
+      </div>
+      <p class="tip"><b>ทิป</b><span>น้ำสีเขียวมักมีแพลงก์ตอนพืชมาก เชื่อมโยงกับค่า Transparency ในขั้นที่ 4</span></p>
+      <label class="done"><input type="checkbox" data-step="a2p-6"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="phase"><span class="tag">C</span><div><h3>ปัจจัยทางชีวภาพ</h3><p>ถ้ารู้จักชื่อแล้วไม่ต้องเก็บตัวอย่าง ถ้าจำเป็นให้เก็บอย่างระมัดระวัง และนำไปปล่อยคืนที่เดิมเมื่อศึกษาเสร็จ</p></div></li>
+  <li class="step" id="p7"><div class="num">7</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ภาพตัดสระน้ำมีพืชน้ำ ปลา หอย และนกยางที่ขอบสระ">
+      <rect class="w" x="0" y="60" width="240" height="112" opacity=".8"/><line class="o" x1="0" y1="60" x2="240" y2="60" style="stroke-width:1.2"/>
+      <path class="s1" d="M0 150 C60 142 180 146 240 152 V172 H0 Z"/>
+      <path class="grs" d="M30 150 C26 120 36 100 30 70 M40 150 C44 124 36 104 44 78 M50 150 C46 128 54 110 50 90"/>
+      <g class="a"><path d="M120 100 c14 -10 30 -10 40 0 c-10 10 -26 10 -40 0z"/><path d="M160 100 l10 -7 v14z"/></g><circle cx="128" cy="98" r="1.6" style="fill:var(--on-accent)"/>
+      <path class="wf" d="M190 146 c0 -12 18 -12 18 0 z"/>
+      <g class="o"><path d="M196 58 v-26 M204 58 v-26"/><path d="M188 34 c0 -16 24 -16 24 0 z" style="fill:var(--surface)"/><path d="M210 22 l18 -6"/></g>
+      <text class="tm" x="12" y="50">พืชน้ำ</text><text class="tm" x="140" y="124" text-anchor="middle">ปลา</text><text class="tm" x="199" y="164" text-anchor="middle">หอย</text><text class="tm" x="200" y="12" text-anchor="middle">นก</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>บันทึกข้อมูลพืชและสัตว์ที่เห็นด้วยตาเปล่า</h4><span class="x2">ข้อ 1.2.1</span></div>
+      <ol class="do"><li>มีพืชและสัตว์กี่ชนิด อะไรบ้าง</li><li>ปริมาณมากน้อยอย่างไร (เช่น พบมาก/ปานกลาง/น้อย)</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล</div><label class="wide">ชนิดและปริมาณ<textarea data-k="pBio" placeholder="เช่น สาหร่ายหางกระรอก (มาก), หอยเชอรี่ (ปานกลาง), ปลาหางนกยูง (มาก) ..."></textarea></label></div>
+      <label class="done"><input type="checkbox" data-step="a2p-7"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="p8"><div class="num">8</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="หยดน้ำบนสไลด์ส่องด้วยกล้องจุลทรรศน์ พบแพลงก์ตอนพืชและแพลงก์ตอนสัตว์">
+      <g class="o" style="stroke-width:2.2"><path d="M40 150 h70 M60 150 v-14 h30 v14 M75 136 V120 M50 120 h50 M64 120 C64 96 78 70 96 52 M96 52 l14 -14"/></g>
+      <rect class="p" x="100" y="26" width="16" height="22" rx="3" transform="rotate(45 108 37)"/>
+      <circle class="af" cx="180" cy="80" r="46"/>
+      <g class="lf"><circle cx="160" cy="66" r="5"/><circle cx="168" cy="96" r="4"/><rect x="186" y="58" width="16" height="5" rx="2.5" transform="rotate(30 194 60)"/></g>
+      <g class="o" style="stroke-width:1.6"><ellipse cx="194" cy="98" rx="9" ry="6"/><path d="M185 98 l-7 -5 M185 98 l-7 5 M203 98 l6 -6"/></g>
+      <text class="tm" x="180" y="142" text-anchor="middle">phytoplankton · zooplankton</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>สิ่งมีชีวิตขนาดเล็กในน้ำ</h4><span class="x2">ข้อ 1.2.2</span></div>
+      <ol class="do"><li>เก็บน้ำกลับมาที่ห้องปฏิบัติการ</li><li>ส่องด้วยกล้องจุลทรรศน์/กล้องสเตอริโอ หาแพลงก์ตอนพืช แพลงก์ตอนสัตว์ สัตว์ไม่มีกระดูกสันหลังขนาดเล็ก (และแบคทีเรีย)</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล</div><label class="wide">สิ่งที่พบ<textarea data-k="pMicro" placeholder="เช่น สาหร่ายเซลล์เดียว, ไรน้ำ, ลูกน้ำยุง ..."></textarea></label></div>
+      <label class="done"><input type="checkbox" data-step="a2p-8"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="p9"><div class="num">9</div><article class="card full">
+    <div class="body">
+      <div class="hd"><h4>หน้าที่เชิงอาหาร (trophic niche) และลำดับขั้นการกิน</h4><span class="x2">ข้อ 1.2.3 · ตารางที่ 9.1</span></div>
+      <p>สังเกตว่าสิ่งมีชีวิตกำลังกินอะไร หรือสืบค้นเพิ่มเติม แล้ว<strong>จำแนกลำดับขั้นการกินก่อนสร้างสายใยอาหาร</strong> (เลือกลำดับสูงสุดที่เป็นไปได้)</p>
+      <div class="ref"><div class="tw"><table data-otable="pond"></table></div><p class="foot"><span class="alien">*</span> ชนิดพันธุ์ต่างถิ่น (introduced species) · แถวที่มีคำตอบตัวอย่างมาจากคู่มือ · คำตอบที่เลือกบันทึกในเบราว์เซอร์นี้เท่านั้น</p></div>
+      <div class="actions"><button class="btn" type="button" data-place="pond">วางลงแผ่นงานสายใยอาหารตามลำดับที่เลือก ↓</button><span class="note" data-place-note="pond"></span></div>
+      <label class="done"><input type="checkbox" data-step="a2p-9"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="phase"><span class="tag">D</span><div><h3>สายใยอาหาร</h3></div></li>
+  <li class="step" id="p10"><div class="num">10</div><article class="card full">
+    <div class="body">
+      <div class="hd"><h4>เขียนสายใยอาหารของสระน้ำให้สมบูรณ์ที่สุด</h4><span class="x2">ข้อ 1.2.4</span></div>
+      <p>รวมข้อมูลจากการสำรวจของกลุ่ม (ขั้นที่ 7–8) กับตารางที่ 9.1 ผู้ผลิตอยู่ฐานล่าง เรียงขึ้นตามลำดับขั้นการกิน ลูกศรชี้ไปที่ผู้บริโภค</p>
+      <div class="actions"><a class="btn" href="#fw" data-jump-fw>เปิดแผ่นงานสายใยอาหาร (สระน้ำ) ↓</a></div>
+      <label class="done"><input type="checkbox" data-step="a2p-10"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+</ol>
+<div class="actions"><button class="btn ghost" type="button" data-copy="pond">คัดลอกผลบันทึกสระน้ำทั้งหมด</button><span class="note">นำไปวางในรายงานหรือแชร์ให้เพื่อนในกลุ่ม</span></div>
+</div>
+
+<!-- ---------- LAWN TRACK ---------- -->
+<div class="track" data-track="lawn" data-prog hidden style="display:flex;flex-direction:column;gap:30px">
+<nav class="map" aria-label="ผังขั้นตอนระบบนิเวศสนามหญ้า">
+  <div class="ph"><span class="lbl">ส่วน A · กายภาพ</span><h3>พื้นที่ อากาศ แสง</h3><ul>
+    <li><a href="#l1" data-step="a2l-1"><span class="n">1</span>เลือกสนาม วัดขนาด</a></li>
+    <li><a href="#l2" data-step="a2l-2"><span class="n">2</span>อุณหภูมิผิวดิน/ใต้ดิน</a></li>
+    <li><a href="#l3" data-step="a2l-3"><span class="n">3</span>แสงและความชื้นอากาศ</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน B · กายภาพ</span><h3>ดิน</h3><ul>
+    <li><a href="#l4" data-step="a2l-4"><span class="n">4</span>pH สี และเนื้อดิน</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน C · ชีวภาพ</span><h3>สิ่งมีชีวิตในแปลง</h3><ul>
+    <li><a href="#l5" data-step="a2l-5"><span class="n">5</span>วาง quadrat 1×1 m</a></li>
+    <li><a href="#l6" data-step="a2l-6"><span class="n">6</span>บันทึกพืช</a></li>
+    <li><a href="#l7" data-step="a2l-7"><span class="n">7</span>บันทึกสัตว์ (ขุด 5 cm)</a></li>
+    <li><a href="#l8" data-step="a2l-8"><span class="n">8</span>สัตว์ในดินขนาดเล็ก</a></li>
+    <li><a href="#l9" data-step="a2l-9"><span class="n">9</span>หน้าที่เชิงอาหาร (ตาราง 9.2)</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน D · รายงาน</span><h3>สายใยอาหาร</h3><ul>
+    <li><a href="#l10" data-step="a2l-10"><span class="n">10</span>เขียนสายใยอาหารสนามหญ้า</a></li></ul></div>
+  <div class="progress"><span class="prog-txt">ทำแล้ว 0 จาก 10 ขั้น</span><div class="bar"><i></i></div></div>
+</nav>
+<ol class="flow">
+  <li class="phase"><span class="tag">A</span><div><h3>ปัจจัยทางกายภาพ: พื้นที่ อากาศ แสง</h3></div></li>
+  <li class="step" id="l1"><div class="num">1</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="สนามหญ้ารูปสี่เหลี่ยม วัดความกว้างและความยาว">
+      <path class="gr" d="M30 50 L190 36 L218 120 L44 136 Z" opacity=".85"/>
+      <g class="grs" style="stroke:var(--leaf)"><path d="M70 90 l3 -8 l3 8 M120 80 l3 -8 l3 8 M160 100 l3 -8 l3 8 M96 112 l3 -8 l3 8 M150 64 l3 -8 l3 8"/></g>
+      <path class="v" d="M44 150 L218 134" marker-start="url(#arra)" marker-end="url(#arra)"/><text class="tb" x="136" y="164" text-anchor="middle">ยาว (m)</text>
+      <path class="v" d="M226 116 L198 34" marker-start="url(#arra)" marker-end="url(#arra)"/><text class="tb" x="200" y="24" text-anchor="middle">กว้าง</text>
+      <text class="tm" x="30" y="30">พื้นที่ ≈ กว้าง × ยาว</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>เลือกสนามหญ้า และวัดขนาด</h4><span class="x2">ข้อ 1.1.1–1.1.2</span></div>
+      <ol class="do"><li>เลือกสนามหญ้าที่จะศึกษา</li><li>วัดความกว้างและความยาว แล้วประเมินขนาดพื้นที่</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล</div>
+        <label class="wide">ชื่อ/ตำแหน่งสนามหญ้า<input data-k="lName" placeholder="เช่น สนามหญ้าลาดเอียง อุทยาน 100 ปี"></label>
+        <label>กว้าง (m)<input type="number" step="any" min="0" inputmode="decimal" data-k="lW"></label>
+        <label>ยาว (m)<input type="number" step="any" min="0" inputmode="decimal" data-k="lL"></label>
+        <label>พื้นที่โดยประมาณ<span class="out" id="lArea">–</span></label>
+      </div>
+      <label class="done"><input type="checkbox" data-step="a2l-1"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="l2"><div class="num">2</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="เทอร์โมมิเตอร์วางที่ผิวดิน และปักลงใต้ผิวดินลึก 10 เซนติเมตร">
+      <rect class="s2" x="0" y="80" width="240" height="92"/><path class="gr" d="M0 74 H240 V84 H0 Z"/>
+      <g class="grs" style="stroke:var(--leaf)"><path d="M14 76 l3 -10 l3 10 M200 76 l3 -10 l3 10 M224 76 l3 -10 l3 10"/></g>
+      <g transform="rotate(-80 80 74)"><rect class="p" x="50" y="69" width="50" height="10" rx="5"/><circle class="dns" cx="104" cy="74" r="7"/></g>
+      <rect class="p" x="150" y="40" width="10" height="70" rx="5"/><circle class="dns" cx="155" cy="114" r="7"/><rect x="153" y="84" width="4" height="30" style="fill:var(--danger)"/>
+      <path class="ot" d="M178 80 V114 M174 80 h8 M174 114 h8"/><text class="mn" x="184" y="100">10 cm</text>
+      <text class="tb" x="80" y="150" text-anchor="middle">ผิวดิน</text><text class="tb" x="155" y="150" text-anchor="middle">ใต้ผิวดิน</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>วัดอุณหภูมิผิวดินและใต้ผิวดิน</h4><span class="x2">ข้อ 1.1.3</span></div>
+      <ol class="do"><li>วัดอุณหภูมิบริเวณผิวดิน</li><li>วัดใต้ผิวดินลึกประมาณ 10 เซนติเมตร ด้วย thermometer</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล (°C)</div>
+        <label>ผิวดิน<input type="number" step="any" inputmode="decimal" data-k="lTs"></label>
+        <label>ใต้ผิวดิน 10 cm<input type="number" step="any" inputmode="decimal" data-k="lTd"></label>
+      </div>
+      <p class="caution"><b>ระวัง</b><span>เจาะรูนำด้วยไม้หรือพลั่วก่อน อย่ากดเทอร์โมมิเตอร์แก้วลงดินตรง ๆ</span></p>
+      <label class="done"><input type="checkbox" data-step="a2l-2"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="l3"><div class="num">3</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ดวงอาทิตย์สำหรับประมาณชั่วโมงแสง และไฮโกรมิเตอร์แสดงความชื้นสัมพัทธ์">
+      <circle cx="62" cy="62" r="18" style="fill:#F2C14E"/><g style="stroke:#F2C14E;stroke-width:2.5;stroke-linecap:round"><path d="M62 32v-8M62 100v-8M32 62h-8M100 62h-8M41 41l-5-5M83 41l5-5M41 83l-5 5M83 83l5 5"/></g>
+      <text class="tb" x="62" y="128" text-anchor="middle">ชม. แดด/วัน</text>
+      <circle class="p" cx="176" cy="74" r="44"/><path class="d" d="M146 96 A36 36 0 1 1 206 96"/>
+      <path class="v" d="M176 74 L198 52" style="stroke-width:3"/><circle class="a" cx="176" cy="74" r="4"/>
+      <text class="mn" x="176" y="104" text-anchor="middle">RH %</text><text class="tm" x="142" y="112">0</text><text class="tm" x="204" y="112">100</text>
+      <text class="tb" x="176" y="140" text-anchor="middle">hygrometer</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>ประมาณแสงสว่าง และวัดความชื้นสัมพัทธ์</h4><span class="x2">ข้อ 1.1.4–1.1.5</span></div>
+      <ol class="do"><li>ประมาณว่าแสงแดดส่องโดยตรงบนบริเวณที่ศึกษากี่ชั่วโมงต่อวัน</li><li>วัดความชื้นสัมพัทธ์ของอากาศด้วยเครื่อง hygrometer</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล</div>
+        <label>แดดส่องโดยตรง (ชม./วัน)<input type="number" step="any" min="0" max="24" inputmode="decimal" data-k="lSun"></label>
+        <label>ความชื้นสัมพัทธ์ (%)<input type="number" step="any" min="0" max="100" inputmode="decimal" data-k="lRH"></label>
+      </div>
+      <label class="done"><input type="checkbox" data-step="a2l-3"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="phase"><span class="tag">B</span><div><h3>ปัจจัยทางกายภาพ: ดิน</h3></div></li>
+  <li class="step" id="l4"><div class="num">4</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ดิน 1 ส่วนผสมน้ำกลั่น 2 ส่วน วัด pH และเทียบสีดินเทา น้ำตาล ดำ">
+      <path class="g" d="M40 30 V128 a14 14 0 0 0 28 0 V30"/><path class="s2" d="M42.5 116 V128 a11.5 11.5 0 0 0 23 0 V116 Z"/><path class="w" d="M42.5 80 H65.5 V116 H42.5 Z" opacity=".7"/>
+      <rect class="p" x="50" y="6" width="7" height="86"/><rect x="50.5" y="72" width="6" height="16" fill="#6FB04E"/>
+      <text class="tm" x="54" y="162" text-anchor="middle">ดิน : น้ำกลั่น = 1 : 2</text>
+      <rect x="110" y="40" width="34" height="34" rx="4" fill="#8B8B86"/><rect x="150" y="40" width="34" height="34" rx="4" fill="#8A6239"/><rect x="190" y="40" width="34" height="34" rx="4" fill="#2E2620"/>
+      <text class="tm" x="127" y="88" text-anchor="middle">เทา</text><text class="tm" x="167" y="88" text-anchor="middle">น้ำตาล</text><text class="tm" x="207" y="88" text-anchor="middle">ดำ</text>
+      <text class="tb" x="167" y="118" text-anchor="middle">บี้ดิน: หยาบ หรือ ละเอียด?</text>
+      <path class="s2" d="M140 136 c10 -8 44 -8 54 0 c-10 8 -44 8 -54 0z"/><g class="fgf" opacity=".4"><circle cx="152" cy="136" r="1.5"/><circle cx="164" cy="134" r="2"/><circle cx="178" cy="137" r="1.5"/></g>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>pH สี และเนื้อดิน</h4><span class="x2">ข้อ 1.1.6–1.1.8</span></div>
+      <ol class="do">
+        <li>นำดินประมาณ 1–2 ลบ.ซม. ละลายในน้ำกลั่น อัตราส่วน <strong>ดิน 1 : น้ำกลั่น 2</strong> ทิ้งไว้สักครู่ วัด pH ส่วนน้ำใสด้วย pH paper</li>
+        <li>สีของดิน: เทา น้ำตาล หรือดำ มีซากอินทรีย์มากหรือน้อย</li>
+        <li>เนื้อดิน: หยาบหรือละเอียด (เชื่อมโยงกับกิจกรรมที่ 1)</li>
+      </ol>
+      <div class="fields"><div class="fh">บันทึกผล</div>
+        <label>pH ของดิน<input type="number" step="0.5" min="0" max="14" inputmode="decimal" data-k="lPH"></label>
+        <label>สีของดิน<select data-k="lSC"><option value="">เลือก</option><option>เทา</option><option>น้ำตาลอ่อน</option><option>น้ำตาลเข้ม</option><option>ดำ</option></select></label>
+        <label>ซากอินทรีย์<select data-k="lOM"><option value="">เลือก</option><option>มาก</option><option>ปานกลาง</option><option>น้อย</option></select></label>
+        <label>เนื้อดิน<select data-k="lTex"><option value="">เลือก</option><option>หยาบ</option><option>ปานกลาง</option><option>ละเอียด</option></select></label>
+      </div>
+      <label class="done"><input type="checkbox" data-step="a2l-4"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="phase"><span class="tag">C</span><div><h3>ปัจจัยทางชีวภาพ</h3><p>ถ้ารู้จักชื่อแล้วไม่ต้องเก็บตัวอย่าง ถ้าจำเป็นให้เก็บอย่างระมัดระวัง และนำไปปล่อยคืนที่เดิมเมื่อศึกษาเสร็จ</p></div></li>
+  <li class="step" id="l5"><div class="num">5</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="แปลงสุ่มตัวอย่าง quadrat ขนาด 1 คูณ 1 เมตร ปักไม้ 4 มุมและล้อมด้วยเชือก">
+      <path class="gr" d="M10 120 L120 150 L230 120 L120 92 Z" opacity=".8"/>
+      <path class="o" d="M60 116 L120 132 L180 116 L120 100 Z" style="stroke:var(--warn);stroke-width:2"/>
+      <g class="o" style="stroke:var(--soil1);stroke-width:4"><path d="M60 116 v-22 M120 132 v-22 M180 116 v-22 M120 100 v-22"/></g>
+      <path class="v" d="M54 128 L114 144" marker-start="url(#arra)" marker-end="url(#arra)"/><text class="mn" x="72" y="154">1 m</text>
+      <path class="v" d="M126 144 L186 128" marker-start="url(#arra)" marker-end="url(#arra)"/><text class="mn" x="160" y="154">1 m</text>
+      <text class="tb" x="120" y="40" text-anchor="middle">quadrat 1 × 1 m²</text><text class="tm" x="120" y="56" text-anchor="middle">ไม้ปักแนวเขต + เชือกฟาง</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>กำหนดพื้นที่สุ่มตัวอย่าง (quadrat)</h4><span class="x2">ข้อ 1.2.1</span></div>
+      <ol class="do"><li>ปักไม้ 4 มุม ทำขอบเขตเป็นสี่เหลี่ยมจัตุรัสขนาด <strong>1 × 1 ตารางเมตร</strong></li><li>ล้อมด้วยเชือกฟาง สำรวจเฉพาะภายในแปลง</li></ol>
+      <p class="tip"><b>ทิป</b><span>วางแปลงแบบสุ่ม ไม่เลือกเฉพาะจุดที่ดูมีสิ่งมีชีวิตมาก ถ้ามีเวลาให้วางมากกว่า 1 แปลงแล้วหาค่าเฉลี่ย</span></p>
+      <label class="done"><input type="checkbox" data-step="a2l-5"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="l6"><div class="num">6</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="พืชชนิดต่าง ๆ ในแปลง quadrat เช่น หญ้าและวัชพืชใบกว้าง">
+      <rect class="p" x="30" y="30" width="180" height="120" style="fill:var(--ill-bg);stroke:var(--warn);stroke-dasharray:6 4"/>
+      <g class="grs" style="stroke-width:2.4"><path d="M50 140 l4 -24 l4 24 M60 140 l6 -30 l2 30 M140 140 l4 -22 l4 22 M150 140 l5 -28 l3 28 M180 140 l4 -20 l4 20 M70 90 l4 -20 l4 20 M190 80 l3 -18 l3 18"/></g>
+      <g class="lf"><ellipse cx="104" cy="110" rx="14" ry="7" transform="rotate(-30 104 110)"/><ellipse cx="122" cy="110" rx="14" ry="7" transform="rotate(30 122 110)"/><rect x="111" y="112" width="3" height="28"/></g>
+      <g style="fill:#E4572E"><circle cx="160" cy="64" r="5"/><circle cx="168" cy="58" r="5"/><circle cx="164" cy="70" r="5"/></g><rect class="lf" x="163" y="72" width="2.5" height="26"/>
+      <text class="tm" x="120" y="22" text-anchor="middle">นับชนิดและประมาณปริมาณ</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>บันทึกข้อมูลพืช</h4><span class="x2">ข้อ 1.2.2</span></div>
+      <ol class="do"><li>มีพืชกี่ชนิด อะไรบ้าง</li><li>ปริมาณโดยเฉลี่ยมากน้อยอย่างไร (เช่น ประมาณ % พื้นที่ปกคลุม)</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล</div><label class="wide">ชนิดพืชและปริมาณ<textarea data-k="lPlant" placeholder="เช่น หญ้านวลน้อย (ปกคลุม ~80%), ต้นกล้าไทร 2 ต้น ..."></textarea></label></div>
+      <label class="done"><input type="checkbox" data-step="a2l-6"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="l7"><div class="num">7</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ใช้พลั่วมือขุดดินลึกประมาณ 5 เซนติเมตร พบไส้เดือนดินและด้วงดิน">
+      <rect class="s2" x="0" y="70" width="240" height="102"/><path class="gr" d="M0 64 H240 V74 H0 Z"/>
+      <path class="s1" d="M60 72 C70 104 120 104 130 72 Z"/>
+      <path class="ot" d="M140 72 V100 M136 100 h8"/><text class="mn" x="148" y="92">~5 cm</text>
+      <g transform="rotate(35 70 40)"><rect class="p" x="62" y="4" width="10" height="34" rx="3" style="fill:var(--soil1)"/><path class="p" d="M58 38 h18 l-4 26 q-5 6 -10 0 z" style="fill:#AEB6BE"/></g>
+      <path d="M40 132 c10 -8 20 8 30 0 s20 8 30 0" style="fill:none;stroke:#C46A6A;stroke-width:5;stroke-linecap:round"/>
+      <g><ellipse cx="180" cy="130" rx="12" ry="8" style="fill:#2E2A26"/><circle cx="194" cy="130" r="4" style="fill:#2E2A26"/><path class="o" d="M172 124 l-6 -6 M180 122 v-8 M188 124 l6 -6 M172 136 l-6 6 M180 138 v8 M188 136 l6 6" style="stroke-width:1.2"/></g>
+      <text class="tm" x="70" y="160" text-anchor="middle">ไส้เดือนดิน</text><text class="tm" x="180" y="160" text-anchor="middle">ด้วงดิน</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>บันทึกข้อมูลสัตว์</h4><span class="x2">ข้อ 1.2.3</span></div>
+      <ol class="do"><li>สังเกตสัตว์บนใบหญ้าและผิวดิน มีกี่ชนิด อะไรบ้าง ปริมาณมากน้อยอย่างไร</li><li>เขี่ยผิวดิน และใช้พลั่วมือขุดดินลึกประมาณ <strong>5 ซม.</strong> เพื่อหาสัตว์ในดินเพิ่มเติม</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล</div><label class="wide">ชนิดสัตว์และปริมาณ<textarea data-k="lAnimal" placeholder="เช่น มดแดง (มาก), ไส้เดือนดิน 3 ตัว, แมงมุม 1 ตัว ..."></textarea></label></div>
+      <label class="done"><input type="checkbox" data-step="a2l-7"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="l8"><div class="num">8</div><article class="card">
+    <figure class="fig"><svg class="ill" viewBox="0 0 240 172" role="img" aria-label="ส่องดินด้วยกล้องสเตอริโอ พบไรดินและแมลงหางดีด">
+      <g class="o" style="stroke-width:2.2"><path d="M30 150 h70 M50 150 v-14 h30 v14 M65 136 V120 M40 120 h50 M54 120 C54 96 68 70 86 52 M86 52 l14 -14"/></g>
+      <circle class="af" cx="172" cy="82" r="50"/>
+      <g style="fill:#B5542F"><ellipse cx="152" cy="70" rx="9" ry="7"/></g><g class="o" style="stroke-width:1.2;stroke:#B5542F"><path d="M144 66 l-6 -4 M144 72 l-6 2 M160 66 l6 -4 M160 72 l6 2"/></g>
+      <g style="fill:#5C6B7A"><rect x="170" y="92" width="26" height="8" rx="4"/></g><path class="o" d="M196 96 c6 2 8 8 6 12" style="stroke-width:1.4"/>
+      <text class="tm" x="152" y="90" text-anchor="middle">ไรดิน</text><text class="tm" x="184" y="116" text-anchor="middle">แมลงหางดีด</text>
+      <text class="tm" x="172" y="150" text-anchor="middle">มองไม่เห็นด้วยตาเปล่า</text>
+    </svg></figure>
+    <div class="body">
+      <div class="hd"><h4>สิ่งมีชีวิตขนาดเล็กในดิน</h4><span class="x2">ข้อ 1.2.4</span></div>
+      <p>ในดินมีแบคทีเรีย เชื้อรา ไรดิน (soil mite) และแมลงหางดีด (collembolan) ไรและแมลงหางดีดส่วนใหญ่กินซาก แบคทีเรีย และเชื้อราในดิน ขณะที่สัตว์ที่ใหญ่กว่ากินไรและแมลงหางดีดอีกทอดหนึ่ง</p>
+      <ol class="do"><li>เก็บดินใส่ถุงพลาสติก นำกลับมาส่องด้วยกล้องจุลทรรศน์/กล้องสเตอริโอ</li></ol>
+      <div class="fields"><div class="fh">บันทึกผล</div><label class="wide">สิ่งที่พบ<textarea data-k="lMicro" placeholder="เช่น ไรดิน 4 ตัว, แมลงหางดีด 2 ตัว, เส้นใยเชื้อรา ..."></textarea></label></div>
+      <label class="done"><input type="checkbox" data-step="a2l-8"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="step" id="l9"><div class="num">9</div><article class="card full">
+    <div class="body">
+      <div class="hd"><h4>จำแนกหน้าที่เชิงอาหาร (trophic niche)</h4><span class="x2">ข้อ 1.2.5 · ตารางที่ 9.2</span></div>
+      <div class="concept" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+        <div style="background:var(--ill-bg)"><b>บนใบไม้ใบหญ้า</b><p>มีแนวโน้มเป็น herbivore เช่น เพลี้ย ถ้าเห็นแมงมุมอยู่ใกล้เพลี้ย แสดงว่าแมงมุมน่าจะกินเพลี้ย → carnivore</p></div>
+        <div style="background:var(--ill-bg)"><b>ในดินและผิวดิน</b><p>ส่วนใหญ่เป็นพวกกินซาก (detritivore) เช่น ตัวกะปิ (woodlice) แมลงแกลบ ด้วงดิน ไส้เดือนดิน</p></div>
+        <div style="background:var(--ill-bg)"><b>นักล่าในดิน</b><p>carnivore เช่น แมงมุม แมงป่องปลอม (pseudoscorpion) และตะขาบ</p></div>
+      </div>
+      <div class="ref"><div class="tw"><table data-otable="lawn"></table></div><p class="foot"><span class="alien">*</span> ชนิดพันธุ์ต่างถิ่น (introduced species) · แถวที่มีคำตอบตัวอย่างมาจากคู่มือ · คำตอบที่เลือกบันทึกในเบราว์เซอร์นี้เท่านั้น</p></div>
+      <div class="actions"><button class="btn" type="button" data-place="lawn">วางลงแผ่นงานสายใยอาหารตามลำดับที่เลือก ↓</button><span class="note" data-place-note="lawn"></span></div>
+      <label class="done"><input type="checkbox" data-step="a2l-9"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+
+  <li class="phase"><span class="tag">D</span><div><h3>สายใยอาหาร</h3></div></li>
+  <li class="step" id="l10"><div class="num">10</div><article class="card full">
+    <div class="body">
+      <div class="hd"><h4>เขียนสายใยอาหารของสนามหญ้าให้สมบูรณ์ที่สุด</h4><span class="x2">ข้อ 1.2.6</span></div>
+      <p>รวมข้อมูลจากการสำรวจของกลุ่ม (ขั้นที่ 6–8) กับตารางที่ 9.2 ผู้ผลิตอยู่ฐานล่าง เรียงขึ้นตามลำดับขั้นการกิน ลูกศรชี้ไปที่ผู้บริโภค</p>
+      <div class="actions"><a class="btn" href="#fw" data-jump-fw>เปิดแผ่นงานสายใยอาหาร (สนามหญ้า) ↓</a></div>
+      <label class="done"><input type="checkbox" data-step="a2l-10"> ทำขั้นนี้แล้ว</label>
+    </div></article></li>
+</ol>
+<div class="actions"><button class="btn ghost" type="button" data-copy="lawn">คัดลอกผลบันทึกสนามหญ้าทั้งหมด</button><span class="note">นำไปวางในรายงานหรือแชร์ให้เพื่อนในกลุ่ม</span></div>
+</div>
+</div>
+
+<!-- ---------- FOOD WEB WORKSHEET ---------- -->
+<div class="fw" id="fw">
+  <aside class="fw-side">
+    <div>
+      <p class="eyebrow" id="fwEyebrow">แผ่นงานสายใยอาหาร · สระน้ำ</p>
+      <h3 id="fwTitle">สายใยอาหารในระบบนิเวศสระน้ำ อุทยาน 100 ปี</h3>
+    </div>
+    <div class="seg" role="group" aria-label="เลือกแผ่นงาน">
+      <button type="button" data-eco="pond" aria-pressed="true">สระน้ำ</button>
+      <button type="button" data-eco="lawn" aria-pressed="false">สนามหญ้า</button>
+    </div>
+    <ol class="fw-steps">
+      <li><span><b>ลากชื่อสิ่งมีชีวิต</b> ไปวางในลำดับขั้นที่เหมาะสม (หรือแตะชื่อ แล้วแตะบนแผ่นงาน)</span></li>
+      <li><span><b>ลากจุด ➜ ที่ขอบกล่อง</b> จากสิ่งที่ถูกกินไปยังผู้กิน ลูกศรชี้ทางที่พลังงานถ่ายทอด</span></li>
+      <li><span><b>ส่งออกเป็น PDF หรือ JPG</b> แล้วส่งตามที่ผู้สอนกำหนด</span></li>
+    </ol>
+    <label class="f" for="author">ชื่อผู้จัดทำ / เลขประจำตัว / กลุ่ม
+      <input type="text" id="author" maxlength="70" placeholder="เช่น สมชาย ใจดี 6730000021 กลุ่ม 3" autocomplete="off">
+    </label>
+    <div class="tray-h"><h4 id="trayH">สิ่งมีชีวิตในสระ</h4><span id="trayCount"></span></div>
+    <div class="tray" id="tray" aria-label="รายชื่อสิ่งมีชีวิต"></div>
+    <form class="addrow" id="addForm">
+      <input type="text" id="addName" maxlength="30" placeholder="เพิ่มสิ่งมีชีวิตที่พบเอง" autocomplete="off" aria-label="ชื่อสิ่งมีชีวิตที่ต้องการเพิ่ม">
+      <button class="fbtn" type="submit">เพิ่ม</button>
+    </form>
+    <p class="note"><span class="alien">*</span> ชนิดพันธุ์ต่างถิ่น · กล่องเปลี่ยนสีตามลำดับขั้นที่วาง ใช้ “ซากอินทรีย์” มุมล่างขวาแสดงการย่อยสลาย งานเก็บไว้ในเบราว์เซอร์นี้อัตโนมัติ แยกกันระหว่างสระน้ำกับสนามหญ้า</p>
+  </aside>
+  <div class="fw-main">
+    <div class="toolbar">
+      <div class="tgroup">
+        <div class="seg" role="group" aria-label="โหมดการลาก">
+          <button type="button" id="modeMove" aria-pressed="true">ย้ายกล่อง</button>
+          <button type="button" id="modeArrow" aria-pressed="false">วาดลูกศร</button>
+        </div>
+        <button class="fbtn" type="button" id="undoBtn" title="Ctrl+Z">↶ ย้อนกลับ</button>
+        <button class="fbtn warn" type="button" id="delBtn" disabled>ลบที่เลือก</button>
+        <button class="fbtn warn" type="button" id="clearBtn">ล้างทั้งหมด</button>
+      </div>
+      <div class="tgroup">
+        <button class="fbtn primary" type="button" id="pdfBtn">ส่งออก PDF</button>
+        <button class="fbtn primary" type="button" id="jpgBtn">ส่งออก JPG</button>
+      </div>
+    </div>
+    <div class="status" id="status"></div>
+    <div class="board-wrap">
+      <svg id="board" viewBox="0 0 1000 1304" role="img" aria-label="แผ่นงานสายใยอาหาร">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="ahSel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="ahs" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+        <g id="static"></g>
+        <g id="layer"></g>
+      </svg>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ================= ACTIVITY 3: ECOSYSTEM SERVICES ================= -->
+<section class="act" id="act3" role="tabpanel" aria-labelledby="tab-act3" hidden>
+<div class="act-head">
+  <p class="kicker">กิจกรรมที่ 3</p>
+  <h2>ศึกษาการให้บริการของระบบนิเวศผ่านวีดิทัศน์</h2>
+  <p class="lead">บริการของระบบนิเวศ (ecosystem services) คือประโยชน์ที่มนุษย์ได้รับจากระบบนิเวศทั้งทางตรงและทางอ้อม และมีการประเมินมูลค่าเพื่อคิดเป็นต้นทุนก่อนอนุมัติโครงการพัฒนา กิจกรรมนี้ศึกษาบริการของระบบนิเวศในเมือง ผ่าน <b>อุทยาน 100 ปี จุฬาฯ</b></p>
+  <div class="kit"><b>ใช้</b><span>เว็บไซต์ที่มอบหมาย</span><span>วีดิทัศน์</span><span>ภาคผนวก RAWES</span><span>ผลจากกิจกรรมที่ 2</span></div>
+</div>
+<div class="concept" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+  <div class="wide" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr)) minmax(0,1fr);gap:16px;align-items:center">
+    <svg class="ill" viewBox="0 0 320 170" role="img" aria-label="แผนภาพอย่างง่ายของอุทยาน 100 ปี: ฝนตกบนหลังคาเขียวลาดเอียง น้ำไหลผ่านบึงประดิษฐ์ลงสู่บ่อหน่วงน้ำ">
+      <g class="d"><path d="M40 10 l-6 14 M70 6 l-6 14 M100 10 l-6 14 M130 6 l-6 14"/></g>
+      <path class="gr" d="M14 120 L150 40 L150 120 Z" opacity=".9"/><path class="o" d="M14 120 L150 40 V120" style="stroke-width:1.4"/>
+      <g class="grs" style="stroke:var(--leaf)"><path d="M60 98 l3 -8 l3 8 M96 76 l3 -8 l3 8 M128 58 l3 -8 l3 8"/></g>
+      <path class="v" d="M40 108 C70 124 120 132 160 132" marker-end="url(#arra)"/>
+      <path class="pond" d="M160 126 c10 -8 40 -8 50 0 c-10 8 -40 8 -50 0z"/><path class="pond" d="M214 132 c10 -8 40 -8 50 0 c-10 8 -40 8 -50 0z"/>
+      <path class="pond" d="M232 150 c14 -12 72 -12 80 0 c-8 12 -66 12 -80 0z"/>
+      <g class="grs"><path d="M176 122 v-12 M184 122 v-14 M232 128 v-12 M240 128 v-14"/></g>
+      <circle class="lf" cx="290" cy="96" r="16"/><rect class="s1" x="288" y="108" width="4" height="22"/>
+      <text class="tb" x="70" y="140" text-anchor="middle">หลังคาเขียว (green roof)</text>
+      <text class="tb" x="212" y="112" text-anchor="middle">บึงประดิษฐ์ (wetland)</text>
+      <text class="tb" x="272" y="168" text-anchor="middle">บ่อหน่วงน้ำ</text>
+      <text class="tm" x="160" y="16">แผนภาพอย่างง่าย ไม่ใช่ผังจริง</text>
+    </svg>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <h3>อุทยาน 100 ปี: ระบบนิเวศกึ่งธรรมชาติในเมือง</h3>
+      <p>จากปัญหาการสูญเสียพื้นที่ป่าและพื้นที่สีเขียว จุฬาฯ สร้างอุทยาน 100 ปี เพื่อเพิ่มบริการของระบบนิเวศแก่บุคลากรและชุมชนโดยรอบ ออกแบบให้เป็นพื้นที่ชุ่มน้ำ (wetland) สำหรับรับน้ำ และมีหลังคาเขียว (green roof) ขนาดใหญ่ที่สุดในประเทศไทย (ข้อมูลตามคู่มือ)</p>
+    </div>
+  </div>
+  <div><p class="tagline">PROVISIONING</p><h3>ด้านการให้ผลผลิต</h3><p>สิ่งที่มนุษย์นำมาใช้ได้โดยตรง เช่น น้ำจืด อาหาร เส้นใย สมุนไพร พันธุกรรม พลังงาน</p></div>
+  <div><p class="tagline">REGULATING</p><h3>ด้านการควบคุมกระบวนการ</h3><p>ควบคุมกระบวนการของระบบ เช่น หน่วงน้ำท่วม ลดอุณหภูมิ ฟอกอากาศ ทำน้ำให้สะอาด ควบคุมศัตรูธรรมชาติ ผสมเกสร</p></div>
+  <div><p class="tagline">CULTURAL</p><h3>ด้านวัฒนธรรมและการเรียนรู้</h3><p>คุณค่าที่ไม่ใช่วัตถุ เช่น นันทนาการ สุนทรียะ แรงบันดาลใจ การศึกษาและวิจัย ความสัมพันธ์เชิงสังคม</p></div>
+  <div><p class="tagline">SUPPORTING</p><h3>ด้านการสนับสนุนบริการอื่น ๆ</h3><p>กระบวนการพื้นฐานที่ทำให้บริการอื่นเกิดขึ้นได้ เช่น การกำเนิดดิน การผลิตขั้นปฐมภูมิ ถิ่นอาศัยของสิ่งมีชีวิต</p></div>
+</div>
+
+<nav class="map" aria-label="ผังขั้นตอนกิจกรรมที่ 3" style="--cols:3">
+  <div class="ph"><span class="lbl">ส่วน A · เตรียมข้อมูล</span><h3>ศึกษาอุทยาน 100 ปี</h3><ul>
+    <li><a href="#a3s1" data-step="a3-1"><span class="n">1</span>อ่านเว็บไซต์ที่มอบหมาย</a></li>
+    <li><a href="#a3s2" data-step="a3-2"><span class="n">2</span>ดูวีดิทัศน์</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน B · ภาคผนวก</span><h3>ประเมินบริการ</h3><ul>
+    <li><a href="#a3s3" data-step="a3-3"><span class="n">3</span>ประเมินด้วยคำถาม RAWES</a></li></ul></div>
+  <div class="ph"><span class="lbl">ส่วน C · รายงาน</span><h3>ปัญหาและทางแก้</h3><ul>
+    <li><a href="#a3s4" data-step="a3-4"><span class="n">4</span>ปัญหา สาเหตุ ทางแก้</a></li>
+    <li><a href="#a3s5" data-step="a3-5"><span class="n">5</span>ตอบคำถามในรายงาน</a></li></ul></div>
+  <div class="progress"><span class="prog-txt">ทำแล้ว 0 จาก 5 ขั้น</span><div class="bar"><i></i></div></div>
+</nav>
+
+<ol class="flow">
+  <li class="phase"><span class="tag">A</span><div><h3>เตรียมข้อมูลอุทยาน 100 ปี</h3></div></li>
+  <li class="step" id="a3s1"><div class="num">1</div><article class="card full"><div class="body">
+    <div class="hd"><h4>ศึกษาข้อมูลจากเว็บไซต์ที่มอบหมาย</h4><span class="x2">หน้า 2 ของคู่มือ</span></div>
+    <div class="links">
+      <a href="http://www.pmcu.co.th/?page_id=9921" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fg" d="M7 20c3-4 5-6 8-6s5 2 8 6M15 14V8M12 10l3-2 3 2"/></svg><div><b>ข้อมูลทั่วไป จากทางจุฬาฯ</b><span>pmcu.co.th/?page_id=9921</span></div></a>
+      <a href="https://www.baanlaesuan.com/84940/gardens/cucentenary-park" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fg" d="M8 22 L15 9 L22 22 Z M12 22v-4h6v4"/></svg><div><b>บทความแนวคิดการออกแบบ (บ้านและสวน)</b><span>baanlaesuan.com/84940/gardens/cucentenary-park</span></div></a>
+      <a href="https://worldlandscapearchitect.com/chulalongkorn-centenary-park-green-infrastructure-for-the-city-of-bangkok/" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fg" d="M8 9h14v12H8z M8 15h14 M15 9v12"/></svg><div><b>ผังแนวคิดการออกแบบ (ภาพที่ 5 ในคู่มือ)</b><span>worldlandscapearchitect.com · Plan of the CU centenary park</span></div></a>
+    </div>
+    <label class="done"><input type="checkbox" data-step="a3-1"> ทำขั้นนี้แล้ว</label>
+  </div></article></li>
+  <li class="step" id="a3s2"><div class="num">2</div><article class="card full"><div class="body">
+    <div class="hd"><h4>ดูวีดิทัศน์</h4></div>
+    <div class="links">
+      <a href="https://www.youtube.com/watch?v=r5nvuD1EYWc" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fill" d="M12 10l9 5-9 5z"/></svg><div><b>ข้อมูลทั่วไปโดยสรุป</b><span>youtube.com/watch?v=r5nvuD1EYWc</span></div></a>
+      <a href="https://www.youtube.com/watch?v=714c1WwgLoE" target="_blank" rel="noopener"><svg viewBox="0 0 30 30" aria-hidden="true"><rect class="ico-bg" width="30" height="30" rx="8"/><path class="ico-fill" d="M12 10l9 5-9 5z"/></svg><div><b>แนวคิดการออกแบบ จากผู้ออกแบบ</b><span>youtube.com/watch?v=714c1WwgLoE</span></div></a>
+    </div>
+    <p class="tip"><b>ทิป</b><span>ระหว่างดู จดว่าองค์ประกอบใดของสวน (หลังคาเขียว บึง บ่อหน่วงน้ำ ต้นไม้ ลานกิจกรรม) ให้บริการด้านใด แล้วนำไปใช้ในขั้นที่ 3</span></p>
+    <label class="done"><input type="checkbox" data-step="a3-2"> ทำขั้นนี้แล้ว</label>
+  </div></article></li>
+
+  <li class="phase"><span class="tag">B</span><div><h3>ประเมินบริการของระบบนิเวศ</h3><p>ภาคผนวก: Rapid Assessment of Wetland Ecosystem Services (RAWES) ปรับรายละเอียดเป็น “อุทยาน 100 ปี”</p></div></li>
+  <li class="step" id="a3s3"><div class="num">3</div><article class="card full"><div class="body">
+    <div class="hd"><h4>ตั้งคำถามจากตาราง RAWES เพื่อหาว่ามีบริการแต่ละด้านหรือไม่</h4></div>
+    <p>สำหรับแต่ละบริการ อ่านคำถามชวนสังเกต แล้วเลือก <b>มี</b> / <b>ไม่มี</b> / <b>ไม่แน่ใจ</b> พร้อมเขียนหลักฐานหรือตัวอย่างจากอุทยาน 100 ปีสั้น ๆ</p>
+    <p class="tip"><b>ข้อควรคิด</b><span>บางคำถามถามด้านลบ (เช่น เป็นแหล่งมลพิษ แหล่งยุง) ให้บันทึกไว้ในช่องหลักฐาน เพราะเป็นข้อมูลสำหรับขั้นที่ 4</span></p>
+    <p class="rec"><b>ไปที่</b><span><a href="#rawes">แบบประเมิน RAWES ด้านล่าง ↓</a></span></p>
+    <label class="done"><input type="checkbox" data-step="a3-3"> ทำขั้นนี้แล้ว</label>
+  </div></article></li>
+</ol>
+
+<section class="rawes" id="rawes" aria-labelledby="rawes-h">
+  <h3 id="rawes-h">แบบประเมินบริการของระบบนิเวศ อุทยาน 100 ปี (RAWES)</h3>
+  <p>กดหัวข้อแต่ละด้านเพื่อเปิดหรือปิด ผลสรุปด้านล่างนับเฉพาะรายการที่เลือก “มี”</p>
+  <div class="rsum" id="rsum"></div>
+  <div id="rcats" style="display:flex;flex-direction:column;gap:10px"></div>
+  <p class="note">ที่มา: แปลโดย Wetland University Network (Thailand) โครงการการฝึกอบรมผู้บริหารจัดการพื้นที่ชุ่มน้ำ ภายใต้โครงการเสริมสร้างศักยภาพในการปรับตัวต่อสภาพภูมิอากาศของพื้นที่ชุ่มน้ำในภูมิภาคลุ่มน้ำโขงตอนล่าง (ธันวาคม 2562)</p>
+</section>
+
+<ol class="flow">
+  <li class="phase"><span class="tag">C</span><div><h3>ปัญหาและแนวทางแก้ไข</h3><p>วัตถุประสงค์ข้อ 3–4</p></div></li>
+  <li class="step" id="a3s4"><div class="num">4</div><article class="card full"><div class="body">
+    <div class="hd"><h4>ยกตัวอย่างปัญหาที่เกิดจากมนุษย์ และเสนอแนวทางแก้ไขด้วยความรู้ทางนิเวศ</h4></div>
+    <p>ใช้ข้อมูลจากกิจกรรมที่ 2 (เช่น ชนิดพันธุ์ต่างถิ่น <span class="alien">*</span> ในตาราง 9.1–9.2 คุณภาพน้ำ ขยะ) และคำตอบด้านลบจาก RAWES แล้วเชื่อมแนวทางแก้กับหลัก BCG</p>
+    <div class="ps" id="ps"></div>
+    <label class="done"><input type="checkbox" data-step="a3-4"> ทำขั้นนี้แล้ว</label>
+  </div></article></li>
+  <li class="step" id="a3s5"><div class="num">5</div><article class="card full"><div class="body">
+    <div class="hd"><h4>ตอบคำถามในรายงาน</h4></div>
+    <ol class="do">
+      <li>ยกตัวอย่างบริการของระบบนิเวศอุทยาน 100 ปี ให้ครบทั้ง 4 ด้าน</li>
+      <li>อธิบายว่าองค์ประกอบและการทำงานของระบบนิเวศที่ศึกษาในกิจกรรมที่ 2 สนับสนุนบริการเหล่านั้นอย่างไร</li>
+      <li>ปัญหาที่พบ สาเหตุ และแนวทางแก้ไขเบื้องต้นโดยใช้ความรู้ทางนิเวศวิทยา</li>
+    </ol>
+    <div class="actions"><button class="btn ghost" type="button" data-copy="act3">คัดลอกสรุปกิจกรรมที่ 3</button><span class="note">รวมบริการที่เลือก “มี” พร้อมหลักฐาน และตารางปัญหา-ทางแก้</span></div>
+    <label class="done"><input type="checkbox" data-step="a3-5"> ทำขั้นนี้แล้ว</label>
+  </div></article></li>
+</ol>
+</section>
+
+<!-- ================= GLOSSARY ================= -->
+<section class="act" id="terms" role="tabpanel" aria-labelledby="tab-terms" hidden>
+<div class="act-head">
+  <p class="kicker">คำศัพท์ที่ควรรู้</p>
+  <h2>ทบทวนคำศัพท์ ปฏิบัติการที่ 9</h2>
+  <p class="lead">แตะการ์ดเพื่อดูความหมาย ลองนึกคำตอบก่อนเปิด</p>
+</div>
+<div class="glo-tools">
+  <div class="seg" role="group" aria-label="โหมด">
+    <button type="button" id="gloAll" aria-pressed="false">เปิดทั้งหมด</button>
+    <button type="button" id="gloNone" aria-pressed="true">ซ่อนทั้งหมด</button>
+  </div>
+  <button class="btn ghost" type="button" id="gloShuffle">สลับลำดับ</button>
+</div>
+<div class="gloss" id="gloss"></div>
+</section>
+
+<footer>
+  <h2>ที่มาของเนื้อหา</h2>
+  <ul>
+    <li>บทปฏิบัติการที่ 9 ระบบนิเวศ (ปรับปรุง 31 มีนาคม 2567) ภาควิชาชีววิทยา คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</li>
+    <li>ไพรัช สายเชื้อ, กำธร ธีรคุปต์ และนันทนา คชเสนี (2533) คู่มือปฏิบัติการนิเวศวิทยา · Odum (1985) Fundamentals of Ecology · Sutherland (1996) Ecological Census Techniques</li>
+    <li>BCG model: สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (2566) · บริการของระบบนิเวศ: Millennium Ecosystem Assessment (2005); de Groot et al. (2002)</li>
+    <li>RAWES: Wetland University Network (Thailand), ธันวาคม 2562 · แผ่นงานสายใยอาหารพัฒนาต่อจาก <a href="https://tenrm.github.io/foodweb-pond100/" target="_blank" rel="noopener">foodweb-pond100</a></li>
+  </ul>
+  <p>ภาพประกอบเป็นภาพวาดเชิงแผนภาพ ไม่ใช่ภาพอุปกรณ์จริง ส่วน “ทิป” และตัวอย่างตัวเลขเป็นข้อแนะนำเสริมที่ไม่ได้อยู่ในบทปฏิบัติการ</p>
+</footer>
+</div>
+<div class="dragghost" id="ghost" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+'use strict';
+var $ = function(id){ return document.getElementById(id); };
+function store(k, v){ try{ if(v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
+function loadJSON(k, d){ try{ var v = JSON.parse(store(k) || 'null'); return v && typeof v === 'object' ? v : d; }catch(e){ return d; } }
+var esc = function(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); };
+var toastT;
+function toast(msg){ var t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(function(){ t.classList.remove('show'); }, 2600); }
+function num(v){ if(v === '' || v == null) return NaN; return parseFloat(v); }
+function fmt(v, d){ return (Math.round(v * Math.pow(10, d)) / Math.pow(10, d)).toFixed(d); }
+
+/* ================= tabs ================= */
+var tabs = [].slice.call(document.querySelectorAll('.tab'));
+var panels = [].slice.call(document.querySelectorAll('.act'));
+function show(id, focusTab){
+  panels.forEach(function(p){ p.hidden = (p.id !== id); });
+  tabs.forEach(function(t){
+    var on = t.dataset.target === id;
+    t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1;
+    if(on && focusTab) t.focus();
+    if(on && t.scrollIntoView) t.scrollIntoView({block:'nearest', inline:'nearest'});
+  });
+  store('lab9-102-tab', id);
+}
+function goToHash(){
+  var h = (location.hash || '').slice(1); if(!h) return false;
+  var el = document.getElementById(h); if(!el) return false;
+  var p = el.closest('.act'); if(!p) return false;
+  var tr = el.closest('[data-track]'); if(tr) setEco(tr.dataset.track);
+  show(p.id);
+  if(el !== p) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 0);
+  return true;
+}
+tabs.forEach(function(t, i){
+  t.addEventListener('click', function(){
+    show(t.dataset.target);
+    try{ history.replaceState(null, '', '#' + t.dataset.target); }catch(e){}
+    var top = document.querySelector('.tabs');
+    if(top && top.getBoundingClientRect().top <= 1) $(t.dataset.target).scrollIntoView({block:'start'});
+  });
+  t.addEventListener('keydown', function(e){
+    var j = null;
+    if(e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+    if(e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+    if(e.key === 'Home') j = 0;
+    if(e.key === 'End') j = tabs.length - 1;
+    if(j !== null){ e.preventDefault(); show(tabs[j].dataset.target, true); }
+  });
+});
+document.addEventListener('click', function(e){
+  var a = e.target.closest('[data-go]');
+  if(a){ e.preventDefault(); show(a.dataset.go); var h = a.getAttribute('href').slice(1); var el = $(h); try{ history.replaceState(null, '', '#' + h); }catch(_){} if(el) setTimeout(function(){ el.scrollIntoView({block:'start'}); }, 0); }
+});
+window.addEventListener('hashchange', goToHash);
+
+/* ================= progress ================= */
+var DKEY = 'lab9-102-done', done = loadJSON(DKEY, {});
+var scopes = [$('act1'), $('act3')].concat([].slice.call(document.querySelectorAll('[data-track]')));
+function renderProgress(){
+  scopes.forEach(function(sc){
+    var boxes = sc.querySelectorAll('.done input'), c = 0;
+    boxes.forEach(function(b){
+      var s = b.dataset.step, on = !!done[s];
+      b.checked = on; if(on) c++;
+      var li = b.closest('.step'); if(li) li.classList.toggle('is-done', on);
+      var a = sc.querySelector('.map a[data-step="' + s + '"]'); if(a) a.classList.toggle('is-done', on);
+    });
+    var txt = sc.querySelector('.prog-txt'), bar = sc.querySelector('.progress .bar i');
+    if(txt) txt.textContent = 'ทำแล้ว ' + c + ' จาก ' + boxes.length + ' ขั้น';
+    if(bar) bar.style.width = (boxes.length ? c / boxes.length * 100 : 0) + '%';
+  });
+}
+document.querySelectorAll('.done input').forEach(function(b){
+  b.addEventListener('change', function(){ done[b.dataset.step] = b.checked; store(DKEY, JSON.stringify(done)); renderProgress(); });
+});
+
+/* ================= saved fields + calculations ================= */
+var FKEY = 'lab9-102-fields', F = loadJSON(FKEY, {});
+function saveF(){ store(FKEY, JSON.stringify(F)); }
+document.querySelectorAll('[data-k]').forEach(function(el){
+  var k = el.dataset.k;
+  if(F[k] != null) el.value = F[k];
+  el.addEventListener('input', function(){ F[k] = el.value; saveF(); recalc(); });
+  el.addEventListener('change', function(){ F[k] = el.value; saveF(); recalc(); });
+});
+function soilName(i){ var n = (F['s' + i + 'name'] || '').trim(); return n ? 'ดินที่ ' + i + ' · ' + n : 'ดินที่ ' + i; }
+function setRes(id, v, bad){ var el = $(id); if(!el) return; el.textContent = v; el.classList.toggle('bad', !!bad); }
+var soilRes = {m:[null,null], w:[null,null]};
+function recalc(){
+  // field areas / secchi
+  var pw = num(F.pW), pl = num(F.pL);
+  $('pArea').textContent = (pw > 0 && pl > 0) ? fmt(pw * pl, 2) + ' m²' : '–';
+  var lw = num(F.lW), ll = num(F.lL);
+  $('lArea').textContent = (lw > 0 && ll > 0) ? fmt(lw * ll, 2) + ' m²' : '–';
+  var s1 = num(F.pS1), s2 = num(F.pS2);
+  $('pSec').textContent = (s1 >= 0 && s2 >= 0) ? fmt((s1 + s2) / 2, 2) + ' m' : '–';
+  // soil names in calc tables
+  document.querySelectorAll('td[data-name]').forEach(function(td){ td.textContent = soilName(td.dataset.name); });
+  // moisture
+  [1, 2].forEach(function(i){
+    var w = num(F['m' + i + 'w']), d = num(F['m' + i + 'd']);
+    soilRes.m[i - 1] = null;
+    $('m' + i + 'loss').textContent = '–';
+    if(isNaN(w) || isNaN(d)){ setRes('m' + i + 'out', '–'); return; }
+    if(d <= 0){ setRes('m' + i + 'out', 'น้ำหนักดินแห้งต้องมากกว่า 0', true); return; }
+    if(d > w){ setRes('m' + i + 'out', 'ดินแห้งหนักกว่าดินตัวอย่าง? ตรวจค่าอีกครั้ง', true); return; }
+    var m = (w - d) / d * 100; soilRes.m[i - 1] = m;
+    $('m' + i + 'loss').textContent = fmt(w - d, 2);
+    setRes('m' + i + 'out', fmt(m, 2) + ' %');
+  });
+  // WHC
+  [1, 2].forEach(function(i){
+    var A = num(F['w' + i + 'a']), B = num(F['w' + i + 'b']), C = num(F['w' + i + 'c']);
+    soilRes.w[i - 1] = null;
+    $('w' + i + 'dry').textContent = (!isNaN(A) && !isNaN(B)) ? fmt(B - A, 2) : '–';
+    $('w' + i + 'wat').textContent = (!isNaN(B) && !isNaN(C)) ? fmt(C - B, 2) : '–';
+    if(isNaN(A) || isNaN(B) || isNaN(C)){ setRes('w' + i + 'out', '–'); return; }
+    if(B <= A){ setRes('w' + i + 'out', 'B ต้องมากกว่า A', true); return; }
+    if(C < B){ setRes('w' + i + 'out', 'C ต้องไม่น้อยกว่า B', true); return; }
+    var w = (C - B) / (B - A) * 100; soilRes.w[i - 1] = w;
+    setRes('w' + i + 'out', fmt(w, 2) + ' %');
+  });
+  renderCompare();
+}
+function renderCompare(){
+  var rows = '', any = false;
+  [['m', 'ความชื้นของดิน', 'var(--water)'], ['w', 'Water holding capacity', 'var(--accent)']].forEach(function(g){
+    var vals = soilRes[g[0]], mx = Math.max(vals[0] || 0, vals[1] || 0, 1);
+    rows += '<p class="k">' + g[1] + '</p>';
+    [0, 1].forEach(function(j){
+      var v = vals[j]; if(v != null) any = true;
+      rows += '<div class="row"><span>' + esc(soilName(j + 1)) + '</span><span class="track"><i style="width:' + (v != null ? Math.max(2, v / mx * 100) : 0) + '%;background:' + g[2] + '"></i></span><span class="v">' + (v != null ? fmt(v, 1) + '%' : '–') + '</span></div>';
+    });
+  });
+  $('cmp').innerHTML = rows;
+  var w = soilRes.w, m = soilRes.m, msg;
+  if(w[0] != null && w[1] != null){
+    var hi = w[0] >= w[1] ? 1 : 2, lo = hi === 1 ? 2 : 1, diff = Math.abs(w[0] - w[1]);
+    msg = diff < 2 ? 'WHC ของดินทั้งสองใกล้เคียงกัน (ต่างกัน ' + fmt(diff, 1) + ' %) ลองพิจารณาเนื้อดินและสีประกอบ'
+      : '<b>' + esc(soilName(hi)) + '</b> ดูดยึดน้ำได้มากกว่า ' + esc(soilName(lo)) + ' (ต่างกัน ' + fmt(diff, 1) + ' %) มักสัมพันธ์กับอนุภาคดินเหนียวหรืออินทรียวัตถุที่มากกว่า แต่ถ้ามากเกินไปการถ่ายเทอากาศจะไม่ดี';
+    var t1 = F.s1tex, t2 = F.s2tex;
+    if(t1 && t2) msg += ' · เนื้อดินที่บันทึก: ดินที่ 1 ' + esc(t1) + ', ดินที่ 2 ' + esc(t2);
+  } else if(any){ msg = 'กรอกค่า WHC ให้ครบทั้งสองดินเพื่อดูการแปลผล'; }
+  else msg = 'กรอกค่าในเครื่องคิดเลขทั้งสองส่วนเพื่อดูการเปรียบเทียบ';
+  $('interp').innerHTML = msg;
+}
+
+/* ================= organism data (ตาราง 9.1, 9.2) ================= */
+var LV_OPTS = [['', 'เลือกลำดับขั้น'], ['P', 'producer · ผู้ผลิต'], ['C1', 'primary consumer'], ['C2', 'secondary consumer'], ['C3', 'tertiary consumer'], ['C4', 'quaternary consumer'], ['DT', 'detritivore/scavenger']];
+var LV_LABEL = {P:'producer', C1:'primary consumer', C2:'secondary consumer', C3:'tertiary consumer', C4:'quaternary consumer', DT:'detritivore/scavenger'};
+var LV_BAND = {P:5, C1:4, C2:3, C3:2, C4:1, DT:4};
+var ECO = {
+  pond: {
+    th: 'สระน้ำ', title: 'สายใยอาหารในระบบนิเวศสระน้ำ อุทยาน 100 ปี', tray: 'สิ่งมีชีวิตในสระ (ตารางที่ 9.1)', file: 'foodweb_สระน้ำ',
+    orgs: [
+      ['แพลงก์ตอนพืช', 0, 'เป็นอาหารของแพลงก์ตอนสัตว์', 'P'],
+      ['สาหร่ายหางกระรอก', 1, 'เป็นอาหารของหอย ปู และกุ้ง น้ำจืดชนิดต่าง ๆ'],
+      ['ตะไคร่น้ำ', 0, 'เป็นอาหารของหอย ปู และกุ้ง น้ำจืดชนิดต่าง ๆ'],
+      ['แพลงก์ตอนสัตว์', 0, 'กินแพลงก์ตอนพืช', 'C1'],
+      ['หอยโข่ง', 0, 'กินสาหร่ายและตะไคร่น้ำ'],
+      ['หอยเชอรี่', 1, 'กินสาหร่ายและตะไคร่น้ำ'],
+      ['กุ้งฝอย', 0, 'กินเศษซากพืชซากสัตว์'],
+      ['จิงโจ้น้ำ', 0, 'กินแพลงก์ตอนสัตว์'],
+      ['ด้วงดิ่ง', 0, 'กินแพลงก์ตอนสัตว์ แมลงขนาดเล็กและลูกอ๊อด'],
+      ['มวนกรรเชียง', 0, 'กินแพลงก์ตอนสัตว์ แมลงขนาดเล็กและลูกอ๊อด'],
+      ['ปลานิล', 1, 'กินสาหร่ายและตะไคร่น้ำ'],
+      ['ปลาหางนกยูง', 1, 'กินสาหร่ายและตะไคร่น้ำ ลูกน้ำยุง เป็นต้น'],
+      ['ปลาเข็ม', 0, 'กินปลาและแมลงขนาดเล็ก'],
+      ['ปลาดุก', 1, 'กินปลาขนาดเล็ก เช่น ปลาหางนกยูง ปลาสอด ฯลฯ'],
+      ['ปลาสอด', 1, 'กินแพลงก์ตอนพืชและแพลงก์ตอนสัตว์'],
+      ['ลูกอ๊อดกบบัว', 0, 'กินแพลงก์ตอนพืชและแพลงก์ตอนสัตว์'],
+      ['เขียดน้ำนอง', 0, 'กินแมลงขนาดเล็ก เช่น มวนกรรเชียง ด้วงดิ่ง'],
+      ['เต่านา', 0, 'กินสัตว์ไม่มีกระดูกสันหลัง เช่น หอย กุ้ง ฯลฯ'],
+      ['เต่าแก้มแดง', 1, 'กินสัตว์ไม่มีกระดูกสันหลัง เช่น หอย กุ้ง ฯลฯ'],
+      ['ตะพาบ', 0, 'กินปลาและสัตว์ไม่มีกระดูกสันหลัง เช่น ปลาเข็ม กุ้ง ฯลฯ'],
+      ['นกยางกรอกพันธุ์ชวา', 0, 'กินปลาและสัตว์ไม่มีกระดูกสันหลัง เช่น ปลานิล หอย ฯลฯ']
+    ],
+    extras: ['ลูกน้ำยุง', 'แบคทีเรีย']
+  },
+  lawn: {
+    th: 'สนามหญ้า', title: 'สายใยอาหารในระบบนิเวศสนามหญ้า อุทยาน 100 ปี', tray: 'สิ่งมีชีวิตในสนามหญ้า (ตารางที่ 9.2)', file: 'foodweb_สนามหญ้า',
+    orgs: [
+      ['หญ้า', 0, 'เป็นอาหารของสัตว์กินพืช ทั้งต้นสดและเมื่อเป็นเศษซาก', 'P'],
+      ['เข็ม', 1, 'น้ำหวานของดอกเข็มเป็นอาหารของแมลงหลายชนิด'],
+      ['ไทร', 0, 'เป็นอาหารของสัตว์กินพืช และสัตว์กินเศษซากพืช'],
+      ['กิ้งกือ', 0, 'กินพืชและเศษซากพืช เช่น หญ้า เศษซากต้นไม้', 'C1'],
+      ['หอยทากยักษ์แอฟริกัน', 1, 'กินพืชและเศษซากพืช เช่น หญ้า เศษซากต้นไม้'],
+      ['ไส้เดือนดิน', 0, 'กินเศษซากพืชและสัตว์ที่อยู่ในดิน'],
+      ['แมงมุม', 0, 'สร้างใย ดักจับแมลงชนิดต่าง ๆ กิน เช่น แมลงวัน'],
+      ['ผีเสื้อ', 0, 'กินพืชโดยการดูดน้ำหวานจากต้นไม้'],
+      ['ตั๊กแตน', 0, 'กินต้นอ่อนหรือใบหญ้า'],
+      ['ปลวก', 0, 'กินเศษซากต้นไม้ที่ตายแล้ว'],
+      ['มดแดง', 0, 'กินพืชและสัตว์ เช่น ลูกไทร และเนื้อของสัตว์ชนิดต่าง ๆ'],
+      ['กบหนอง', 0, 'กินแมลงชนิดต่าง ๆ เช่น ตั๊กแตน ปลวก'],
+      ['งูเขียวหางไหม้', 0, 'กินสัตว์มีกระดูกสันหลังขนาดเล็ก เช่น กบ ตุ๊กแก กระรอก'],
+      ['งูเหลือม', 0, 'กินสัตว์มีกระดูกสันหลังชนิดต่าง ๆ ทั้งใหญ่และเล็ก'],
+      ['ตุ๊กแก', 0, 'กินสัตว์ขนาดเล็ก เช่น ตั๊กแตน ปลวก มด'],
+      ['เหี้ย', 0, 'กินซากสัตว์ เช่น ซากนกและสัตว์เลี้ยงลูกด้วยนมชนิดต่าง ๆ'],
+      ['นกเอี้ยง', 0, 'กินสัตว์ไม่มีกระดูกสันหลัง เช่น ไส้เดือนดิน ตั๊กแตน ปลวก'],
+      ['นกกางเขน', 0, 'กินไส้เดือนและแมลงขนาดเล็ก'],
+      ['กระรอก', 0, 'กินพืชและสัตว์ไม่มีกระดูกสันหลังขนาดเล็ก เช่น ลูกไทร ตั๊กแตน'],
+      ['หนูท่อ', 0, 'กินพืชและสัตว์เป็นอาหาร เช่น เมล็ดพืชและสัตว์ขนาดเล็ก']
+    ],
+    extras: ['เพลี้ย', 'แมลงวัน', 'มด', 'ตัวกะปิ', 'แมลงแกลบ', 'ด้วงดิน', 'ไรดิน', 'แมลงหางดีด', 'แมงป่องปลอม', 'ตะขาบ', 'แบคทีเรีย', 'เชื้อรา']
+  }
+};
+function lvKey(eco, i){ return (eco === 'pond' ? 'tp_' : 'tl_') + i; }
+function renderOTable(eco){
+  var tb = document.querySelector('[data-otable="' + eco + '"]'); if(!tb) return;
+  var h = '<thead><tr><th>สิ่งมีชีวิต</th><th>ข้อมูลทั่วไป</th><th>ลำดับขั้นการกิน (trophic level)</th></tr></thead><tbody>';
+  ECO[eco].orgs.forEach(function(o, i){
+    var cell;
+    if(o[3]) cell = '<span class="given">' + LV_LABEL[o[3]] + '</span>';
+    else {
+      var v = F[lvKey(eco, i)] || '';
+      cell = '<select data-lv="' + eco + ':' + i + '" class="' + (v ? 'set' : '') + '" aria-label="ลำดับขั้นของ ' + esc(o[0]) + '">' + LV_OPTS.map(function(p){ return '<option value="' + p[0] + '"' + (p[0] === v ? ' selected' : '') + '>' + p[1] + '</option>'; }).join('') + '</select>';
+    }
+    h += '<tr><td>' + esc(o[0]) + (o[1] ? '<span class="alien">*</span>' : '') + '</td><td>' + esc(o[2]) + '</td><td>' + cell + '</td></tr>';
+  });
+  tb.innerHTML = h + '</tbody>';
+}
+document.addEventListener('change', function(e){
+  var s = e.target.closest && e.target.closest('select[data-lv]'); if(!s) return;
+  var p = s.dataset.lv.split(':'); F[lvKey(p[0], +p[1])] = s.value; saveF(); s.classList.toggle('set', !!s.value);
+});
+
+/* ================= eco switch ================= */
+var eco = store('lab9-102-eco') === 'lawn' ? 'lawn' : 'pond';
+function setEco(e){
+  if(e !== 'pond' && e !== 'lawn') return;
+  var changed = e !== eco; eco = e; store('lab9-102-eco', e);
+  document.querySelectorAll('[data-track]').forEach(function(t){ t.hidden = t.dataset.track !== e; });
+  document.querySelectorAll('button[data-eco]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.eco === e ? 'true' : 'false'); });
+  if(FW.ready) FW.switchTo(e, changed);
+}
+document.querySelectorAll('button[data-eco]').forEach(function(b){ b.addEventListener('click', function(){ setEco(b.dataset.eco); }); });
+document.querySelectorAll('[data-jump-fw]').forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); $('fw').scrollIntoView({block:'start', behavior:'smooth'}); }); });
+
+/* ================= food-web worksheet ================= */
+var FW = (function(){
+  var W = 1000, H = 1304, HEAD = 96, BAND = 200, LABEL_W = 170, NH = 40;
+  var LEVELS = [
+    { en1:'Quinary', en2:'Consumer(s) (ถ้ามี)', th:'ผู้บริโภคลำดับที่ 5' },
+    { en1:'Quaternary', en2:'Consumer(s)', th:'ผู้บริโภคลำดับที่ 4' },
+    { en1:'Tertiary', en2:'Consumer(s)', th:'ผู้บริโภคลำดับที่ 3' },
+    { en1:'Secondary', en2:'Consumer(s)', th:'ผู้บริโภคลำดับที่ 2' },
+    { en1:'Primary', en2:'Consumer(s)', th:'ผู้บริโภคลำดับที่ 1' },
+    { en1:'Producer(s)', en2:'', th:'ผู้ผลิต' }
+  ];
+  var SUB = 'ระบุชื่อสิ่งมีชีวิตและเขียนลูกศร';
+  var DET_ID = 'detritus', DET_NAME = 'ซากอินทรีย์';
+  var NODE_FONT = '500 19px "IBM Plex Sans Thai", "Noto Sans Thai", Tahoma, sans-serif';
+  var EX = { edge:'#8fa59a', sep:'#cfdcd4', ink:'#16291F', muted:'#56695C', arrow:'#22383b',
+    band:['#f6f3fc','#fcf3f6','#fdf5ef','#fdf9ec','#f6faec','#eef8f1'],
+    ns:['#6a4fb0','#b0385c','#c2581a','#9c6f00','#5a8512','#1d8547'],
+    nf:['#ece6f9','#fae3ea','#fde6d6','#faeec8','#e9f3d4','#d9f0e1'], dets:'#7a5532', detf:'#f1e6d9' };
+  var svg = $('board'), layer = $('layer'), tray = $('tray'), ghost = $('ghost');
+  var cur = 'pond', state = null, states = {}, author = store('lab9-102-author') || '';
+  var hist = [], sel = null, mode = 'move', armed = null, drag = null, pdrag = null, suppressClick = false, seq = 1;
+  var bandTop = function(i){ return HEAD + i * BAND; };
+  var clamp = function(v, a, b){ return Math.max(a, Math.min(b, v)); };
+  var levelAt = function(y){ return clamp(Math.floor((y - HEAD) / BAND), 0, 5); };
+  var uid = function(p){ return p + Date.now().toString(36) + (seq++); };
+  var mctx = document.createElement('canvas').getContext('2d'), wcache = new Map();
+  function nodeW(name){ if(!wcache.has(name)){ mctx.font = NODE_FONT; wcache.set(name, Math.ceil(mctx.measureText(name).width) + 32); } return wcache.get(name); }
+  function detNode(){ var w = nodeW(DET_NAME); return { id:DET_ID, name:DET_NAME, fixed:true, x:W - 30 - w / 2, y:bandTop(5) + BAND - 36 }; }
+  function allNodes(){ return state.nodes.concat([detNode()]); }
+  function byId(id){ return id === DET_ID ? detNode() : state.nodes.find(function(n){ return n.id === id; }); }
+  function key(e){ return 'lab9-102-fw-' + e; }
+  function loadEco(e){
+    var s = loadJSON(key(e), null), st = { nodes:[], arrows:[], custom:[] };
+    if(s && Array.isArray(s.nodes)){
+      st.nodes = s.nodes.filter(function(n){ return n && typeof n.name === 'string' && isFinite(n.x) && isFinite(n.y); });
+      st.custom = Array.isArray(s.custom) ? s.custom.filter(function(x){ return typeof x === 'string'; }) : [];
+      var ids = new Set(st.nodes.map(function(n){ return n.id; }).concat(DET_ID));
+      st.arrows = (Array.isArray(s.arrows) ? s.arrows : []).filter(function(a){ return a && ids.has(a.from) && ids.has(a.to) && a.from !== a.to; });
+    }
+    return st;
+  }
+  var snapshot = function(){ return JSON.stringify({ nodes:state.nodes, arrows:state.arrows, custom:state.custom }); };
+  function pushHist(s){ hist.push(s || snapshot()); if(hist.length > 80) hist.shift(); }
+  function save(){ store(key(cur), JSON.stringify(state)); }
+  function names(){ var E = ECO[cur]; return E.orgs.map(function(o){ return o[0]; }).concat(E.extras, state.custom); }
+  function isAlien(n){ return ECO[cur].orgs.some(function(o){ return o[0] === n && o[1]; }); }
+
+  function clampFree(n){ var w = nodeW(n.name); n.x = clamp(n.x, LABEL_W + w / 2, W - 22 - w / 2); n.y = clamp(n.y, HEAD + NH / 2 + 6, bandTop(6) - NH / 2 - 6); }
+  function snapToBand(n){ clampFree(n); var t = bandTop(levelAt(n.y)); n.y = clamp(n.y, t + NH / 2 + 8, t + BAND - NH / 2 - 8); }
+  function clipRect(n, to, pad){
+    pad = pad == null ? 5 : pad;
+    var dx = to.x - n.x, dy = to.y - n.y, hw = nodeW(n.name) / 2 + pad, hh = NH / 2 + pad;
+    var t = Math.min(dx ? hw / Math.abs(dx) : Infinity, dy ? hh / Math.abs(dy) : Infinity);
+    if(!isFinite(t) || t >= 1) return { x:n.x, y:n.y };
+    return { x:n.x + dx * t, y:n.y + dy * t };
+  }
+  function arrowGeom(a){
+    var A = byId(a.from), B = byId(a.to); if(!A || !B) return null;
+    var reverse = state.arrows.some(function(o){ return o.from === a.to && o.to === a.from; }), c = null;
+    if(reverse){ var dx = B.x - A.x, dy = B.y - A.y, L = Math.hypot(dx, dy) || 1, k = Math.min(42, L * 0.22); c = { x:(A.x + B.x) / 2 - dy / L * k, y:(A.y + B.y) / 2 + dx / L * k }; }
+    return { p1:clipRect(A, c || B), p2:clipRect(B, c || A, 7), c:c };
+  }
+  var f1 = function(v){ return Math.round(v * 10) / 10; };
+  function pathD(g){ return g.c ? 'M' + f1(g.p1.x) + ' ' + f1(g.p1.y) + ' Q' + f1(g.c.x) + ' ' + f1(g.c.y) + ' ' + f1(g.p2.x) + ' ' + f1(g.p2.y) : 'M' + f1(g.p1.x) + ' ' + f1(g.p1.y) + ' L' + f1(g.p2.x) + ' ' + f1(g.p2.y); }
+  function toSvg(e){ var p = svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY; return p.matrixTransform(svg.getScreenCTM().inverse()); }
+  function overBoard(e){ var r = svg.getBoundingClientRect(); return e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom; }
+  function nodeAt(x, y){ var el = document.elementFromPoint(x, y), g = el && el.closest ? el.closest('[data-node]') : null; return g ? g.dataset.node : null; }
+  function authorLine(){ return 'ผู้จัดทำ: ' + (author.trim() || '..............................................'); }
+
+  function buildStatic(){
+    var s = '<clipPath id="pclip"><rect x="4" y="4" width="' + (W - 8) + '" height="' + (H - 8) + '" rx="22"/></clipPath>';
+    s += '<rect class="paper" x="4" y="4" width="' + (W - 8) + '" height="' + (H - 8) + '" rx="22"/><g clip-path="url(#pclip)">';
+    LEVELS.forEach(function(L, i){ var t = bandTop(i); s += '<rect class="band b' + i + '" id="band' + i + '" x="0" y="' + t + '" width="' + W + '" height="' + BAND + '"/><line class="sep" x1="14" x2="' + (W - 14) + '" y1="' + t + '" y2="' + t + '"/>'; });
+    s += '</g><rect x="4" y="4" width="' + (W - 8) + '" height="' + (H - 8) + '" rx="22" class="paper" style="fill:none"/>';
+    s += '<text class="title" x="' + W / 2 + '" y="42" dominant-baseline="central">' + esc(ECO[cur].title) + '</text>';
+    s += '<text class="sub" x="26" y="76" dominant-baseline="central">' + SUB + '</text><text class="author" id="authorText" x="' + (W - 26) + '" y="76" dominant-baseline="central"></text>';
+    LEVELS.forEach(function(L, i){ var t = bandTop(i);
+      s += '<text class="lv-en" x="26" y="' + (t + 32) + '" dominant-baseline="central">' + L.en1 + '</text>';
+      if(L.en2) s += '<text class="lv-en" x="26" y="' + (t + 56) + '" dominant-baseline="central">' + esc(L.en2) + '</text>';
+      s += '<text class="lv-th l' + i + '" x="26" y="' + (t + (L.en2 ? 82 : 58)) + '" dominant-baseline="central">' + L.th + '</text>'; });
+    $('static').innerHTML = s; updateAuthor();
+  }
+  function updateAuthor(){ var t = $('authorText'); if(t) t.textContent = authorLine(); }
+  function nodeSVG(n){
+    var w = nodeW(n.name), h = NH, isSel = sel && sel.type === 'node' && sel.id === n.id, isTgt = drag && drag.kind === 'arrow' && drag.target === n.id;
+    var cls = 'node ' + (n.fixed ? 'det' : 'lv' + levelAt(n.y)) + (isSel ? ' sel' : '') + (isTgt ? ' target' : '');
+    var s = '<g data-node="' + n.id + '" class="' + cls + '" transform="translate(' + f1(n.x) + ',' + f1(n.y) + ')"><rect x="' + (-w / 2) + '" y="' + (-h / 2) + '" width="' + w + '" height="' + h + '" rx="' + (n.fixed ? 9 : 20) + '"/><text y="1">' + esc(n.name) + '</text>';
+    s += '<g data-handle="' + n.id + '" class="handle" transform="translate(' + (w / 2) + ',0)"><title>ลากเพื่อสร้างลูกศร</title><circle class="hz" r="17"/><circle class="dot" r="10.5"/><path d="M-4.5 0 H4.5 M1 -3.6 L4.6 0 L1 3.6"/></g>';
+    if(isSel && !n.fixed) s += '<g data-del="' + n.id + '" class="del" transform="translate(' + (-w / 2 + 2) + ',' + (-h / 2 + 1) + ')"><title>นำออก</title><circle r="10.5"/><path d="M-3.6 -3.6 L3.6 3.6 M3.6 -3.6 L-3.6 3.6"/></g>';
+    return s + '</g>';
+  }
+  function render(){
+    var s = '';
+    state.arrows.forEach(function(a){ var g = arrowGeom(a); if(!g) return; var isSel = sel && sel.type === 'arrow' && sel.id === a.id, d = pathD(g);
+      s += '<g data-arrow="' + a.id + '" class="arrow' + (isSel ? ' sel' : '') + '"><path class="hit" d="' + d + '"/><path class="line" d="' + d + '" marker-end="url(#' + (isSel ? 'ahSel' : 'ah') + ')"/></g>'; });
+    if(drag && drag.kind === 'arrow' && drag.cur){ var A = byId(drag.from), p1 = clipRect(A, drag.cur); s += '<path class="temp" d="M' + f1(p1.x) + ' ' + f1(p1.y) + ' L' + f1(drag.cur.x) + ' ' + f1(drag.cur.y) + '" marker-end="url(#ahSel)"/>'; }
+    if(!state.nodes.length){ var cx = (LABEL_W + W) / 2;
+      s += '<text class="hint" x="' + cx + '" y="' + (bandTop(2) + 100) + '">ลากชื่อสิ่งมีชีวิตจากรายการมาวางในลำดับขั้นที่เหมาะสม</text>';
+      s += '<text class="hint" x="' + cx + '" y="' + (bandTop(2) + 134) + '">จากนั้นลากจุด ➜ ที่ขอบกล่องไปยังผู้กิน เพื่อสร้างลูกศร</text>'; }
+    allNodes().forEach(function(n){ s += nodeSVG(n); });
+    layer.innerHTML = s;
+    svg.classList.toggle('mode-arrow', mode === 'arrow'); svg.classList.toggle('armed', !!armed);
+    $('delBtn').disabled = !(sel && !(sel.type === 'node' && sel.id === DET_ID));
+  }
+  function chip(n, extra, used){ return '<button type="button" class="chip' + (isAlien(n) ? ' alien' : '') + (extra ? ' extra' : '') + (used ? ' used' : '') + (armed === n ? ' armed' : '') + '" data-name="' + esc(n) + '"' + (used ? ' aria-disabled="true" title="วางบนแผ่นงานแล้ว"' : '') + '>' + esc(n) + '</button>'; }
+  function renderTray(){
+    var E = ECO[cur], used = new Set(state.nodes.map(function(n){ return n.name; })), h = '';
+    E.orgs.forEach(function(o){ h += chip(o[0], false, used.has(o[0])); });
+    h += '<p class="sub">กล่าวถึงในคู่มือ/พบได้บ่อย</p>';
+    E.extras.forEach(function(n){ h += chip(n, true, used.has(n)); });
+    if(state.custom.length){ h += '<p class="sub">ที่นิสิตเพิ่มเอง</p>'; state.custom.forEach(function(n){ h += chip(n, true, used.has(n)); }); }
+    tray.innerHTML = h;
+    $('trayCount').textContent = 'วางแล้ว ' + state.nodes.length + ' ชนิด';
+    updateStatus();
+  }
+  function updateStatus(){
+    var st = $('status');
+    if(armed){ st.innerHTML = 'เลือก <b>' + esc(armed) + '</b> แล้ว แตะบนแผ่นงานในลำดับขั้นที่ต้องการเพื่อวาง (กด Esc เพื่อยกเลิก)'; return; }
+    if(sel && sel.type === 'arrow'){ var a = state.arrows.find(function(x){ return x.id === sel.id; });
+      if(a){ st.innerHTML = 'ลูกศรที่เลือก: <b>' + esc(byId(a.from).name) + ' → ' + esc(byId(a.to).name) + '</b> กด “ลบที่เลือก” หรือปุ่ม Delete เพื่อลบ'; return; } }
+    st.textContent = 'สิ่งมีชีวิต ' + state.nodes.length + ' ชนิด · ลูกศร ' + state.arrows.length + ' เส้น' + (mode === 'arrow' ? ' · โหมดวาดลูกศร: ลากจากกล่องหนึ่งไปอีกกล่อง' : '');
+  }
+  function hot(i){ for(var k = 0; k < 6; k++){ var b = $('band' + k); if(b) b.classList.toggle('hot', k === i); } }
+  function commit(){ save(); render(); renderTray(); }
+  function addNode(name, p){
+    if(state.nodes.some(function(n){ return n.name === name; })){ toast('“' + name + '” อยู่บนแผ่นงานแล้ว'); return; }
+    pushHist(); var n = { id:uid('n'), name:name, x:p.x, y:p.y }; snapToBand(n); state.nodes.push(n);
+    armed = null; sel = { type:'node', id:n.id }; commit(); toast('วาง “' + name + '” ที่' + LEVELS[levelAt(n.y)].th);
+  }
+  function removeNode(id){
+    if(id === DET_ID) return; var n = byId(id); if(!n) return; pushHist();
+    state.nodes = state.nodes.filter(function(x){ return x.id !== id; }); state.arrows = state.arrows.filter(function(a){ return a.from !== id && a.to !== id; });
+    sel = null; commit(); toast('นำ “' + n.name + '” กลับไปที่รายการ');
+  }
+  function addArrow(from, to){
+    if(state.arrows.some(function(a){ return a.from === from && a.to === to; })){ toast('มีลูกศรเส้นนี้อยู่แล้ว'); render(); return; }
+    pushHist(); state.arrows.push({ id:uid('a'), from:from, to:to }); sel = null; commit(); toast(byId(from).name + ' → ' + byId(to).name);
+  }
+  function deleteSelected(){ if(!sel) return; if(sel.type === 'node') return removeNode(sel.id); pushHist(); var id = sel.id; state.arrows = state.arrows.filter(function(a){ return a.id !== id; }); sel = null; commit(); toast('ลบลูกศรแล้ว'); }
+  function undo(){ if(!hist.length){ toast('ไม่มีขั้นตอนให้ย้อนกลับ'); return; } var s = JSON.parse(hist.pop()); state.nodes = s.nodes; state.arrows = s.arrows; state.custom = s.custom || []; sel = null; armed = null; commit(); }
+  function setMode(m){ mode = m; $('modeMove').setAttribute('aria-pressed', m === 'move'); $('modeArrow').setAttribute('aria-pressed', m === 'arrow'); render(); updateStatus(); }
+
+  // auto-place from trophic table
+  function freeSpot(name, band){
+    var w = nodeW(name), t = bandTop(band), rows = [t + 46, t + 100, t + 154];
+    for(var r = 0; r < rows.length; r++){
+      for(var x = LABEL_W + w / 2 + 6; x <= W - 22 - w / 2; x += 8){
+        var ok = allNodes().every(function(n){ return Math.abs(n.x - x) >= (nodeW(n.name) + w) / 2 + 12 || Math.abs(n.y - rows[r]) >= NH + 8; });
+        if(ok) return { x:x, y:rows[r] };
+      }
+    }
+    return { x:LABEL_W + w / 2 + 10 + Math.random() * 200, y:t + BAND / 2 };
+  }
+  function placeFromTable(e){
+    var E = ECO[e], placed = 0, missing = 0;
+    var todo = E.orgs.map(function(o, i){ return { name:o[0], lv:o[3] || F[lvKey(e, i)] || '' }; });
+    if(e !== cur) switchTo(e, true);
+    var snap = snapshot();
+    todo.forEach(function(o){
+      if(!o.lv){ missing++; return; }
+      if(state.nodes.some(function(n){ return n.name === o.name; })) return;
+      var p = freeSpot(o.name, LV_BAND[o.lv]); state.nodes.push({ id:uid('n'), name:o.name, x:p.x, y:p.y }); placed++;
+    });
+    if(placed) pushHist(snap);
+    sel = null; armed = null; commit();
+    var note = document.querySelector('[data-place-note="' + e + '"]');
+    var msg = placed ? 'วางเพิ่ม ' + placed + ' ชนิด' + (missing ? ' (ยังไม่ได้เลือกลำดับขั้น ' + missing + ' ชนิด)' : '') : (missing ? 'เลือกลำดับขั้นในตารางก่อน (ยังว่าง ' + missing + ' ชนิด)' : 'ทุกชนิดอยู่บนแผ่นงานแล้ว');
+    if(note) note.textContent = msg; toast(msg);
+    if(placed) $('fw').scrollIntoView({ block:'start', behavior:'smooth' });
+  }
+  function switchTo(e, changed){
+    if(state && !changed) return;
+    cur = e; state = states[e] || (states[e] = loadEco(e));
+    hist = []; sel = null; armed = null; drag = null;
+    $('fwEyebrow').textContent = 'แผ่นงานสายใยอาหาร · ' + ECO[e].th;
+    $('fwTitle').textContent = ECO[e].title; $('trayH').textContent = ECO[e].tray;
+    buildStatic(); render(); renderTray();
+  }
+
+  /* pointer: board */
+  svg.addEventListener('pointerdown', function(e){
+    if(e.button > 0) return;
+    var t = e.target, p = toSvg(e), del = t.closest('[data-del]');
+    if(del){ e.preventDefault(); removeNode(del.dataset.del); return; }
+    var h = t.closest('[data-handle]'), nEl = t.closest('[data-node]'), aEl = t.closest('[data-arrow]');
+    if(armed && !nEl){ e.preventDefault(); addNode(armed, p); return; }
+    if(h || (nEl && mode === 'arrow')){
+      var id = h ? h.dataset.handle : nEl.dataset.node;
+      drag = { kind:'arrow', from:id, start:p, cur:null, target:null }; sel = { type:'node', id:id };
+      svg.setPointerCapture(e.pointerId); e.preventDefault(); render(); updateStatus(); return;
+    }
+    if(nEl){
+      var nid = nEl.dataset.node, n = byId(nid); sel = { type:'node', id:nid };
+      if(!n.fixed){ drag = { kind:'move', id:nid, dx:p.x - n.x, dy:p.y - n.y, start:p, moved:false, snap:snapshot() }; svg.setPointerCapture(e.pointerId); }
+      e.preventDefault(); render(); updateStatus(); return;
+    }
+    if(aEl){ sel = { type:'arrow', id:aEl.dataset.arrow }; render(); updateStatus(); return; }
+    if(sel){ sel = null; render(); updateStatus(); }
+  });
+  svg.addEventListener('pointermove', function(e){
+    if(!drag) return; var p = toSvg(e);
+    if(drag.kind === 'move'){
+      if(!drag.moved && Math.hypot(p.x - drag.start.x, p.y - drag.start.y) < 3) return;
+      drag.moved = true; var n = byId(drag.id); n.x = p.x - drag.dx; n.y = p.y - drag.dy; clampFree(n); hot(levelAt(n.y)); render();
+    } else { drag.cur = p; var tg = nodeAt(e.clientX, e.clientY); drag.target = tg && tg !== drag.from ? tg : null; render(); }
+  });
+  function endDrag(e){
+    if(!drag) return; var d = drag; drag = null; hot(-1);
+    if(d.kind === 'move'){ if(d.moved){ snapToBand(byId(d.id)); pushHist(d.snap); commit(); } else render(); }
+    else { var tg = e.type === 'pointerup' ? nodeAt(e.clientX, e.clientY) : null;
+      if(tg && tg !== d.from) addArrow(d.from, tg);
+      else { render(); if(d.cur && Math.hypot(d.cur.x - d.start.x, d.cur.y - d.start.y) > 20) toast('ปล่อยลูกศรบนกล่องของผู้กิน'); } }
+  }
+  svg.addEventListener('pointerup', endDrag); svg.addEventListener('pointercancel', endDrag);
+
+  /* pointer: tray */
+  tray.addEventListener('pointerdown', function(e){
+    var c = e.target.closest('.chip'); if(!c || c.classList.contains('used') || e.button > 0) return;
+    pdrag = { name:c.dataset.name, sx:e.clientX, sy:e.clientY, active:false }; c.setPointerCapture(e.pointerId);
+  });
+  tray.addEventListener('pointermove', function(e){
+    if(!pdrag) return;
+    if(!pdrag.active){ if(Math.hypot(e.clientX - pdrag.sx, e.clientY - pdrag.sy) < 6) return; pdrag.active = true; ghost.textContent = pdrag.name; ghost.hidden = false; }
+    ghost.style.left = e.clientX + 'px'; ghost.style.top = e.clientY + 'px'; hot(overBoard(e) ? levelAt(toSvg(e).y) : -1);
+  });
+  function endPdrag(e){
+    if(!pdrag) return; var d = pdrag; pdrag = null; ghost.hidden = true; hot(-1);
+    if(d.active){ suppressClick = true; setTimeout(function(){ suppressClick = false; }, 0); if(e.type === 'pointerup' && overBoard(e)) addNode(d.name, toSvg(e)); }
+  }
+  tray.addEventListener('pointerup', endPdrag); tray.addEventListener('pointercancel', endPdrag);
+  tray.addEventListener('click', function(e){
+    var c = e.target.closest('.chip'); if(!c || suppressClick) return;
+    if(c.classList.contains('used')){ var n = state.nodes.find(function(x){ return x.name === c.dataset.name; }); if(n){ sel = { type:'node', id:n.id }; render(); updateStatus(); } return; }
+    armed = armed === c.dataset.name ? null : c.dataset.name; sel = null; render(); renderTray();
+  });
+
+  /* controls */
+  $('modeMove').onclick = function(){ setMode('move'); };
+  $('modeArrow').onclick = function(){ setMode('arrow'); };
+  $('undoBtn').onclick = undo; $('delBtn').onclick = deleteSelected;
+  var clearT;
+  $('clearBtn').onclick = function(){
+    var b = $('clearBtn');
+    if(!b.classList.contains('confirm')){ b.classList.add('confirm'); b.textContent = 'กดอีกครั้งเพื่อยืนยัน'; clearT = setTimeout(function(){ b.classList.remove('confirm'); b.textContent = 'ล้างทั้งหมด'; }, 3200); return; }
+    clearTimeout(clearT); b.classList.remove('confirm'); b.textContent = 'ล้างทั้งหมด';
+    pushHist(); state.nodes = []; state.arrows = []; sel = null; armed = null; commit(); toast('ล้างแผ่นงานแล้ว กด “ย้อนกลับ” ได้ถ้าต้องการคืนค่า');
+  };
+  $('author').value = author;
+  $('author').addEventListener('input', function(e){ author = e.target.value; store('lab9-102-author', author); updateAuthor(); });
+  $('addForm').addEventListener('submit', function(e){
+    e.preventDefault(); var inp = $('addName'), name = inp.value.trim().replace(/\s+/g, ' ');
+    if(!name) return;
+    if(names().indexOf(name) >= 0 || name === DET_NAME){ toast('มี “' + name + '” ในรายการแล้ว'); return; }
+    pushHist(); state.custom.push(name); inp.value = ''; commit(); toast('เพิ่ม “' + name + '” ในรายการแล้ว');
+  });
+  document.addEventListener('keydown', function(e){
+    if($('act2').hidden) return;
+    var typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement && document.activeElement.tagName);
+    if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !typing){ e.preventDefault(); undo(); return; }
+    if(typing) return;
+    if(e.key === 'Delete' || e.key === 'Backspace'){ if(sel){ e.preventDefault(); deleteSelected(); } }
+    else if(e.key === 'Escape'){ armed = null; sel = null; render(); renderTray(); }
+  });
+
+  /* export */
+  function ensureFonts(){
+    if(!document.fonts) return Promise.resolve();
+    return Promise.all([document.fonts.load(NODE_FONT, 'กขคสาหร่ายอ๊'), document.fonts.load('600 26px "Bai Jamjuree"', 'สายใยอาหาร Quinary'), document.fonts.load('500 18px "Bai Jamjuree"', 'Consumer'), document.fonts.load('400 16px "IBM Plex Sans Thai"', 'ระบุชื่อ'), document.fonts.load('600 15px "IBM Plex Sans Thai"', 'ผู้ผลิต')]).catch(function(){});
+  }
+  function rr(x, X, Y, w, h, r){ x.beginPath(); x.moveTo(X + r, Y); x.arcTo(X + w, Y, X + w, Y + h, r); x.arcTo(X + w, Y + h, X, Y + h, r); x.arcTo(X, Y + h, X, Y, r); x.arcTo(X, Y, X + w, Y, r); x.closePath(); }
+  function drawExport(scale){
+    return ensureFonts().then(function(){
+      var c = document.createElement('canvas'); c.width = W * scale; c.height = H * scale;
+      var x = c.getContext('2d'); x.scale(scale, scale);
+      x.fillStyle = '#ffffff'; x.fillRect(0, 0, W, H);
+      x.save(); rr(x, 4, 4, W - 8, H - 8, 22); x.clip();
+      LEVELS.forEach(function(L, i){ var t = bandTop(i); x.fillStyle = EX.band[i]; x.fillRect(0, t, W, BAND); x.strokeStyle = EX.sep; x.lineWidth = 1.4; x.beginPath(); x.moveTo(14, t); x.lineTo(W - 14, t); x.stroke(); });
+      x.restore(); rr(x, 4, 4, W - 8, H - 8, 22); x.strokeStyle = EX.edge; x.lineWidth = 2; x.stroke();
+      x.textBaseline = 'middle';
+      x.fillStyle = EX.ink; x.textAlign = 'center'; x.font = '600 26px "Bai Jamjuree", "IBM Plex Sans Thai", sans-serif'; x.fillText(ECO[cur].title, W / 2, 42);
+      x.textAlign = 'left'; x.fillStyle = EX.muted; x.font = 'italic 400 16px "IBM Plex Sans Thai", sans-serif'; x.fillText(SUB, 26, 76);
+      x.textAlign = 'right'; x.fillStyle = EX.ink; x.font = '500 16px "IBM Plex Sans Thai", sans-serif'; x.fillText(authorLine(), W - 26, 76);
+      x.textAlign = 'left';
+      LEVELS.forEach(function(L, i){ var t = bandTop(i); x.fillStyle = EX.ink; x.font = '500 18px "Bai Jamjuree", sans-serif'; x.fillText(L.en1, 26, t + 32); if(L.en2) x.fillText(L.en2, 26, t + 56);
+        x.fillStyle = EX.ns[i]; x.font = '600 15px "IBM Plex Sans Thai", sans-serif'; x.fillText(L.th, 26, t + (L.en2 ? 82 : 58)); });
+      x.strokeStyle = EX.arrow; x.fillStyle = EX.arrow; x.lineWidth = 2.2; x.lineCap = 'round';
+      state.arrows.forEach(function(a){
+        var g = arrowGeom(a); if(!g) return;
+        var from = g.c || g.p1, ang = Math.atan2(g.p2.y - from.y, g.p2.x - from.x);
+        var tip = { x:g.p2.x + Math.cos(ang) * 4, y:g.p2.y + Math.sin(ang) * 4 }, end = { x:tip.x - Math.cos(ang) * 10, y:tip.y - Math.sin(ang) * 10 };
+        x.beginPath(); x.moveTo(g.p1.x, g.p1.y); if(g.c) x.quadraticCurveTo(g.c.x, g.c.y, end.x, end.y); else x.lineTo(end.x, end.y); x.stroke();
+        var L = 15, s = 0.42; x.beginPath(); x.moveTo(tip.x, tip.y); x.lineTo(tip.x - L * Math.cos(ang - s), tip.y - L * Math.sin(ang - s)); x.lineTo(tip.x - L * Math.cos(ang + s), tip.y - L * Math.sin(ang + s)); x.closePath(); x.fill();
+      });
+      x.textAlign = 'center';
+      allNodes().forEach(function(n){
+        var w = nodeW(n.name), lv = levelAt(n.y);
+        rr(x, n.x - w / 2, n.y - NH / 2, w, NH, n.fixed ? 9 : 20);
+        x.fillStyle = n.fixed ? EX.detf : EX.nf[lv]; x.fill(); x.lineWidth = 2; x.strokeStyle = n.fixed ? EX.dets : EX.ns[lv];
+        if(n.fixed) x.setLineDash([7, 4]); x.stroke(); x.setLineDash([]);
+        x.fillStyle = EX.ink; x.font = NODE_FONT; x.fillText(n.name, n.x, n.y + 1);
+      });
+      return c;
+    });
+  }
+  function toBlob(c, q){ return new Promise(function(r){ c.toBlob(r, 'image/jpeg', q); }); }
+  function makePDF(jpg, wPx, hPx){
+    var pw = 595.28, ph = 841.89, m = 22, iw = pw - 2 * m, ih = iw * hPx / wPx;
+    if(ih > ph - 2 * m){ ih = ph - 2 * m; iw = ih * wPx / hPx; }
+    var ix = (pw - iw) / 2, iy = (ph - ih) / 2, enc = new TextEncoder(), parts = [], offs = [], off = 0;
+    function push(v){ var b = typeof v === 'string' ? enc.encode(v) : v; parts.push(b); off += b.length; }
+    function obj(n, body){ offs[n] = off; push(n + ' 0 obj\n' + body + '\nendobj\n'); }
+    push('%PDF-1.4\n%âãÏÓ\n');
+    obj(1, '<< /Type /Catalog /Pages 2 0 R >>'); obj(2, '<< /Type /Pages /Kids [3 0 R] /Count 1 >>');
+    obj(3, '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ' + pw + ' ' + ph + '] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>');
+    offs[4] = off; push('4 0 obj\n<< /Type /XObject /Subtype /Image /Width ' + wPx + ' /Height ' + hPx + ' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ' + jpg.length + ' >>\nstream\n'); push(jpg); push('\nendstream\nendobj\n');
+    var content = 'q ' + iw.toFixed(2) + ' 0 0 ' + ih.toFixed(2) + ' ' + ix.toFixed(2) + ' ' + iy.toFixed(2) + ' cm /Im0 Do Q';
+    obj(5, '<< /Length ' + content.length + ' >>\nstream\n' + content + '\nendstream');
+    var xref = off, t = 'xref\n0 6\n0000000000 65535 f \n';
+    for(var i = 1; i <= 5; i++) t += String(offs[i]).padStart(10, '0') + ' 00000 n \n';
+    push(t + 'trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n' + xref + '\n%%EOF\n');
+    return new Blob(parts, { type:'application/pdf' });
+  }
+  function baseName(){ var a = author.trim().replace(/[\\/:*?"<>|]+/g, '').replace(/\s+/g, '_').slice(0, 50); return ECO[cur].file + '100ปี' + (a ? '_' + a : ''); }
+  function offer(filename, blob){
+    var url = URL.createObjectURL(blob), a = document.createElement('a');
+    a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 4000); toast('ดาวน์โหลด ' + filename + ' แล้ว');
+  }
+  function exportAs(kind, btn){
+    if(!state.nodes.length){ toast('ยังไม่มีสิ่งมีชีวิตบนแผ่นงาน'); return; }
+    var label = btn.textContent; btn.disabled = true; btn.textContent = 'กำลังสร้างไฟล์…';
+    drawExport(2).then(function(c){ return toBlob(c, 0.92).then(function(jpg){
+      if(kind === 'jpg') return offer(baseName() + '.jpg', jpg);
+      return jpg.arrayBuffer().then(function(buf){ offer(baseName() + '.pdf', makePDF(new Uint8Array(buf), c.width, c.height)); });
+    }); }).catch(function(){ toast('สร้างไฟล์ไม่สำเร็จ ลองอีกครั้ง'); }).then(function(){ btn.disabled = false; btn.textContent = label; });
+  }
+  $('jpgBtn').onclick = function(){ exportAs('jpg', $('jpgBtn')); };
+  $('pdfBtn').onclick = function(){ exportAs('pdf', $('pdfBtn')); };
+
+  return {
+    ready: false, switchTo: switchTo, placeFromTable: placeFromTable,
+    init: function(e){ switchTo(e, true); this.ready = true;
+      if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ wcache.clear(); state.nodes.forEach(snapToBand); render(); }); },
+    get: function(e){ return states[e] || (states[e] = loadEco(e)); }, byIdIn: function(e, id){ var st = this.get(e); return id === DET_ID ? { name:DET_NAME } : st.nodes.find(function(n){ return n.id === id; }); }
+  };
+})();
+document.querySelectorAll('[data-place]').forEach(function(b){ b.addEventListener('click', function(){ FW.placeFromTable(b.dataset.place); }); });
+
+/* ================= RAWES ================= */
+var RAWES = [
+ { en:'Provisioning', th:'ด้านการให้ผลผลิต', items:[
+  ['แหล่งน้ำจืด', 'การใช้น้ำเพื่อเป็นแหล่งน้ำดื่ม ในครัวเรือน สำหรับการชลประทาน และปศุสัตว์ และอื่น ๆ', ['พื้นที่ชุ่มน้ำ (ในปฏิบัติการนี้คืออุทยาน 100 ปี) เป็นแหล่งน้ำจืดสำหรับอุปโภคหรือบริโภคใช่หรือไม่', 'พื้นที่ชุ่มน้ำเป็นแหล่งของมลพิษ ทำให้คุณสมบัติในการเป็นแหล่งน้ำจืดเสื่อมโทรมลงใช่หรือไม่']],
+  ['แหล่งอาหาร', 'พืช ผลไม้ ปลา และอื่น ๆ', ['มีการเก็บเกี่ยวพืชที่พบ/ปลูกในพื้นที่ชุ่มน้ำไปใช้ประโยชน์บ้างหรือไม่ ชนิดอะไร', 'มีการจับสัตว์จากพื้นที่ชุ่มน้ำหรือไม่', 'มีสัตว์เลี้ยง/ปศุสัตว์ของมนุษย์ที่ใช้ประโยชน์ (กินอาหาร) ในพื้นที่ชุ่มน้ำหรือไม่']],
+  ['แหล่งเส้นใย', 'นำไม้มาใช้สร้างบ้าน เส้นใยสำหรับทำเครื่องนุ่งห่ม', ['มีวัสดุจากธรรมชาติ เช่น ไม้ เส้นใย ฟาง เส้นใยจากสัตว์ (ขนสัตว์ หนังสัตว์ เอ็น เขาสัตว์ และอื่น ๆ) ที่ถูกนำมาจากพื้นที่ชุ่มน้ำใช่หรือไม่']],
+  ['แหล่งพันธุกรรม', 'สิ่งมีชีวิตสายพันธุ์ที่หายากถูกนำมาใช้สำหรับการปรับปรุงสายพันธุ์พืช/สัตว์ และอื่น ๆ', ['มีสิ่งมีชีวิตสายพันธุ์พื้นเมืองหรือสายพันธุ์ที่หายากของพืชและสัตว์ สายพันธุ์สัตว์ป่า และสายพันธุ์ที่นำมาเลี้ยง ซึ่งมีส่วนร่วมด้านความหลากหลายทางพันธุกรรมสำหรับการใช้ประโยชน์ของมนุษย์ เช่น การผลิตยา ปรับปรุงความสามารถในการกลับสู่สภาพเดิม (resilience) ของพืชและสัตว์ และการค้าไม้ประดับ และอื่น ๆ']],
+  ['แหล่งยารักษาโรคและสมุนไพร', 'พืชนำมาใช้เป็นยาสมุนไพร และอื่น ๆ', ['มีพืช สัตว์ หรือชิ้นส่วนต่าง ๆ ที่นำมาจากพื้นที่ชุ่มน้ำ นำมาใช้เป็นยาบ้างหรือไม่']],
+  ['ทรัพยากรประดับและตกแต่ง', 'เก็บเปลือกหอย ดอกไม้ และอื่น ๆ (กล้วยไม้)', ['มีพืช สัตว์ หรือส่วนต่าง ๆ ที่เก็บมาจากพื้นที่ชุ่มน้ำเพื่อใช้ในครัวเรือน/ขายเพื่อคุณค่าด้านความสวยงามและประดับ']],
+  ['แหล่งดินเหนียว แหล่งดินลูกรัง แหล่งแร่', 'ใช้ทรายและกรวดเพื่อการก่อสร้าง และใช้ดินเหนียวนำมาทำอิฐ และอื่น ๆ', ['ทรัพยากรดินและแร่ธาตุอะไรบ้างที่ถูกขุดมาจากพื้นที่ชุ่มน้ำเพื่อใช้ในการก่อสร้าง และการใช้ประโยชน์อื่น ๆ ของมนุษย์']],
+  ['การทิ้ง/รองรับของเสีย', 'การทิ้งขยะชุมชน ขยะจากผู้มาใช้ประโยชน์ชั่วคราว นักท่องเที่ยว การปล่อย/รองรับน้ำเสีย และอื่น ๆ', ['พื้นที่ชุ่มน้ำเป็นสถานที่ทิ้งของเสียที่เป็นของเหลว ของแข็ง หรือของเสียอื่น ๆ ใช่หรือไม่']],
+  ['แหล่งพลังงาน (พลังน้ำหรือพลังลม)', 'ระหัดวิดน้ำที่ขับเคลื่อนโดยน้ำไหล กังหันลมที่ขับเคลื่อนโดยลม โซลาร์เซลล์ และอื่น ๆ', ['มีเครื่องมืออะไรบ้าง (เช่น ระหัดวิดน้ำ กังหันลม โซลาร์เซลล์ อื่น ๆ) ที่ใช้ผลิตพลังงานจากธรรมชาติในพื้นที่ชุ่มน้ำ']]
+ ]},
+ { en:'Regulating', th:'ด้านการควบคุมกระบวนการต่าง ๆ', items:[
+  ['ควบคุมคุณภาพอากาศ', 'กำจัดอนุภาคที่อยู่ในอากาศจากท่อไอเสียรถยนต์ จากปล่องของโรงงานอุตสาหกรรม และฝุ่นจากพื้นที่เกษตรกรรม อื่น ๆ', ['มีแหล่งกำเนิดมลพิษทางอากาศในพื้นที่ชุ่มน้ำบ้างหรือไม่', 'พื้นที่ชุ่มน้ำช่วยกำจัด (settle out) หรือมีพืชที่ช่วยกำจัดมลพิษทางอากาศหรือไม่', 'พื้นที่ชุ่มน้ำเป็นแหล่งกำเนิดมลพิษทางอากาศใช่หรือไม่ (จุลชีพ อนุภาค หรือเคมี)']],
+  ['ควบคุมลักษณะอากาศประจำถิ่น', 'การควบคุมสภาพอากาศท้องถิ่นโดยการให้ร่มเงา และลดอุณหภูมิของอากาศ อื่น ๆ', ['พื้นที่ชุ่มน้ำช่วยในการระเหยของไอน้ำทำให้อุณหภูมิของอากาศลดลงใช่หรือไม่']],
+  ['ควบคุมลักษณะอากาศระดับโลก', 'การควบคุมสภาพอากาศของโลกผ่านการคุมการปล่อยก๊าซเรือนกระจก และการกักเก็บคาร์บอน และอื่น ๆ', ['พื้นที่ชุ่มน้ำมีส่วนช่วยกักเก็บคาร์บอนหรือไม่', 'พื้นที่ชุ่มน้ำเป็นแหล่งปลดปล่อยก๊าซเรือนกระจกต่าง ๆ หรือไม่']],
+  ['ควบคุมน้ำ', 'การควบคุมการไหลของน้ำผิวดินในช่วงน้ำมากและน้ำน้อย และช่วยควบคุมการไหลของน้ำใต้ดิน และอื่น ๆ', ['ลักษณะภูมิประเทศ การซึมน้ำ และพื้นผิวที่ขรุขระของพื้นที่ชุ่มน้ำช่วยเก็บกักน้ำในช่วงฝนตก หรือปล่อยน้ำกลับสู่น้ำผิวดินหรือน้ำใต้ดินใช่หรือไม่']],
+  ['ควบคุมภัยจากน้ำท่วม', 'การควบคุมและเก็บกักน้ำท่วม การควบคุม/บรรเทาผลกระทบเมื่อฝนตกหนัก', ['พื้นที่ชุ่มน้ำช่วยควบคุม/ลดความเร็วของการเกิดน้ำท่วมใช่หรือไม่', 'พื้นที่ชุ่มน้ำช่วยเก็บกักน้ำฝนและน้ำผิวดินที่จะทำให้เกิดน้ำท่วมและความเสียหายต่อทรัพย์สินหรือระบบนิเวศท้ายน้ำหรือไม่']],
+  ['ควบคุมภัยจากพายุรุนแรง', 'การควบคุมน้ำขึ้นน้ำลง คลื่นจากพายุ ควบคุมลมพายุ และอื่น ๆ', ['ต้นไม้ในพื้นที่ชุ่มน้ำ พืชอื่น ๆ และสภาพภูมิประเทศช่วยป้องกันพายุ คลื่น และคลื่นลมที่อาจทำให้เกิดความเสียหายต่อทรัพย์สินและระบบนิเวศใช่หรือไม่']],
+  ['ควบคุมศัตรูตามธรรมชาติ', 'ควบคุมศัตรูธรรมชาติ เช่น ยุง หนู แมลงวัน และอื่น ๆ', ['มีผู้ล่าทางธรรมชาติ และกระบวนการทางนิเวศอื่น ๆ ในพื้นที่ชุ่มน้ำที่ควบคุมศัตรูธรรมชาติใช่หรือไม่', 'พื้นที่ชุ่มน้ำเป็นแหล่งกำเนิดศัตรูธรรมชาติ (เช่น หนูที่แพร่พันธุ์อย่างรวดเร็วในพื้นที่สกปรก หรือมีชนิดพันธุ์ต่างถิ่นที่ส่งผลต่อสิ่งมีชีวิตในท้องถิ่น) หรือไม่']],
+  ['ควบคุมโรคที่จะติดต่อไปยังมนุษย์', 'มีชนิดพันธุ์ที่ควบคุมสิ่งมีชีวิตที่ก่อให้เกิดโรคในมนุษย์ เช่น มาลาเรีย ไข้เวสต์ไนล์ ไข้เลือดออก ไวรัสซิกา โรคฉี่หนู โรคพยาธิ และอื่น ๆ', ['มูลสัตว์ แบคทีเรีย หรือจุลชีพที่ก่อให้เกิดโรคถูกเก็บกักอยู่ในพื้นที่ชุ่มน้ำใช่หรือไม่', 'สภาพของพื้นที่ชุ่มน้ำช่วยทำให้เกิดการแพร่กระจายของสัตว์ที่เป็นพาหะของการเกิดโรค (เช่น ยุง) ใช่หรือไม่', 'มีผู้ล่าในธรรมชาติในพื้นที่ชุ่มน้ำที่ช่วยควบคุมสาเหตุการเกิดโรคในมนุษย์ใช่หรือไม่']],
+  ['ควบคุมโรคที่จะติดต่อไปยังปศุสัตว์', 'มีชนิดพันธุ์ที่ควบคุมพาหะที่แพร่เชื้อโรคไปสู่ปศุสัตว์ เช่น โรคฉี่หนู โรคพยาธิ โรคลำไส้อักเสบจากเชื้อไวรัสในเป็ด ไข้หวัดนก กลุ่มโรคที่เกิดจากเห็บ และอื่น ๆ', ['มูลสัตว์ แบคทีเรีย หรือจุลชีพที่ก่อให้เกิดโรคถูกเก็บกักอยู่ในพื้นที่ชุ่มน้ำใช่หรือไม่', 'สภาพของพื้นที่ชุ่มน้ำช่วยทำให้เกิดการแพร่กระจายของสัตว์ที่เป็นพาหะของการเกิดโรค (เช่น ยุง หอย) ใช่หรือไม่']],
+  ['การควบคุมการพังทลายของดิน', 'การควบคุมพลังงานสิ่งแวดล้อมเพื่อลดความเสี่ยงต่อการกัดเซาะของดิน พืชที่ขึ้นอยู่หนาแน่นจะช่วยปกป้องดิน และอื่น ๆ', ['มีพืชในพื้นที่ชุ่มน้ำที่ป้องกันการชะล้างพังทลายของดินหรือไม่', 'มีสัญญาณของการกัดเซาะของดิน เช่น พื้นที่ที่ไม่มีสิ่งปกคลุมดิน ในพื้นที่ชุ่มน้ำใช่หรือไม่']],
+  ['ทำให้น้ำบริสุทธิ์', 'การทำให้น้ำสะอาด ทำให้คุณภาพน้ำดีขึ้น การตกตะกอนของดิน ดักจับสารพิษและมลพิษ และอื่น ๆ', ['ปัจจัยทางธรรมชาติและเคมี (รังสีของดวงอาทิตย์ที่ส่งผลต่อแหล่งน้ำตื้น ภาวะใช้ออกซิเจนและไม่ใช้ออกซิเจน) และกระบวนการทางชีววิทยาในพื้นที่ชุ่มน้ำ ส่งผลต่ออินทรียสาร จุลชีพ และมลสารอื่น ๆ ที่มากับน้ำหรือไม่', 'มีการสะสมของตะกอนแขวนลอยหรือไม่', 'มีการเปลี่ยนแปลงที่สังเกตได้ในเรื่องคุณภาพน้ำ เช่น ความขุ่นของน้ำที่เข้ามาและออกจากพื้นที่ชุ่มน้ำหรือไม่']],
+  ['ช่วยผสมเกสร', 'การผสมเกสรของพืชและพืชอาหารด้วยผู้ผสมเกสร เช่น ผึ้ง ผีเสื้อ ตัวต่อ ค้างคาว และอื่น ๆ', ['มีประชากรของผู้ผสมเกสร (ผีเสื้อ ตัวต่อ ผึ้ง ค้างคาว และอื่น ๆ) แพร่กระจายอยู่ในพื้นที่ชุ่มน้ำหรือไม่', 'ผู้ผสมเกสรในพื้นที่ชุ่มน้ำช่วยผสมเกสรในพืชอาหารหรือสวนหรือไม่']],
+  ['ควบคุมน้ำเค็ม', 'น้ำจืดในพื้นที่ชุ่มน้ำช่วยกั้นน้ำเค็ม', ['ลักษณะทางอุทกวิทยาของพื้นที่ชุ่มน้ำช่วยป้องกันการปนเปื้อนของน้ำเค็มเข้าสู่น้ำจืด (saline water intrusion) ใช่หรือไม่', 'น้ำจืดในพื้นที่ชุ่มน้ำช่วยป้องกันความเค็มที่เข้าสู่ดินใช่หรือไม่']],
+  ['ควบคุมไฟ', 'เป็นแนวกันไฟ รักษาสภาพความชื้นเพื่อป้องกันการแพร่กระจายของไฟ', ['ประเภทของแหล่งน้ำ (เช่น ร่องน้ำ ลำน้ำ อื่น ๆ) ช่วยป้องกันการแพร่กระจายของไฟหรือไม่', 'น้ำหรือน้ำที่อยู่ใกล้ผิวดินช่วยยับยั้งการแพร่กระจายของไฟหรือไม่', 'พื้นที่ที่มีอินทรียวัตถุสูงหรือดินพรุ เมื่อถูกระบายน้ำออกจะก่อให้เกิดไฟและการเผาไหม้ใช่หรือไม่']],
+  ['แนวป้องกันเสียงและมลทัศน์', 'ต้นไม้ในพื้นที่ชุ่มน้ำ หรือความสูงของป่ากก สามารถดูดซับและเป็นแนวป้องกันผลกระทบทางเสียง', ['มีแหล่งมลพิษทางเสียง (ถนนที่มีการจราจรคับคั่ง โรงงานอุตสาหกรรม การก่อสร้าง และอื่น ๆ) และมีผู้ได้รับผลกระทบ (บ้านเรือน สัตว์ป่า และอื่น ๆ) หรือไม่', 'มีโครงสร้างทางนิเวศของพื้นที่ชุ่มน้ำ โดยเฉพาะต้นไม้สูงและพืชสกุลกก ที่เป็นกำแพงป้องกันมลทัศน์และดูดซับเสียงหรือไม่']]
+ ]},
+ { en:'Cultural', th:'ด้านวัฒนธรรม', items:[
+  ['มรดกทางวัฒนธรรม', 'พื้นที่ชุ่มน้ำมีความสำคัญทางประวัติศาสตร์หรือคุณค่าทางโบราณคดี เช่น ภูมิปัญญาในการใช้ประโยชน์ หรือรูปแบบการจัดการ และมีภูมิทัศน์ทางวัฒนธรรม และอื่น ๆ', ['ระบบนิเวศพื้นที่ชุ่มน้ำมีความสำคัญทางวัฒนธรรม เช่น คุณลักษณะทางธรรมชาติหรือการใช้ประโยชน์แบบดั้งเดิมหรือไม่']],
+  ['แหล่งท่องเที่ยวและนันทนาการ', 'ความสำคัญของพื้นที่ชุ่มน้ำในการเป็นแหล่งนันทนาการ เช่น ตกปลา กีฬาทางน้ำหรือว่ายน้ำ หรือเพื่อการท่องเที่ยว และอื่น ๆ', ['มีการใช้พื้นที่ชุ่มน้ำเพื่อนันทนาการหรือไม่', 'มีสิ่งอำนวยความสะดวกพื้นฐานทางการท่องเที่ยวในพื้นที่ชุ่มน้ำหรือไม่', 'มีการกระจายผลประโยชน์จากการท่องเที่ยวหรือการท่องเที่ยวเชิงนิเวศสู่ชุมชนหรือพื้นที่อื่น ๆ หรือไม่', 'คุณค่าของพื้นที่ชุ่มน้ำมีผลกระทบอย่างมีนัยสำคัญทางเศรษฐกิจหรือไม่']],
+  ['คุณค่าทางสุนทรียะ', 'พื้นที่ชุ่มน้ำเป็นแหล่งสร้างความสุข สุนทรียภาพของมนุษย์', ['พื้นที่ชุ่มน้ำมีประโยชน์ด้านความงามที่สามารถพัฒนาเชิงพาณิชย์ได้หรือไม่', 'พื้นที่ชุ่มน้ำเป็นแหล่งสร้างผลงานของจิตรกรและศิลปิน และอื่น ๆ หรือไม่']],
+  ['คุณค่าทางจิตวิญญาณและความเชื่อ', 'บทบาทของพื้นที่ชุ่มน้ำในเรื่องประเพณีความเชื่อท้องถิ่น สถานที่ศักดิ์สิทธิ์ซึ่งเป็นส่วนหนึ่งของความเชื่อดั้งเดิม', ['คุณค่าทางจิตวิญญาณและ/หรือความเชื่อที่เกี่ยวข้องกับพื้นที่ชุ่มน้ำที่มีต่อคนในท้องถิ่นมีอะไรบ้าง', 'คุณค่าทางจิตวิญญาณและ/หรือความเชื่อเหล่านั้นมีอิทธิพลต่อคนในท้องถิ่นใช่หรือไม่', 'บทบาทของพื้นที่ชุ่มน้ำส่งผลต่อพิธีกรรม/กิจกรรมดั้งเดิมของท้องถิ่นใช่หรือไม่', 'มีแนวปฏิบัติในการจัดการพื้นที่ชุ่มน้ำแบบดั้งเดิม (เช่น ฤดูกาลเพาะปลูก พิธีกรรมเกี่ยวกับการปลูกข้าว หรือประเพณีอื่น ๆ และการสืบทอด) หรือไม่']],
+  ['คุณค่าในการสร้างแรงบันดาลใจ', 'นิยายปรัมปราของท้องถิ่น ประเพณีที่บอกเล่าต่อกันมา หรือบันทึกทางประวัติศาสตร์ที่เกี่ยวกับพื้นที่ชุ่มน้ำหรือสัตว์ในพื้นที่ชุ่มน้ำ การสร้างสรรค์ศิลปะ และการพัฒนาทางสถาปัตยกรรมที่มีพื้นที่ชุ่มน้ำเป็นฐาน และอื่น ๆ', ['มีตำนานหรือนิทานพื้นบ้านที่เกี่ยวข้องกับพื้นที่ชุ่มน้ำหรือไม่', 'มีสัตว์ในพื้นที่ชุ่มน้ำ หรือมีตำนานที่เกี่ยวกับสัตว์ในพื้นที่ชุ่มน้ำหรือไม่', 'พื้นที่ชุ่มน้ำสร้างแรงบันดาลใจให้เกิดบทเพลงหรือศิลปะหรือไม่', 'มีวิถีที่โดดเด่นที่สร้างแรงบันดาลใจในการพัฒนาซึ่งสะท้อนมาจากพื้นที่ชุ่มน้ำหรือไม่']],
+  ['ความสัมพันธ์เชิงสังคม', 'การหาปลา การเลี้ยงสัตว์ในทุ่งหญ้า หรือการปลูกพืชที่พัฒนาและอยู่รอบ ๆ พื้นที่ชุ่มน้ำ', ['ชุมชนโดยรอบใช้ประโยชน์จากพื้นที่ชุ่มน้ำหรือไม่ เช่น หาปลา (ทั้งเพื่อยังชีพและพักผ่อน) ปลูกพืชและจัดการผลผลิต เดินออกกำลังกาย ดูนก ถ่ายรูป และอื่น ๆ']],
+  ['การศึกษาและการวิจัย', 'การใช้พื้นที่ชุ่มน้ำเป็นสถานศึกษาของชุมชน สถานที่วิจัยระยะยาวและการติดตามตรวจสอบ แหล่งทัศนศึกษา และอื่น ๆ', ['พื้นที่ชุ่มน้ำแห่งนี้มีวัตถุประสงค์ทางการศึกษา ทั้งอย่างเป็นทางการและไม่เป็นทางการ ในทุกระดับชั้น และเป็นแหล่งวิจัยหรือไม่', 'มีการสร้างความตระหนักรู้ หรือสื่อการเรียนการสอนที่เกี่ยวข้องกับพื้นที่ชุ่มน้ำหรือไม่']]
+ ]},
+ { en:'Supporting', th:'ด้านการสนับสนุนบริการอื่น ๆ', items:[
+  ['การกำเนิดดิน', 'การสะสมของตะกอน การสะสมของอินทรียวัตถุ เป็นต้น', ['การตกตะกอนและการสะสมของอินทรียวัตถุในพื้นที่ชุ่มน้ำมีผลต่อการกำเนิดดินอย่างไร']],
+  ['การผลิตขั้นปฐมภูมิ', 'ผู้ผลิตขั้นปฐมภูมิ ได้แก่ พืช สาหร่าย และอื่น ๆ', ['มีกระบวนการสังเคราะห์ด้วยแสงในพื้นที่ชุ่มน้ำที่สร้างสารอินทรีย์และสะสมพลังงานในรูปของสารชีวเคมีหรือไม่']],
+  ['การสนับสนุนด้านถิ่นอาศัย', 'ความสำคัญของถิ่นอาศัยและสายพันธุ์ในระดับท้องถิ่น การตระหนักและการอนุรักษ์สายพันธุ์และถิ่นอาศัยของสิ่งมีชีวิตต่าง ๆ', ['พื้นที่ชุ่มน้ำเป็นแหล่งอาศัย หรือสนับสนุนความหลากหลายทางชีวภาพระดับท้องถิ่น (พืชและสัตว์) หรือไม่', 'พื้นที่ชุ่มน้ำสนับสนุนชนิดพันธุ์ที่สร้างความตระหนักหรือความสนใจของคนหรือไม่ (เช่น ชนิดพันธุ์หายาก แหล่งรวบรวมพันธุกรรมพืช สัตว์)']]
+ ]}
+];
+var RKEY = 'lab9-102-rawes', R = loadJSON(RKEY, {});
+function rid(ci, ii){ return RAWES[ci].en.charAt(0) + ii; }
+function renderRawes(){
+  var h = '';
+  RAWES.forEach(function(c, ci){
+    h += '<details class="ref rcat"' + (ci === 0 ? ' open' : '') + '><summary><span class="rw-en">' + c.en + '</span> ' + c.th + ' (' + c.en + ' services) <span class="rw-n" data-rn="' + ci + '"></span></summary><div class="ritems">';
+    c.items.forEach(function(it, ii){
+      var id = rid(ci, ii), st = R[id] || {};
+      h += '<div class="ritem" data-rid="' + id + '"><div><h5>' + esc(it[0]) + '</h5><p class="ex">' + esc(it[1]) + '</p><p class="qh">คำถามชวนสังเกต</p><ul>' + it[2].map(function(q){ return '<li>' + esc(q) + '</li>'; }).join('') + '</ul></div>';
+      h += '<div class="ans"><div class="tri" role="group" aria-label="อุทยาน 100 ปีมีบริการ ' + esc(it[0]) + ' หรือไม่">' + [['y', 'มี'], ['n', 'ไม่มี'], ['u', 'ไม่แน่ใจ']].map(function(o){ return '<button type="button" data-v="' + o[0] + '" aria-pressed="' + (st.v === o[0]) + '">' + o[1] + '</button>'; }).join('') + '</div></div>';
+      h += '<label class="ev"><input type="text" maxlength="200" placeholder="หลักฐาน/ตัวอย่างจากอุทยาน 100 ปี" value="' + esc(st.e || '') + '" aria-label="หลักฐานของ ' + esc(it[0]) + '"></label></div>';
+    });
+    h += '</div></details>';
+  });
+  $('rcats').innerHTML = h; renderRsum();
+}
+function renderRsum(){
+  var h = '';
+  RAWES.forEach(function(c, ci){
+    var y = 0, n = 0;
+    c.items.forEach(function(it, ii){ var s = R[rid(ci, ii)]; if(s && s.v){ n++; if(s.v === 'y') y++; } });
+    h += '<div><b>' + c.th + '</b><span class="mono">' + y + ' / ' + c.items.length + '</span><span class="bar"><i style="width:' + (y / c.items.length * 100) + '%"></i></span><small>ตอบแล้ว ' + n + ' รายการ</small></div>';
+    var rn = document.querySelector('[data-rn="' + ci + '"]'); if(rn) rn.textContent = 'มี ' + y + ' · ตอบ ' + n + '/' + c.items.length;
+  });
+  $('rsum').innerHTML = h;
+}
+$('rcats').addEventListener('click', function(e){
+  var b = e.target.closest('.tri button'); if(!b) return;
+  var id = b.closest('.ritem').dataset.rid, st = R[id] || (R[id] = {});
+  st.v = st.v === b.dataset.v ? '' : b.dataset.v;
+  b.parentNode.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x.dataset.v === st.v ? 'true' : 'false'); });
+  store(RKEY, JSON.stringify(R)); renderRsum();
+});
+$('rcats').addEventListener('input', function(e){
+  var inp = e.target.closest('.ev input'); if(!inp) return;
+  var id = inp.closest('.ritem').dataset.rid; (R[id] || (R[id] = {})).e = inp.value; store(RKEY, JSON.stringify(R));
+});
+
+/* ================= problem → solution ================= */
+var PKEY = 'lab9-102-ps', PS = loadJSON(PKEY, {});
+if(!Array.isArray(PS.rows)) PS.rows = [{}, {}, {}];
+var PS_HINT = [
+  ['เช่น หอยเชอรี่และปลาดุกเพิ่มจำนวนในสระ', 'เช่น มีผู้นำสัตว์ต่างถิ่นมาปล่อย', 'เช่น ไม่ปล่อยสัตว์ต่างถิ่น เพิ่มผู้ล่าท้องถิ่น ติดป้ายให้ความรู้'],
+  ['เช่น ขยะพลาสติกในบึง', 'เช่น ผู้มาใช้พื้นที่ทิ้งขยะ', 'เช่น ลดขยะ ณ ต้นทาง คัดแยกเพื่อหมุนเวียนสสาร'],
+  ['เช่น น้ำเขียว ขุ่น มีกลิ่น', 'เช่น ธาตุอาหารจากปุ๋ย/น้ำทิ้งไหลลงสระ', 'เช่น ใช้พืชน้ำบำบัด ควบคุมแหล่งธาตุอาหาร']
+];
+function renderPS(){
+  $('ps').innerHTML = PS.rows.map(function(r, i){
+    var hint = PS_HINT[i] || ['', '', ''];
+    return '<div class="psrow" data-i="' + i + '">' +
+      '<label>ปัญหาที่ ' + (i + 1) + '<textarea data-f="p" placeholder="' + hint[0] + '">' + esc(r.p || '') + '</textarea></label>' +
+      '<label>สาเหตุจากกิจกรรมของมนุษย์<textarea data-f="c" placeholder="' + hint[1] + '">' + esc(r.c || '') + '</textarea></label>' +
+      '<label>แนวทางแก้ไขโดยใช้ความรู้ทางนิเวศ<textarea data-f="s" placeholder="' + hint[2] + '">' + esc(r.s || '') + '</textarea></label>' +
+      '<div class="bcg"><span>เชื่อมกับ BCG:</span>' + [['B', 'Bio'], ['C', 'Circular'], ['G', 'Green']].map(function(o){ return '<label><input type="checkbox" data-b="' + o[0] + '"' + (r[o[0]] ? ' checked' : '') + '> ' + o[1] + '</label>'; }).join('') + '</div></div>';
+  }).join('');
+}
+$('ps').addEventListener('input', function(e){
+  var row = e.target.closest('.psrow'); if(!row) return; var r = PS.rows[+row.dataset.i];
+  if(e.target.dataset.f) r[e.target.dataset.f] = e.target.value;
+  if(e.target.dataset.b) r[e.target.dataset.b] = e.target.checked;
+  store(PKEY, JSON.stringify(PS));
+});
+
+/* ================= copy summaries ================= */
+function v(k, unit){ var x = F[k]; return (x == null || x === '') ? '-' : x + (unit || ''); }
+function txt(id){ var el = $(id); return el ? el.textContent : '-'; }
+function lvSummary(e){
+  return ECO[e].orgs.map(function(o, i){ var l = o[3] || F[lvKey(e, i)]; return '  - ' + o[0] + (o[1] ? '*' : '') + ': ' + (l ? LV_LABEL[l] : '-'); }).join('\n');
+}
+function webSummary(e){
+  var st = FW.get(e); if(!st.arrows.length) return '  (ยังไม่มีลูกศร)';
+  return st.arrows.map(function(a){ var A = FW.byIdIn(e, a.from), B = FW.byIdIn(e, a.to); return A && B ? '  ' + A.name + ' → ' + B.name : ''; }).filter(Boolean).join('\n');
+}
+function buildCopy(kind){
+  if(kind === 'pond') return ['ผลการศึกษาระบบนิเวศสระน้ำ: ' + v('pName'),
+    'รูปร่าง: กว้าง ' + v('pW', ' m') + ' ยาว ' + v('pL', ' m') + ' ลึก ' + v('pD', ' m') + ' พื้นที่ ≈ ' + txt('pArea'),
+    'อุณหภูมิ (°C): อากาศ ' + v('pTa') + ' / ผิวน้ำ ' + v('pTs') + ' / ใต้ผิวน้ำ 30 cm ' + v('pTd'),
+    'แสงแดดส่องตรง: ' + v('pSun', ' ชม./วัน') + ' (สิ่งบังแสง: ' + v('pShade') + ')',
+    'Secchi: ' + v('pS1', ' m') + ' / ' + v('pS2', ' m') + ' → Transparency ' + txt('pSec'),
+    'ดินก้นสระ: ' + v('pSedT') + ' สี ' + v('pSedC') + ' กลิ่น ' + v('pSedS') + ' pH ' + v('pSedPH'),
+    'น้ำ: pH ' + v('pWPH') + ' สี ' + v('pWC') + ' ความขุ่น ' + v('pWT'),
+    'พืชและสัตว์ที่พบ: ' + v('pBio'), 'สิ่งมีชีวิตขนาดเล็ก: ' + v('pMicro'),
+    'ลำดับขั้นการกิน (ตาราง 9.1):', lvSummary('pond'), 'ลูกศรในสายใยอาหาร:', webSummary('pond')].join('\n');
+  if(kind === 'lawn') return ['ผลการศึกษาระบบนิเวศสนามหญ้า: ' + v('lName'),
+    'ขนาด: กว้าง ' + v('lW', ' m') + ' ยาว ' + v('lL', ' m') + ' พื้นที่ ≈ ' + txt('lArea'),
+    'อุณหภูมิ (°C): ผิวดิน ' + v('lTs') + ' / ใต้ผิวดิน 10 cm ' + v('lTd'),
+    'แสงแดดส่องตรง: ' + v('lSun', ' ชม./วัน') + ' · ความชื้นสัมพัทธ์ ' + v('lRH', ' %'),
+    'ดิน: pH ' + v('lPH') + ' สี ' + v('lSC') + ' ซากอินทรีย์ ' + v('lOM') + ' เนื้อดิน ' + v('lTex'),
+    'พืชในแปลง 1×1 m: ' + v('lPlant'), 'สัตว์ในแปลง: ' + v('lAnimal'), 'สัตว์ในดินขนาดเล็ก: ' + v('lMicro'),
+    'ลำดับขั้นการกิน (ตาราง 9.2):', lvSummary('lawn'), 'ลูกศรในสายใยอาหาร:', webSummary('lawn')].join('\n');
+  var out = ['สรุปกิจกรรมที่ 3 บริการของระบบนิเวศ อุทยาน 100 ปี'];
+  RAWES.forEach(function(c, ci){
+    var lines = [];
+    c.items.forEach(function(it, ii){ var s = R[rid(ci, ii)]; if(s && s.v === 'y') lines.push('  - ' + it[0] + (s.e ? ': ' + s.e : '')); });
+    out.push(c.th + ' (' + c.en + '): ' + (lines.length ? '' : '-')); if(lines.length) out.push(lines.join('\n'));
+  });
+  out.push('ปัญหา สาเหตุ และแนวทางแก้ไข:');
+  PS.rows.forEach(function(r, i){ if(r.p || r.c || r.s){ var b = ['B', 'C', 'G'].filter(function(k){ return r[k]; }).join('/'); out.push('  ' + (i + 1) + ') ปัญหา: ' + (r.p || '-') + ' | สาเหตุ: ' + (r.c || '-') + ' | แนวทางแก้: ' + (r.s || '-') + (b ? ' | BCG: ' + b : '')); } });
+  return out.join('\n');
+}
+function copyText(t){
+  function fallback(){ var ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); var ok = false; try{ ok = document.execCommand('copy'); }catch(e){} ta.remove(); toast(ok ? 'คัดลอกแล้ว' : 'คัดลอกไม่สำเร็จ'); }
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function(){ toast('คัดลอกแล้ว นำไปวางในรายงานได้เลย'); }, fallback); else fallback();
+}
+document.querySelectorAll('[data-copy]').forEach(function(b){ b.addEventListener('click', function(){ copyText(buildCopy(b.dataset.copy)); }); });
+
+/* ================= glossary ================= */
+var TERMS = [
+  ['carnivore', 'ผู้บริโภคสัตว์', 'สิ่งมีชีวิตที่กินสัตว์อื่นเป็นอาหาร เช่น แมงมุม แมงป่องปลอม ตะขาบ'],
+  ['community', 'สังคมสิ่งมีชีวิต', 'กลุ่มของประชากรหลายชนิดที่อาศัยอยู่ร่วมกันในพื้นที่และเวลาเดียวกัน และมีปฏิสัมพันธ์ต่อกัน'],
+  ['decomposer', 'ผู้ย่อยสลาย', 'สิ่งมีชีวิต เช่น แบคทีเรีย เชื้อรา ที่ย่อยสลายซากอินทรีย์เป็นสารอนินทรีย์ คืนธาตุอาหารสู่ระบบนิเวศ'],
+  ['detritivore', 'ผู้บริโภคซากอินทรีย์', 'สัตว์ที่กินเศษซากพืชซากสัตว์ เช่น ไส้เดือนดิน ตัวกะปิ แมลงแกลบ (scavenger กินซากสัตว์ขนาดใหญ่)'],
+  ['detritus food chain', 'ห่วงโซ่อาหารแบบเริ่มจากซาก', 'ห่วงโซ่อาหารที่เริ่มต้นจากซากอินทรีย์ เช่น ขอนไม้ผุ → ปลวก → นก'],
+  ['ecosystem', 'ระบบนิเวศ', 'หน่วยที่ประกอบด้วยสังคมสิ่งมีชีวิตและปัจจัยกายภาพ (องค์ประกอบ) พร้อมกระบวนการทำงาน เช่น การถ่ายทอดพลังงานและการหมุนเวียนสาร'],
+  ['ecosystem services', 'บริการของระบบนิเวศ', 'ประโยชน์ที่มนุษย์ได้รับจากระบบนิเวศทั้งทางตรงและทางอ้อม แบ่งเป็น 4 ด้าน: provisioning, regulating, cultural, supporting'],
+  ['food chain', 'ห่วงโซ่อาหาร', 'ลำดับการกินกันเป็นทอด ๆ ที่แสดงเส้นทางการถ่ายทอดพลังงานเชิงอาหารเป็นสายเดียว'],
+  ['food web', 'สายใยอาหาร', 'ห่วงโซ่อาหารหลายสายที่เชื่อมโยงกัน แสดงความสัมพันธ์เชิงอาหารในระบบนิเวศได้ใกล้เคียงความจริงกว่า'],
+  ['herbivore', 'ผู้บริโภคพืช', 'สัตว์ที่กินพืชเป็นอาหาร เช่น เพลี้ยที่ดูดน้ำเลี้ยงจากใบพืช'],
+  ['interspecific relationship', 'ความสัมพันธ์ระหว่างต่างชนิด', 'ความสัมพันธ์ระหว่างสิ่งมีชีวิตต่างชนิดกัน เช่น predation, competition, mutualism, parasitism'],
+  ['intraspecific relationship', 'ความสัมพันธ์ภายในชนิดเดียวกัน', 'ความสัมพันธ์ระหว่างสมาชิกของสิ่งมีชีวิตชนิดเดียวกัน เช่น competition, social hierarchy, social communication'],
+  ['omnivore', 'ผู้บริโภคทั้งพืชและสัตว์', 'สิ่งมีชีวิตที่กินได้ทั้งพืชและสัตว์ จึงอาจอยู่ได้หลายลำดับขั้นการกิน'],
+  ['population', 'ประชากร', 'กลุ่มสิ่งมีชีวิตชนิดเดียวกันที่อาศัยอยู่ในพื้นที่และช่วงเวลาเดียวกัน'],
+  ['predator food chain', 'ห่วงโซ่อาหารแบบผู้ล่า (grazing)', 'ห่วงโซ่อาหารที่เริ่มต้นจากพืชที่มีชีวิต เช่น หญ้า → วัว → คน'],
+  ['producer', 'ผู้ผลิต', 'สิ่งมีชีวิตที่สร้างอาหารเองได้ด้วยการสังเคราะห์ด้วยแสง เช่น พืช สาหร่าย แพลงก์ตอนพืช อยู่ฐานของห่วงโซ่อาหาร'],
+  ['trophic level', 'ลำดับขั้นการกิน', 'ตำแหน่งของสิ่งมีชีวิตในห่วงโซ่อาหาร: ผู้ผลิต ผู้บริโภคลำดับที่ 1, 2, 3 …'],
+  ['trophic niche', 'หน้าที่เชิงอาหาร', 'บทบาทของสิ่งมีชีวิตด้านการกิน เช่น ผู้ผลิต ผู้บริโภคพืช ผู้บริโภคสัตว์ ผู้บริโภคซาก ผู้ย่อยสลาย'],
+  ['water holding capacity', 'ความสามารถดูดยึดน้ำของดิน', 'ปริมาณน้ำที่ดินอุ้มไว้ได้ เทียบกับน้ำหนักดินแห้ง (%) = (C − B) ÷ (B − A) × 100']
+];
+var order = TERMS.map(function(_, i){ return i; });
+function renderTerms(openAll){
+  $('gloss').innerHTML = order.map(function(i){ var t = TERMS[i]; return '<button type="button" class="term" aria-expanded="' + (openAll ? 'true' : 'false') + '"><span class="en">' + t[0] + '</span><span class="th">' + t[1] + '</span><span class="def">' + t[2] + '</span></button>'; }).join('');
+}
+$('gloss').addEventListener('click', function(e){ var b = e.target.closest('.term'); if(b) b.setAttribute('aria-expanded', b.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); });
+function gloMode(open){ $('gloAll').setAttribute('aria-pressed', open); $('gloNone').setAttribute('aria-pressed', !open); document.querySelectorAll('.term').forEach(function(b){ b.setAttribute('aria-expanded', open ? 'true' : 'false'); }); }
+$('gloAll').onclick = function(){ gloMode(true); };
+$('gloNone').onclick = function(){ gloMode(false); };
+$('gloShuffle').onclick = function(){ for(var i = order.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)), t = order[i]; order[i] = order[j]; order[j] = t; } renderTerms($('gloAll').getAttribute('aria-pressed') === 'true'); };
+
+/* ================= boot ================= */
+renderOTable('pond'); renderOTable('lawn');
+renderRawes(); renderPS(); renderTerms(false);
+recalc(); renderProgress();
+FW.init(eco); setEco(eco);
+if(!goToHash()){ var saved = store('lab9-102-tab'); if(saved && $(saved)) show(saved); }
+})();
+</script>
+<script>
+/* visitor counter (GitHub Pages only): counts once per browser session via abacus.jasoncameron.dev */
+(function(){
+  var el = document.getElementById('visits'); if(!el || !window.fetch) return;
+  if(location.hostname !== 'tenrm.github.io') return;
+  var NS = 'tenrm-lab9-102-guide', KEY = 'visits', FLAG = 'lab9-102-counted', counted = false;
+  try{ counted = sessionStorage.getItem(FLAG) === '1'; }catch(e){}
+  var url = 'https://abacus.jasoncameron.dev/' + (counted ? 'get/' : 'hit/') + NS + '/' + KEY;
+  var ctl = window.AbortController ? new AbortController() : null, timer = setTimeout(function(){ if(ctl) ctl.abort(); }, 6000);
+  fetch(url, ctl ? { signal:ctl.signal, cache:'no-store' } : { cache:'no-store' })
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function(d){ clearTimeout(timer); var n = Number(d && d.value); if(!isFinite(n)) throw new Error('bad');
+      el.querySelector('b').textContent = n.toLocaleString('en-US'); el.hidden = false; try{ sessionStorage.setItem(FLAG, '1'); }catch(e){} })
+    .catch(function(){ clearTimeout(timer); el.hidden = true; });
+})();
+</script>
+</body>
+</html>
