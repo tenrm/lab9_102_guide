@@ -110,6 +110,10 @@ img,svg{max-width:100%}
 .concept p,.concept li{font-size:14.5px;line-height:1.55}
 .concept ul,.concept ol{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:4px}
 .concept .wide{grid-column:1/-1}
+.concept .span2{grid-column:span 2}
+.tl-grid{display:grid;grid-template-columns:minmax(200px,300px) minmax(0,1fr);gap:14px;align-items:center}
+.chain span i{font-style:normal;color:var(--muted);font-weight:400;font-size:12px}
+@media (max-width:620px){.concept .span2{grid-column:1/-1}.tl-grid{grid-template-columns:minmax(0,1fr)}.tl-grid svg{max-width:280px;margin:0 auto}}
 .concept .tagline{font-family:var(--f-mono);font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.04em}
 .chain{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:14px}
 .chain span{padding:1px 10px;border-radius:999px;background:var(--ill-bg);border:1px solid var(--rule)}
@@ -521,6 +525,40 @@ footer ul{margin:0;padding-left:1.2em}
       <li>ระบบนิเวศธรรมชาติ (บนบกและในน้ำ)</li>
       <li>ระบบนิเวศที่มนุษย์สร้าง/รบกวน: กึ่งธรรมชาติ (ระบบเกษตร) และเมืองและเทคโนโลยี (urban-techno)</li>
       <li>ขอบเขตกำหนดตามผู้ศึกษา เช่น ตู้ปลา สระน้ำ สนามหญ้า ป่าเขตร้อน และมีการนำเข้า-ส่งออกสสารและพลังงานระหว่างระบบ เช่น สารเคมีจากเกษตรบนที่สูงไหลลงสู่ที่ราบลุ่ม</li>
+    </ul>
+  </div>
+  <div class="span2">
+    <p class="tagline">TROPHIC LEVEL</p>
+    <h3>ลำดับขั้นการกิน (trophic level) · พื้นฐานของการเขียน food web</h3>
+    <div class="tl-grid">
+      <svg class="ill" viewBox="0 0 280 190" role="img" aria-label="พีระมิดลำดับขั้นการกิน: ผู้ผลิตอยู่ฐานล่าง ผู้บริโภคลำดับที่ 1, 2 และ 3 เรียงขึ้นไป พลังงานลดลงเมื่อขึ้นไปแต่ละขั้น">
+        <path d="M80 20 H190 L200 58 H70 Z" style="fill:var(--nf2);stroke:var(--ns2);stroke-width:1.5"/>
+        <path d="M68 62 H202 L212 100 H58 Z" style="fill:var(--nf3);stroke:var(--ns3);stroke-width:1.5"/>
+        <path d="M56 104 H214 L224 142 H46 Z" style="fill:var(--nf4);stroke:var(--ns4);stroke-width:1.5"/>
+        <path d="M44 146 H226 L236 184 H34 Z" style="fill:var(--nf5);stroke:var(--ns5);stroke-width:1.5"/>
+        <text class="tb" x="135" y="43" text-anchor="middle">ผู้บริโภคลำดับที่ 3</text>
+        <text class="tb" x="135" y="85" text-anchor="middle">ผู้บริโภคลำดับที่ 2</text>
+        <text class="tb" x="135" y="127" text-anchor="middle">ผู้บริโภคลำดับที่ 1</text>
+        <text class="tb" x="135" y="169" text-anchor="middle">ผู้ผลิต</text>
+        <path class="v" d="M252 182 V24" marker-end="url(#arra)"/>
+        <text class="t" x="266" y="103" transform="rotate(-90 266 103)" text-anchor="middle">พลังงานลดลง</text>
+        <g class="mn" text-anchor="middle"><text x="14" y="169">T1</text><text x="14" y="127">T2</text><text x="14" y="85">T3</text><text x="14" y="43">T4</text></g>
+      </svg>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <p>ตำแหน่งของสิ่งมีชีวิตในห่วงโซ่อาหาร นับจากแหล่งพลังงานที่ฐาน</p>
+        <ul>
+          <li><b>ผู้ผลิต</b> (producer): สร้างอาหารเองด้วยการสังเคราะห์ด้วยแสง อยู่ฐานล่างสุด</li>
+          <li><b>ผู้บริโภคลำดับที่ 1</b> (primary consumer): กินผู้ผลิต ส่วนใหญ่เป็น herbivore</li>
+          <li><b>ผู้บริโภคลำดับที่ 2, 3, 4 …</b> (secondary, tertiary, quaternary): กินผู้บริโภคในลำดับที่ต่ำกว่า</li>
+        </ul>
+        <div class="chain"><small>ตัวอย่างจากคู่มือ</small><span>หญ้า <i>(ผู้ผลิต)</i></span><i>→</i><span>วัว <i>(ลำดับที่ 1)</i></span><i>→</i><span>คน <i>(ลำดับที่ 2)</i></span></div>
+      </div>
+    </div>
+    <ul>
+      <li><b>พลังงานลดลงทุกขั้น</b> เพราะส่วนใหญ่ถูกใช้ในการดำรงชีวิตและสูญเสียเป็นความร้อน (โดยทั่วไปถ่ายทอดต่อได้ราว 10%) ห่วงโซ่อาหารจึงมักมีเพียง 4–5 ขั้น</li>
+      <li><b>สิ่งมีชีวิตที่กินได้หลายระดับ</b> (เช่น omnivore) อยู่ได้หลายลำดับขั้น ในปฏิบัติการนี้ให้ <b>เลือกลำดับสูงสุดที่เป็นไปได้</b></li>
+      <li><b>ผู้บริโภคซากอินทรีย์และผู้ย่อยสลาย</b> รับพลังงานจากซากของทุกลำดับขั้น เป็นจุดเริ่มของ detritus food chain</li>
+      <li><b>เวลาเขียน food web:</b> จัดลำดับขั้นก่อน วางผู้ผลิตไว้ล่างสุด แล้วลากลูกศรจากสิ่งที่ถูกกิน <b>ชี้ไปที่ผู้กิน</b></li>
     </ul>
   </div>
   <div class="wide">
