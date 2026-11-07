@@ -693,27 +693,27 @@ footer ul{margin:0;padding-left:1.2em}
       <text class="mn" x="68" y="128" text-anchor="middle">50.00 g</text><path class="s1" d="M44 100 C50 80 86 80 92 100 Z"/>
       <text class="tm" x="68" y="160" text-anchor="middle">ก่อนอบ</text>
       <rect class="p" x="124" y="104" width="96" height="40" rx="7"/><rect class="af" x="140" y="114" width="64" height="20" rx="4"/>
-      <text class="mn" x="172" y="128" text-anchor="middle">42.50 g</text><path class="s2" d="M150 100 C156 84 188 84 194 100 Z"/>
-      <text class="tm" x="172" y="160" text-anchor="middle">หลังอบ (ดินแห้ง)</text>
+      <text class="mn" x="172" y="128" text-anchor="middle">43.70 g</text><path class="s2" d="M150 100 C156 84 188 84 194 100 Z"/>
+      <text class="tm" x="172" y="160" text-anchor="middle">หลังอบ (ดินแห้ง+ฟอยล์)</text>
       <path class="v" d="M116 60 C140 40 156 40 172 56" marker-end="url(#arra)"/>
       <g class="w"><path d="M100 40 c-4 6 -4 10 0 10 c4 0 4 -4 0 -10z"/><path d="M90 26 c-3 5 -3 8 0 8 c3 0 3 -3 0 -8z"/></g>
       <text class="tm" x="120" y="22" text-anchor="middle">น้ำระเหยออก = 7.50 g</text>
     </svg></figure>
     <div class="body">
       <div class="hd"><h4>ชั่งน้ำหนักดินแห้ง แล้วคำนวณความชื้น</h4></div>
-      <ol class="do"><li>ตั้งดินให้เย็น แล้วชั่งน้ำหนักดินพร้อมกระดาษฟอยล์ หักน้ำหนักกระดาษที่บันทึกไว้ในขั้นที่ 2 = <b>น้ำหนักดินแห้ง</b></li><li>คำนวณความชื้นของดินด้วยสูตร</li></ol>
+      <ol class="do"><li>ตั้งดินให้เย็น แล้วชั่งน้ำหนัก = <b>น้ำหนักดินแห้ง + กระดาษฟอยล์</b></li><li>นำน้ำหนักกระดาษฟอยล์ที่บันทึกไว้ตอนแรกมาลบออก = <b>น้ำหนักดินแห้ง</b></li><li>คำนวณความชื้นของดินด้วยสูตร</li></ol>
       <p class="formula">ความชื้นของดิน (%) = (น้ำหนักดินตัวอย่าง − น้ำหนักดินแห้ง) ÷ น้ำหนักดินแห้ง × 100</p>
-      <p class="tip"><b>ตัวอย่าง</b><span>(50.00 − 42.50) ÷ 42.50 × 100 = 17.65 % (สูตรนี้หารด้วยน้ำหนักดินแห้ง)</span></p>
+      <p class="tip"><b>ตัวอย่าง</b><span>กระดาษฟอยล์ 1.20 g, ดินแห้ง + ฟอยล์ 43.70 g → ดินแห้ง = 43.70 − 1.20 = 42.50 g → ความชื้น = (50.00 − 42.50) ÷ 42.50 × 100 = 17.65 % (สูตรนี้หารด้วยน้ำหนักดินแห้ง)</span></p>
       <label class="done"><input type="checkbox" data-step="a1-4"> ทำขั้นนี้แล้ว</label>
     </div></article></li>
   <li class="calc" id="calc-moist">
     <h4>เครื่องคิดเลข: ความชื้นของดิน</h4>
-    <p>กรอกน้ำหนักเป็นกรัม ระบบคำนวณให้ทันที ใช้ตรวจคำตอบของตัวเองก่อนเขียนลงรายงาน</p>
+    <p>กรอกน้ำหนักเป็นกรัม ระบบหักน้ำหนักกระดาษฟอยล์และคำนวณให้ทันที ใช้ตรวจคำตอบของตัวเองก่อนเขียนลงรายงาน</p>
     <div class="tw"><table>
-      <thead><tr><th>ดิน</th><th>น้ำหนักดินตัวอย่าง (g)</th><th>น้ำหนักดินแห้ง (g)</th><th>น้ำที่หายไป (g)</th><th>ความชื้น (%)</th></tr></thead>
+      <thead><tr><th>ดิน</th><th>กระดาษฟอยล์ (g)</th><th>น้ำหนักดินตัวอย่าง (g)</th><th>ดินแห้ง + ฟอยล์ (g)</th><th>ดินแห้ง (g)</th><th>น้ำที่หายไป (g)</th><th>ความชื้น (%)</th></tr></thead>
       <tbody>
-        <tr><td data-name="1">ดินที่ 1</td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m1w"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m1d"></td><td class="mono" id="m1loss">–</td><td class="res" id="m1out">–</td></tr>
-        <tr><td data-name="2">ดินที่ 2</td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m2w"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m2d"></td><td class="mono" id="m2loss">–</td><td class="res" id="m2out">–</td></tr>
+        <tr><td data-name="1">ดินที่ 1</td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m1f" aria-label="กระดาษฟอยล์ ดินที่ 1"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m1w" aria-label="น้ำหนักดินตัวอย่าง ดินที่ 1"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m1df" aria-label="ดินแห้งรวมฟอยล์ ดินที่ 1"></td><td class="mono" id="m1dry">–</td><td class="mono" id="m1loss">–</td><td class="res" id="m1out">–</td></tr>
+        <tr><td data-name="2">ดินที่ 2</td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m2f" aria-label="กระดาษฟอยล์ ดินที่ 2"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m2w" aria-label="น้ำหนักดินตัวอย่าง ดินที่ 2"></td><td><input class="inp num" type="number" step="any" min="0" inputmode="decimal" data-k="m2df" aria-label="ดินแห้งรวมฟอยล์ ดินที่ 2"></td><td class="mono" id="m2dry">–</td><td class="mono" id="m2loss">–</td><td class="res" id="m2out">–</td></tr>
       </tbody>
     </table></div>
   </li>
@@ -1584,13 +1584,15 @@ function recalc(){
   $('pSec').textContent = (s1 >= 0 && s2 >= 0) ? fmt((s1 + s2) / 2, 2) + ' m' : '–';
   // soil names in calc tables
   document.querySelectorAll('td[data-name]').forEach(function(td){ td.textContent = soilName(td.dataset.name); });
-  // moisture
+  // moisture (foil weighed first, balance tared, so sample weight excludes foil; dry weight is read with foil)
   [1, 2].forEach(function(i){
-    var w = num(F['m' + i + 'w']), d = num(F['m' + i + 'd']);
+    var f = num(F['m' + i + 'f']), w = num(F['m' + i + 'w']), df = num(F['m' + i + 'df']);
     soilRes.m[i - 1] = null;
     $('m' + i + 'loss').textContent = '–';
-    if(isNaN(w) || isNaN(d)){ setRes('m' + i + 'out', '–'); return; }
-    if(d <= 0){ setRes('m' + i + 'out', 'น้ำหนักดินแห้งต้องมากกว่า 0', true); return; }
+    var d = (!isNaN(df) && !isNaN(f)) ? df - f : NaN;
+    $('m' + i + 'dry').textContent = isNaN(d) ? '–' : fmt(d, 2);
+    if(isNaN(f) || isNaN(w) || isNaN(df)){ setRes('m' + i + 'out', '–'); return; }
+    if(d <= 0){ setRes('m' + i + 'out', 'ดินแห้ง+ฟอยล์ต้องมากกว่าน้ำหนักฟอยล์', true); return; }
     if(d > w){ setRes('m' + i + 'out', 'ดินแห้งหนักกว่าดินตัวอย่าง? ตรวจค่าอีกครั้ง', true); return; }
     var m = (w - d) / d * 100; soilRes.m[i - 1] = m;
     $('m' + i + 'loss').textContent = fmt(w - d, 2);
