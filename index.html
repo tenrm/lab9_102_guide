@@ -111,9 +111,15 @@ img,svg{max-width:100%}
 .concept ul,.concept ol{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:4px}
 .concept .wide{grid-column:1/-1}
 .concept .span2{grid-column:span 2}
-.tl-grid{display:grid;grid-template-columns:minmax(200px,300px) minmax(0,1fr);gap:14px;align-items:center}
+.tl-grid{display:flex;flex-direction:column;gap:10px}
+.tl-grid svg{max-width:300px;margin:0 auto}
+.es4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.es4 div{background:var(--ill-bg);border:1px solid var(--rule);border-radius:8px;padding:7px 9px;display:flex;flex-direction:column;gap:1px;min-width:0}
+.es4 b{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+.es4 span{font-size:13.5px;font-weight:600;line-height:1.35}
+.es4 small{font-size:12.5px;color:var(--muted);line-height:1.4}
 .chain span i{font-style:normal;color:var(--muted);font-weight:400;font-size:12px}
-@media (max-width:620px){.concept .span2{grid-column:1/-1}.tl-grid{grid-template-columns:minmax(0,1fr)}.tl-grid svg{max-width:280px;margin:0 auto}}
+
 .concept .tagline{font-family:var(--f-mono);font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.04em}
 .chain{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:14px}
 .chain span{padding:1px 10px;border-radius:999px;background:var(--ill-bg);border:1px solid var(--rule)}
@@ -527,9 +533,9 @@ footer ul{margin:0;padding-left:1.2em}
       <li>ขอบเขตกำหนดตามผู้ศึกษา เช่น ตู้ปลา สระน้ำ สนามหญ้า ป่าเขตร้อน และมีการนำเข้า-ส่งออกสสารและพลังงานระหว่างระบบ เช่น สารเคมีจากเกษตรบนที่สูงไหลลงสู่ที่ราบลุ่ม</li>
     </ul>
   </div>
-  <div class="span2">
+  <div>
     <p class="tagline">TROPHIC LEVEL</p>
-    <h3>ลำดับขั้นการกิน (trophic level) · พื้นฐานของการเขียน food web</h3>
+    <h3>ลำดับขั้นการกิน (trophic level)</h3><p class="muted" style="font-size:13.5px">พื้นฐานของการเขียน food web ในกิจกรรมที่ 2</p>
     <div class="tl-grid">
       <svg class="ill" viewBox="0 0 280 190" role="img" aria-label="พีระมิดลำดับขั้นการกิน: ผู้ผลิตอยู่ฐานล่าง ผู้บริโภคลำดับที่ 1, 2 และ 3 เรียงขึ้นไป พลังงานลดลงเมื่อขึ้นไปแต่ละขั้น">
         <path d="M80 20 H190 L200 58 H70 Z" style="fill:var(--nf2);stroke:var(--ns2);stroke-width:1.5"/>
@@ -560,6 +566,18 @@ footer ul{margin:0;padding-left:1.2em}
       <li><b>ผู้บริโภคซากอินทรีย์และผู้ย่อยสลาย</b> รับพลังงานจากซากของทุกลำดับขั้น เป็นจุดเริ่มของ detritus food chain</li>
       <li><b>เวลาเขียน food web:</b> จัดลำดับขั้นก่อน วางผู้ผลิตไว้ล่างสุด แล้วลากลูกศรจากสิ่งที่ถูกกิน <b>ชี้ไปที่ผู้กิน</b></li>
     </ul>
+  </div>
+  <div>
+    <p class="tagline">ECOSYSTEM SERVICES</p>
+    <h3>บริการของระบบนิเวศ</h3>
+    <p>ประโยชน์ที่มนุษย์ได้รับจากระบบนิเวศ ทั้งทางตรงและทางอ้อม ปัจจุบันมีการประเมินมูลค่าเพื่อคิดเป็นต้นทุนก่อนอนุมัติโครงการพัฒนา แบ่งเป็น 4 ด้าน</p>
+    <div class="es4">
+      <div><b>Provisioning</b><span>ด้านการให้ผลผลิต</span><small>น้ำจืด อาหาร เส้นใย สมุนไพร พันธุกรรม</small></div>
+      <div><b>Regulating</b><span>ด้านการควบคุมกระบวนการ</span><small>หน่วงน้ำท่วม ลดอุณหภูมิ ทำน้ำให้สะอาด ผสมเกสร</small></div>
+      <div><b>Cultural</b><span>ด้านวัฒนธรรมและการเรียนรู้</span><small>นันทนาการ สุนทรียะ การศึกษาและวิจัย</small></div>
+      <div><b>Supporting</b><span>ด้านการสนับสนุนบริการอื่น</span><small>การกำเนิดดิน การผลิตขั้นปฐมภูมิ ถิ่นอาศัย</small></div>
+    </div>
+    <p class="muted" style="font-size:13.5px">บริการเหล่านี้เกิดจาก<b>องค์ประกอบและการทำงาน</b>ของระบบนิเวศ เช่น ผู้ผลิตในสายใยอาหารคือฐานของการผลิตขั้นปฐมภูมิ · ใช้ประเมินอุทยาน 100 ปีใน<a href="#act3" data-go="act3">กิจกรรมที่ 3</a></p>
   </div>
   <div class="wide">
     <p class="tagline">ECOLOGY → POLICY</p>
