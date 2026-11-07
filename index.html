@@ -1074,7 +1074,6 @@ footer ul{margin:0;padding-left:1.2em}
       <div class="hd"><h4>หน้าที่เชิงอาหาร (trophic niche) และลำดับขั้นการกิน</h4><span class="x2">ข้อ 1.2.3 · ตารางที่ 9.1</span></div>
       <p>สังเกตว่าสิ่งมีชีวิตกำลังกินอะไร หรือสืบค้นเพิ่มเติม แล้ว<strong>จำแนกลำดับขั้นการกินก่อนสร้างสายใยอาหาร</strong> (เลือกลำดับสูงสุดที่เป็นไปได้)</p>
       <div class="ref"><div class="tw"><table data-otable="pond"></table></div><p class="foot"><span class="alien">*</span> ชนิดพันธุ์ต่างถิ่น (introduced species) · แถวที่มีคำตอบตัวอย่างมาจากคู่มือ · คำตอบที่เลือกบันทึกในเบราว์เซอร์นี้เท่านั้น</p></div>
-      <div class="actions"><button class="btn" type="button" data-place="pond">วางลงแผ่นงานสายใยอาหารตามลำดับที่เลือก ↓</button><span class="note" data-place-note="pond"></span></div>
       <label class="done"><input type="checkbox" data-step="a2p-9"> ทำขั้นนี้แล้ว</label>
     </div></article></li>
 
@@ -1272,7 +1271,6 @@ footer ul{margin:0;padding-left:1.2em}
         <div style="background:var(--ill-bg)"><b>นักล่าในดิน</b><p>carnivore เช่น แมงมุม แมงป่องปลอม (pseudoscorpion) และตะขาบ</p></div>
       </div>
       <div class="ref"><div class="tw"><table data-otable="lawn"></table></div><p class="foot"><span class="alien">*</span> ชนิดพันธุ์ต่างถิ่น (introduced species) · แถวที่มีคำตอบตัวอย่างมาจากคู่มือ · คำตอบที่เลือกบันทึกในเบราว์เซอร์นี้เท่านั้น</p></div>
-      <div class="actions"><button class="btn" type="button" data-place="lawn">วางลงแผ่นงานสายใยอาหารตามลำดับที่เลือก ↓</button><span class="note" data-place-note="lawn"></span></div>
       <label class="done"><input type="checkbox" data-step="a2l-9"> ทำขั้นนี้แล้ว</label>
     </div></article></li>
 
@@ -2073,7 +2071,6 @@ var FW = (function(){
     get: function(e){ return states[e] || (states[e] = loadEco(e)); }, byIdIn: function(e, id){ var st = this.get(e); return id === DET_ID ? { name:DET_NAME } : st.nodes.find(function(n){ return n.id === id; }); }
   };
 })();
-document.querySelectorAll('[data-place]').forEach(function(b){ b.addEventListener('click', function(){ FW.placeFromTable(b.dataset.place); }); });
 
 /* ================= RAWES ================= */
 var RAWES = [
